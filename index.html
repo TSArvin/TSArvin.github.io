@@ -70,6 +70,872 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-软件安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/12/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="article-date">
+  <time datetime="2020-02-12T10:40:55.101Z" itemprop="datePublished">2020-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/12/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">linux基本命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="软件的封包"><a href="#软件的封包" class="headerlink" title="软件的封包"></a>软件的封包</h1><h2 id="1、windows-amp-linux平台"><a href="#1、windows-amp-linux平台" class="headerlink" title="1、windows&amp;linux平台"></a>1、windows&amp;linux平台</h2><p>windows下的安装文件类型：msi,exe,bat</p>
+<p>​        linux 下常见封包：</p>
+<p>​                   rpm封包 ——.rpm</p>
+<p>​                   deb封包——.deb (ubuntu)</p>
+<p>​                   源代码软件包——一般为’tar.gz’/’tar.bz2’等格式，包含程序的原始代码</p>
+<p>​                   附带安装程序的软件包——在压缩文件内提供shell.sh，setup等安装程序，或以’bin’格式的单个执行文件</p>
+<p>​                   绿色免安装软件包——在压缩包内部提供已经编译好的程序文件，揭开压缩后即可直接使用</p>
+<h2 id="2、rpm命令"><a href="#2、rpm命令" class="headerlink" title="2、rpm命令"></a>2、rpm命令</h2><h3 id="1、rpm"><a href="#1、rpm" class="headerlink" title="1、rpm"></a>1、rpm</h3><p>rpm由Redhat公司提出，被大多数Linux发行版采用，rpm建立统一的数据库文件，详细记录软件的安装、卸载等变化信息，能够自动分析软件包的依赖关系，但是不能解决（缺点）。</p>
+<h3 id="2、rpm包名解析"><a href="#2、rpm包名解析" class="headerlink" title="2、rpm包名解析"></a>2、rpm包名解析</h3><p>ruby-1.8.7.352-13.el6.x86_64.rpm</p>
+<p>​         –ruby：软件名称</p>
+<p>​         –1.8.7.352-13.el6：版本号</p>
+<p>​         – x86_64：应用平台</p>
+<p>​         应用平台发展：i386-&gt;i586-&gt;i686-&gt;norach(不区分硬件平台)</p>
+<h3 id="3、rpm查询已经安装的rpm软件信息"><a href="#3、rpm查询已经安装的rpm软件信息" class="headerlink" title="3、rpm查询已经安装的rpm软件信息"></a>3、rpm查询已经安装的rpm软件信息</h3><p>格式：rpm –q[子选项] [软件名]</p>
+<p>用法：</p>
+<p>​         1、-qa ：all查看所有已经安装的rpm软件列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm –qa python</span><br></pre></td></tr></table></figure>
+
+<p>​          2、-qi ：information查看指定软件的详细信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm -qi python</span><br></pre></td></tr></table></figure>
+
+<p>​          3、-qc ：configuration仅显示指定软件包安装的配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm –qc httpd</span><br></pre></td></tr></table></figure>
+
+<p>​           4、-qd ：document仅显示指定软件包安装的文档文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm –qd httpd</span><br></pre></td></tr></table></figure>
+
+<p>​           5、-qf ：from查询应用是由哪个软件包安装的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm –qf &#x2F;usr&#x2F;bin&#x2F;vim</span><br></pre></td></tr></table></figure>
+
+<p>​           </p>
+<h3 id="4、查询未安装的rpm包"><a href="#4、查询未安装的rpm包" class="headerlink" title="4、查询未安装的rpm包"></a>4、查询未安装的rpm包</h3><p>格式：rpm –qp[子选项] [rpm包]</p>
+<p>用法：</p>
+<p>​        1、-qpi ：通过rpm包文件查看该软件的详细信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm -qpi webmin-1.690-1.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<p>​        2、-qpl ：查看软件包内所包含的目录和文件列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex： rpm -qpl webmin-1.690-1.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<p>​           </p>
+<h3 id="5、安装升级rpm软件"><a href="#5、安装升级rpm软件" class="headerlink" title="5、安装升级rpm软件"></a>5、安装升级rpm软件</h3><p>格式：rpm [选项] rpm包文件</p>
+<p>用法：</p>
+<p>​        -i ：install 安装一个新的rpm包</p>
+<p>​        -U ：update 升级某个rpm软件包，若原本未安装，则进行安装</p>
+<p>​        -F ：更新某个rpm软件，若原本未安装，则放弃安装</p>
+<p>​        –force ：强制安装所指定的软件包</p>
+<p>​        –nodeps ：忽略软件的依赖关系（不推荐）</p>
+<p>​        -h ：以‘#’显示安装进度</p>
+<p>​        -v ：显示安装过程中的详细信息</p>
+<h3 id="6、rpm-安装"><a href="#6、rpm-安装" class="headerlink" title="6、rpm 安装"></a>6、rpm 安装</h3><p>语法：rpm -ivh 软件包</p>
+<p>ex：rpm -ivh webmin-1.690-1.noarch.rpm              #rpm安装webmin程序（桌面版）<img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C2.png" alt="">     </p>
+<p>检验是否安装成功——网页访问         192.168.8.44:10000<img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C1.png" alt="">          </p>
+<p>ex：rpm -ivh webmin-1.690-1.noarch.rpm              #rpm安装webmin程序（最小化版）<img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C3.png" alt=""></p>
+<p>在最小化系统中安装webmin会遇到依赖关系的问题，解决办法：先将webmin依赖的软件安装好（perl），再安装webmin</p>
+<p>(1)       进入/usr/bin安装依赖软件<img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C4.png" alt=""></p>
+<p>(2)       rpm安装webmin<img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C5.png" alt=""> </p>
+<h3 id="7、rpm卸载"><a href="#7、rpm卸载" class="headerlink" title="7、rpm卸载"></a>7、rpm卸载</h3><p>语法：rpm -e 程序名</p>
+<p>ex：rpm -e webmin                   #卸载webmin程序    <img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C6.png" alt=""></p>
+<p>再次查看是否卸载成功：rpm -qa webmin</p>
+<p> <img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C7.png" alt="">      </p>
+<h3 id="8、维护rpm数据库信息–重建rpm数据库"><a href="#8、维护rpm数据库信息–重建rpm数据库" class="headerlink" title="8、维护rpm数据库信息–重建rpm数据库"></a>8、维护rpm数据库信息–重建rpm数据库</h3><p>rpm –rebuilddb</p>
+<p>rpm –initdb</p>
+<h3 id="9、解决软件包的依赖关系"><a href="#9、解决软件包的依赖关系" class="headerlink" title="9、解决软件包的依赖关系"></a>9、解决软件包的依赖关系</h3><p>1、安装有依赖关系的多个软件时，被依赖的软件必须最先安装，可同时指定多个rpm包进行安装</p>
+<p>2、卸载依赖关系的多个软件包时，依赖其他程序的软件包必须最先卸载，可同时指定多个rpm包进行卸载</p>
+<p>3、忽略依赖关系：–nodeps，不推荐，可能造成软件异常</p>
+<h2 id="3、源码安装"><a href="#3、源码安装" class="headerlink" title="3、源码安装"></a>3、源码安装</h2><h3 id="1、源码安装的优点"><a href="#1、源码安装的优点" class="headerlink" title="1、源码安装的优点"></a>1、源码安装的优点</h3><p>获得最新版本的软件，及时修复bug；可根据用户需要，灵活制定软件功能</p>
+<h3 id="2、应用场合"><a href="#2、应用场合" class="headerlink" title="2、应用场合"></a>2、应用场合</h3><p>1、安装较新版本的应用时（自由软件的最新版本发布大多数都是源代码）</p>
+<p>2、当前安装的程序无法满足需求的时候（编译安装可以自定义修改指定功能）</p>
+<p>3、需要为应用程序添加新的功能时（用户可以重新配置，自由修改源代码，加入新的功能）</p>
+<h3 id="3、Tarball封包"><a href="#3、Tarball封包" class="headerlink" title="3、Tarball封包"></a>3、Tarball封包</h3><p>封包种类：tar.gz / tar.bz2</p>
+<h3 id="4、md5sum校验工具"><a href="#4、md5sum校验工具" class="headerlink" title="4、md5sum校验工具"></a>4、md5sum校验工具</h3><p>计算md5的校验和，然后与官方的md5值进行比较，相同即为未被修改</p>
+<p>ex：md5sum apache-tomcat-7.0.54.tar.gz             #计算apache-tomcat安装包的md5</p>
+<p><img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C8.png" alt="">           </p>
+<h3 id="5、源码安装环境：需要支持c-c"><a href="#5、源码安装环境：需要支持c-c" class="headerlink" title="5、源码安装环境：需要支持c/c++"></a>5、源码安装环境：需要支持c/c++</h3><p>安装环境：yum -y install gcc gcc-c++ make</p>
+<p><img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C9.png" alt="">      </p>
+<p>查看安装版本：</p>
+<p>gcc –version  &amp;&amp; make –version</p>
+<p><img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C10.png" alt="">    </p>
+<h3 id="6、源码安装步骤"><a href="#6、源码安装步骤" class="headerlink" title="6、源码安装步骤"></a>6、源码安装步骤</h3><p>1、下载源码包——tar解包到指定目录</p>
+<p>2、./configure 配置，设置安装目录，安装模块等（进入解压后的安装包后./configure）</p>
+<p>3、make编译，生成可执行二进制文件</p>
+<p>4、make install 安装，复制二进制文件到系统，配置应用环境</p>
+<p>ex：源码安装httpd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf httpd-2.2.15.tar.gz -C &#x2F;usr&#x2F;local          #将安装包解压到&#x2F;usr&#x2F;local目录</span><br><span class="line"></span><br><span class="line">mkdir httpd               #创建软件安装目录</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;cd httpd-2.2.15&#x2F;                 #进入程序&#x2F;bin目录</span><br><span class="line"></span><br><span class="line">   .&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;httpd              #配置安装环境</span><br><span class="line"></span><br><span class="line">echo $?           #验证是否出错(0表示没有出错)</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install              #编译安装（编译时间较长）</span><br><span class="line"></span><br><span class="line">echo $?                             #查看上一过程是否出错</span><br></pre></td></tr></table></figure>
+
+<p>​           </p>
+<p>检验成功：</p>
+<p>cd /usr/local/httpd/bin             #进入安装目录bin文件夹</p>
+<p>./apachectl                                   #检验</p>
+<p><img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C11.png" alt="">           </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/12/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" data-id="ck6j6pq3o00043cuuhgtkffz1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-进程管理及任务调度" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/12/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" class="article-date">
+  <time datetime="2020-02-12T10:40:55.091Z" itemprop="datePublished">2020-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/12/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/">进程管理及任务调度</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、进程管理"><a href="#一、进程管理" class="headerlink" title="一、进程管理"></a>一、进程管理</h1><h2 id="1、程序和进程关系"><a href="#1、程序和进程关系" class="headerlink" title="1、程序和进程关系"></a>1、程序和进程关系</h2><p>程序：保存在硬盘光盘等存储介质中可执行的代码和数据，静态保存的代码</p>
+<p>进程：在cpu及内存中运行的程序代码，动态执行的代码。</p>
+<p>​                   父进程，子进程：每个进程可以创建一个或多个进程。</p>
+<h2 id="2、ps查看进程信息"><a href="#2、ps查看进程信息" class="headerlink" title="2、ps查看进程信息"></a>2、ps查看进程信息</h2><p>用途：查看静态的进程统计信息</p>
+<p>常用命令1：ps aux</p>
+<p>​    a: 当前终端所有进程</p>
+<p>​    u：以用户格式输出</p>
+<p>​    x: 当前用户所有终端                                                          </p>
+<p>常用命令2：ps -elf</p>
+<p>​    -e:系统内所有</p>
+<p>​    -l:使用长格式</p>
+<p>​    -f:使用完整的格式显示         </p>
+<h2 id="3、top查看动态的进程排名信息"><a href="#3、top查看动态的进程排名信息" class="headerlink" title="3、top查看动态的进程排名信息"></a>3、top查看动态的进程排名信息</h2><p>​           </p>
+<p>按P:根据cpu占用情况对进程进行排序</p>
+<p>按M:同上</p>
+<p>按N:根据启动时间进行排序</p>
+<p>按h:(help)弹出top帮助信息</p>
+<h2 id="4、pgrep根据特定条件查询进程PID信息"><a href="#4、pgrep根据特定条件查询进程PID信息" class="headerlink" title="4、pgrep根据特定条件查询进程PID信息"></a>4、pgrep根据特定条件查询进程PID信息</h2><p>-l：显示进程名</p>
+<p>-U: 指定特定帐号</p>
+<p>-t: 指定终端</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：pgrep -U root -t tty1 -l</span><br></pre></td></tr></table></figure>
+
+<p>​           </p>
+<h2 id="5、pstree以树形结构列出进程信息"><a href="#5、pstree以树形结构列出进程信息" class="headerlink" title="5、pstree以树形结构列出进程信息"></a>5、pstree以树形结构列出进程信息</h2><p>-a:显示完整信息                                                                                                       </p>
+<p>-u:列出对应的用户名</p>
+<p>-p:列出对应的pid</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：pstree -u root -a</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="6、进程的启动方式"><a href="#6、进程的启动方式" class="headerlink" title="6、进程的启动方式"></a>6、进程的启动方式</h2><p>前台启动：用户输入命令，直接执行程序</p>
+<p>后台启动：在命令尾加&amp;符号</p>
+<p>​         </p>
+<h2 id="7、进程的前后台调度"><a href="#7、进程的前后台调度" class="headerlink" title="7、进程的前后台调度"></a>7、进程的前后台调度</h2><p>command &amp;     #后台执行command</p>
+<p>jobs                    #显示后台运行的进程</p>
+<p>fg 1                     #fg 将后台运行的进程调度到前台，后面跟进程序列号</p>
+<p>ctrl+Z                 #将前台任务挂起，即调入后台并停止执行。</p>
+<p>ctrl+c                 #取消前台运行的任务</p>
+<h2 id="8、终止进程"><a href="#8、终止进程" class="headerlink" title="8、终止进程"></a>8、终止进程</h2><p>kill:用于终止指定PID号的进程（-9：强制终止）</p>
+<p>killall:用于终止指定名称的所有进程（-9：强制终止）</p>
+<p>pkill:根据特定条件终止相应进程</p>
+<p>常用命令选项：</p>
+<p>​    -U：根据进程所属的用户名终止相应进程</p>
+<p>​    -t: 根据进程所在的终端终止相应的进程</p>
+<h1 id="二、计划任务"><a href="#二、计划任务" class="headerlink" title="二、计划任务"></a>二、计划任务</h1><h2 id="1、at命令：一次性计划脚本"><a href="#1、at命令：一次性计划脚本" class="headerlink" title="1、at命令：一次性计划脚本"></a>1、at命令：一次性计划脚本</h2><p>服务脚本名称：/etc/init.d/atd</p>
+<p>设置格式：at [HH:MM] [yyyy-mm-dd]</p>
+<p>注：命令最好写绝对路径</p>
+<p>Ctrl+D 提交</p>
+<p>at -d ID     #删除指定的at任务，ID为at任务的标志号  </p>
+<h2 id="2、atq-查看计划任务队列"><a href="#2、atq-查看计划任务队列" class="headerlink" title="2、atq:查看计划任务队列"></a>2、atq:查看计划任务队列</h2><p>​           </p>
+<h2 id="3、atrm-删除计划任务"><a href="#3、atrm-删除计划任务" class="headerlink" title="3、atrm:删除计划任务"></a>3、atrm:删除计划任务</h2><p>​           </p>
+<h2 id="4、计划任务crond"><a href="#4、计划任务crond" class="headerlink" title="4、计划任务crond"></a>4、计划任务crond</h2><p>crontab命令：按照预先设置的时间周期(分钟，小时，天，星期，月)重复执行用户指定的命令操作，属于周期性计划任务</p>
+<p>服务脚本名称 /etc/init.d/crond</p>
+<p>全局配置文件 /etc/crontab</p>
+<p>cat /etc/crontab</p>
+<p><img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C12.png" alt="">       </p>
+<p>corntab参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">分钟：0-59整数</span><br><span class="line"></span><br><span class="line">小时：0-23整数</span><br><span class="line"></span><br><span class="line">日期：1-31整数</span><br><span class="line"></span><br><span class="line">月份：1-12整数</span><br><span class="line"></span><br><span class="line">星期：0-7，0&amp;7表示周日</span><br><span class="line"></span><br><span class="line">命令：要执行的命令或脚本，最好用绝对路径</span><br></pre></td></tr></table></figure>
+
+
+
+<p>crontab时间数值的特殊表示方法：</p>
+<ol>
+<li><ul>
+<li>表示该范围内的任意时间</li>
+</ul>
+</li>
+<li>, 表示间隔的多个不连续的时间点</li>
+<li>- 表示一个连续的时间范围</li>
+<li>/ 指定间隔的时间频率</li>
+</ol>
+<p>系统默认的设置 /etc/cron.*/</p>
+<p>用户定义设置 /var/spool/cron/用户名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;var&#x2F;spool&#x2F;cron&#x2F;zs              #查看用户定义的任务</span><br></pre></td></tr></table></figure>
+
+<p>​       </p>
+<p>管理计划任务</p>
+<p>编辑计划任务：crontab -e [-u 用户]</p>
+<p>查看计划任务：crontab -l [ -u 用户名 ]</p>
+<p>删除计划任务：crontab -r [ -u 用户名 ]</p>
+<p>​          </p>
+<p>注意：root用户可以管理制定用户的计划任务，普通用户只能管理自己的计划任务。</p>
+<p>例：用户zs每周日晚上23:55 ,将/etc/passwd 文件的内容复制到宿主目录中，保存为pwd.txt文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">crontab -e -u zs </span><br><span class="line"></span><br><span class="line">55 23 * * * 0 &#x2F;bin&#x2F;cp -r &#x2F;etc&#x2F;passwd &#x2F;home&#x2F;zs&#x2F;pwd.txt 或</span><br><span class="line"></span><br><span class="line">55 23 * * * 7 &#x2F;bin&#x2F;cp -r &#x2F;etc&#x2F;passwd &#x2F;home&#x2F;zs&#x2F;pwd.txt</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/12/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" data-id="ck6j6pgnq00033cuu0tb7hljp" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux基本命令&amp;文件目录管理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/" class="article-date">
+  <time datetime="2020-02-12T10:40:55.010Z" itemprop="datePublished">2020-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/">linux基本命令&amp;文件目录管理</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、安装完操作系统后必要的两个操作"><a href="#一、安装完操作系统后必要的两个操作" class="headerlink" title="一、安装完操作系统后必要的两个操作"></a>一、安装完操作系统后必要的两个操作</h1><h2 id="1-关闭防火墙"><a href="#1-关闭防火墙" class="headerlink" title="1.关闭防火墙"></a>1.关闭防火墙</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CentOS6：</span><br><span class="line">service iptables stop		#关闭防火墙</span><br><span class="line">service iptables status		#查看防火墙状态</span><br><span class="line"></span><br><span class="line">chkconfig iptables off		#禁止防火墙开机自启</span><br><span class="line">chkconfig iptables --list	#查看iptables在各个模式下的状态</span><br><span class="line"></span><br><span class="line">CentOS7：</span><br><span class="line">systemlctl stop firewalld	#关闭防火墙</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-关闭selinux"><a href="#2-关闭selinux" class="headerlink" title="2.关闭selinux"></a>2.关闭selinux</h2><h3 id="2-1永久关闭"><a href="#2-1永久关闭" class="headerlink" title="2.1永久关闭"></a>2.1永久关闭</h3><p>​        编辑/etc/sysconfig/selinux文件，将SELINUX=enforcing改为disabled，重启生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#39;s&#x2F;enforcing&#x2F;disabled&#x2F;&#39; &#x2F;etc&#x2F;sysconfig&#x2F;selinux</span><br></pre></td></tr></table></figure>
+
+<p>​        重启之后可以通过/usr/sbin/sestatus -v查看selinux状态，如果输出disabled则表示关闭，修改成功</p>
+<h3 id="2-2临时关闭"><a href="#2-2临时关闭" class="headerlink" title="2.2临时关闭"></a>2.2临时关闭</h3><p>​        注：临时关闭selinux重启服务器后失效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0	#设置selinux为permissive模式</span><br><span class="line">setenforce 1	#设置selinux为enforcing模式</span><br><span class="line"></span><br><span class="line">getenforce		#查看selinux状态</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、Linux开机过程"><a href="#二、Linux开机过程" class="headerlink" title="二、Linux开机过程"></a>二、Linux开机过程</h1><p>​        BIOS–&gt;MBR–&gt;GRUB–&gt;kernel–&gt;init–&gt;startup        </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BIOS：硬件检测阶段</span><br><span class="line">MBR：主引导记录</span><br><span class="line">GRUB：引导装载程序</span><br><span class="line">Kernel：加载内核</span><br><span class="line">Init：启动初始进程</span><br><span class="line">Startup：启动</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="三、初始化进程init"><a href="#三、初始化进程init" class="headerlink" title="三、初始化进程init"></a>三、初始化进程init</h1><h2 id="1-查看init进程"><a href="#1-查看init进程" class="headerlink" title="1.查看init进程"></a>1.查看init进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;etc&#x2F;inittab		#查看init进程</span><br><span class="line">其中：0：挂起状态（关机）；1：单用户模式；2：多用户模式（没有network）；3：多用户模式（network）；4：未被定义使用；5：桌面模式；6：重启</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-模式切换"><a href="#2-模式切换" class="headerlink" title="2.模式切换"></a>2.模式切换</h2><p>语法：init +模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">init 3		#切换到字符模式</span><br><span class="line">init 5		#切换到桌面模式(startx)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="四、系统服务控制"><a href="#四、系统服务控制" class="headerlink" title="四、系统服务控制"></a>四、系统服务控制</h1><h2 id="1-service命令"><a href="#1-service命令" class="headerlink" title="1.service命令"></a>1.service命令</h2><p>service命令用来对一个服务进行开启关闭操作，以及查看服务状态。</p>
+<p>格式：service service_name service_status</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">注意：#service_name必须是 &#x2F;etc&#x2F;init.d 中存在的服务</span><br><span class="line">	 #service_status有五种，start|stop|restart|reload|status</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-runlevel命令"><a href="#2-runlevel命令" class="headerlink" title="2.runlevel命令"></a>2.runlevel命令</h2><p>runlevel命令用来查看运行级别，例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop &#x2F;]# runlevel</span><br><span class="line">3	5		#其中3表示开机后上一次运行级别，5表示当前运行级别</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-chkconfig命令"><a href="#3-chkconfig命令" class="headerlink" title="3.chkconfig命令"></a>3.chkconfig命令</h2><p>chkconfig命令用来查看开机运行的程序，可以控制多个runlevel</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">注意：chkconfig命令只针对2,3,4,5(runlevel)</span><br><span class="line">chkconfig service_name on|off		#设置服务开机自启或不自启</span><br><span class="line">chkconfig service_name --list		#查看服务在各个runlevel下的自启情况</span><br><span class="line">chkconfig --runlevel X service_name on|off		#针对某个runlevel进行服务开机自启控制</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="五、terminal下输出表示的含义"><a href="#五、terminal下输出表示的含义" class="headerlink" title="五、terminal下输出表示的含义"></a>五、terminal下输出表示的含义</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# </span><br><span class="line">root：表示当前用户</span><br><span class="line">desktop：表示主机名</span><br><span class="line">~：表示当前用户的home目录（默认情况下，除root用户外，其他用户只对home目录有完整的权限）</span><br><span class="line">#：表示当前用户为管理员用户</span><br><span class="line">$：表示当前用户为一般用户</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="六、Linux文件系统"><a href="#六、Linux文件系统" class="headerlink" title="六、Linux文件系统"></a>六、Linux文件系统</h1><p>Linux文件机构为树形结构，常见目录代表的含义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1、&#x2F;：根目录，是所有分区，目录结构的起点</span><br><span class="line">2、&#x2F;boot：存放系统内核和启动文件的目录，安装时建议单独为&#x2F;boot目录划分一个分区，便于维护和备份</span><br><span class="line">3、&#x2F;bin：用来存放所有用户都可执行的且常用的命令。</span><br><span class="line">4、&#x2F;sbin:存放基本的管理命令，但一般只有管理员才能使用</span><br><span class="line">5、&#x2F;etc:保存有关系统设置与管理的文件。</span><br><span class="line">6、&#x2F;usr:用户应用程序存放的目录，类似于windows下的Program Files</span><br><span class="line">7、&#x2F;var:存放经常变换的文件，例如日志文件，建议var独立分区。</span><br><span class="line">8、&#x2F;home:除超级用户以外的用户的宿主目录都建立在该目录下。</span><br><span class="line">9、&#x2F;root:root用户的宿主文件夹</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="七、查看系统的简单命令"><a href="#七、查看系统的简单命令" class="headerlink" title="七、查看系统的简单命令"></a>七、查看系统的简单命令</h1><h2 id="1-exit命令"><a href="#1-exit命令" class="headerlink" title="1.exit命令"></a>1.exit命令</h2><p>​    exit命令用于退出当前命令的操作环境</p>
+<h2 id="2-uname命令"><a href="#2-uname命令" class="headerlink" title="2.uname命令"></a>2.uname命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uname -r		#显示内核版本</span><br><span class="line">uname -a		#显示主机名、内核版本、硬件平台等详细信息</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-cat命令"><a href="#3-cat命令" class="headerlink" title="3.cat命令"></a>3.cat命令</h2><p>cat命令用于查看文件内容，经常和grep命令连用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">常见查看系统信息命令：</span><br><span class="line">cat &#x2F;proc&#x2F;cpuinfo		#查看CPU信息</span><br><span class="line">cat &#x2F;proc&#x2F;meminfo		#查看内存及swap信息</span><br><span class="line">cat &#x2F;proc&#x2F;swaps			#查看swap信息</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-ifconfig命令"><a href="#4-ifconfig命令" class="headerlink" title="4.ifconfig命令"></a>4.ifconfig命令</h2><p>ifconfig命令用来查看网卡信息，如果命令找不到，则可直接运行yum -y install net-tools即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig		#查看当前所有网卡信息</span><br><span class="line">ifconfig 网卡名		#查看具体某张网卡信息，其中RX、TX分别表示收包和发包</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-hostname命令"><a href="#5-hostname命令" class="headerlink" title="5.hostname命令"></a>5.hostname命令</h2><p>hostname命令用来查看主机名或更改主机名（更改重启后生效）</p>
+<h2 id="6-su命令"><a href="#6-su命令" class="headerlink" title="6.su命令"></a>6.su命令</h2><p>su命令用来切换用户，需要注意的是：普通用户切换到root用户需要验证密码，而root用户切换到普通用户不需要验证密码。</p>
+<h2 id="7-关机和重启"><a href="#7-关机和重启" class="headerlink" title="7.关机和重启"></a>7.关机和重启</h2><p>a.shutdown命令</p>
+<p>用来关机或重启。shutdown -r/-h（reboot/halt） +分钟数 +描述[可选]</p>
+<p>b.取消shutdown</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.使用快捷键Ctrl+C自主取消</span><br><span class="line">2.shutdown -c	#超级用户在其他bash中取消</span><br></pre></td></tr></table></figure>
+
+<p>c.关机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.init 0</span><br><span class="line">2.shutdown</span><br><span class="line">3.shutdown -h now		#立即关机</span><br></pre></td></tr></table></figure>
+
+<p>d.重启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.reboot</span><br><span class="line">2.init 6</span><br><span class="line">3.shutdown -r now		#立即重启</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="八、Linux分区管理"><a href="#八、Linux分区管理" class="headerlink" title="八、Linux分区管理"></a>八、Linux分区管理</h1><h2 id="1-linux中万物皆文件"><a href="#1-linux中万物皆文件" class="headerlink" title="1.linux中万物皆文件"></a>1.linux中万物皆文件</h2><h2 id="2-dev-sda5含义：代表一个硬盘分区"><a href="#2-dev-sda5含义：代表一个硬盘分区" class="headerlink" title="2./dev/sda5含义：代表一个硬盘分区"></a>2./dev/sda5含义：代表一个硬盘分区</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1、sd：sici格式</span><br><span class="line">2、a：第一块磁盘</span><br><span class="line">3、5：第一块逻辑分区</span><br><span class="line">4、分区分为主分区和逻辑分区，主分区最多不超过四块（可标记为活动分区用来安装操作系统）</span><br><span class="line">	sda1,sda2,sda3(主分区)</span><br><span class="line">	sda4(逻辑分区)，第一块逻辑分区为sda5,往后加1，以此类推</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-分区必须挂载到一个目录上"><a href="#3-分区必须挂载到一个目录上" class="headerlink" title="3.分区必须挂载到一个目录上"></a>3.分区必须挂载到一个目录上</h2><h2 id="4-linux文件系统类型"><a href="#4-linux文件系统类型" class="headerlink" title="4.linux文件系统类型"></a>4.linux文件系统类型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ext3</span><br><span class="line">ext4</span><br><span class="line">swap：Linux分区的一种类型，一般为内存的两倍，当内存超过2G或4G时可不需要swap分区</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-fat32"><a href="#5-fat32" class="headerlink" title="5.fat32"></a>5.fat32</h2><p>​    速度慢，不支持单个文件大于4G</p>
+<h2 id="6-NTFS"><a href="#6-NTFS" class="headerlink" title="6.NTFS"></a>6.NTFS</h2><p>​    速度快，支持索引，支持压缩，支持加密，支持大文件</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/" data-id="ck6j6opfx00003cuu44cochv2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux基本命令II" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/" class="article-date">
+  <time datetime="2020-02-12T10:40:55.010Z" itemprop="datePublished">2020-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/">linux基本命令II</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、cat命令"><a href="#一、cat命令" class="headerlink" title="一、cat命令"></a>一、cat命令</h1><h2 id="1-cat用途"><a href="#1-cat用途" class="headerlink" title="1.cat用途"></a>1.cat用途</h2><p>​        显示文件内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# cat a.txt		#查看a.txt文件内容</span><br><span class="line">[root@desktop ~]# cat &#x2F;proc&#x2F;uptime		#查看开机时间</span><br><span class="line">18256.04	18160.06		#第一个值表示系统从开机到现在运行时间（s)，第二个值表示系统开机后空闲时间（s）,系统空闲比&#x3D;第二个值&#x2F;第一个值</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-命令格式"><a href="#2-命令格式" class="headerlink" title="2.命令格式"></a>2.命令格式</h2><p>​        cat [选项] 文件名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# cat &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0 		#查看网络配置文件</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-常用选项"><a href="#3-常用选项" class="headerlink" title="3.常用选项"></a>3.常用选项</h2><ol>
+<li>-b：非空行加上序号</li>
+<li>-A：show all  ==-vET</li>
+<li>-v：–show-nonprinting，使用^和M-引用，除LFD和TAB</li>
+<li>-E：–show-ends，在每行结束处显示“$”</li>
+<li>-T：–show-tabs，将跳格字符显示为^I</li>
+</ol>
+<h1 id="二、tac命令"><a href="#二、tac命令" class="headerlink" title="二、tac命令"></a>二、tac命令</h1><h2 id="1-tac用途"><a href="#1-tac用途" class="headerlink" title="1.tac用途"></a>1.tac用途</h2><p>​        倒叙浏览，适用于查看系统日志等按时间更新的文件</p>
+<h2 id="2-命令格式-1"><a href="#2-命令格式-1" class="headerlink" title="2.命令格式"></a>2.命令格式</h2><p>​        tac [选项] 文件名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# tac &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0 	#倒序浏览网络配置文件</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-常用选项-1"><a href="#3-常用选项-1" class="headerlink" title="3.常用选项"></a>3.常用选项</h2><ol>
+<li>-b：before 在行前而非行尾添加分隔标志</li>
+<li>-r：regex 将分隔标志视作正则表达式来解析</li>
+<li>-s：separator 使用指定字符串代替换行符做分隔标志</li>
+</ol>
+<h1 id="三、more-amp-less命令"><a href="#三、more-amp-less命令" class="headerlink" title="三、more&amp;less命令"></a>三、more&amp;less命令</h1><h2 id="1-more用途"><a href="#1-more用途" class="headerlink" title="1.more用途"></a>1.more用途</h2><p>​        全屏方式分页显示文件内容</p>
+<h2 id="2-more命令格式"><a href="#2-more命令格式" class="headerlink" title="2.more命令格式"></a>2.more命令格式</h2><p>​        more  [选项] 文件名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# more &#x2F;var&#x2F;log&#x2F;dmesg		#查看dmesg日志文件</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-more操作方法"><a href="#3-more操作方法" class="headerlink" title="3.more操作方法"></a>3.more操作方法</h2><ol>
+<li>enter：向下逐行滚动</li>
+<li>space：向下逐页翻动</li>
+<li>q：退出</li>
+</ol>
+<h2 id="4-less用途"><a href="#4-less用途" class="headerlink" title="4.less用途"></a>4.less用途</h2><p>​        与more功能相同，但扩展功能更多</p>
+<h2 id="5-less命令格式"><a href="#5-less命令格式" class="headerlink" title="5.less命令格式"></a>5.less命令格式</h2><p>​        less [选项] 文件名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# less &#x2F;var&#x2F;log&#x2F;dmesg</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-less操作方法"><a href="#6-less操作方法" class="headerlink" title="6.less操作方法"></a>6.less操作方法</h2><ol>
+<li>PgUP ：上翻页</li>
+<li>PgDn ：下翻页</li>
+<li>‘/’键查找内容，‘n’下一个内容，‘N’上一个内容</li>
+</ol>
+<h1 id="四、head-amp-tail-命令"><a href="#四、head-amp-tail-命令" class="headerlink" title="四、head&amp;tail 命令"></a>四、head&amp;tail 命令</h1><h2 id="1、head"><a href="#1、head" class="headerlink" title="1、head"></a>1、head</h2><p>head：查看文件开头的前十行（默认）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# head &#x2F;var&#x2F;log&#x2F;dmesg      #显示dmesg文件的前十行</span><br></pre></td></tr></table></figure>
+
+<p>选项：-n ：n代表行数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# head -11 &#x2F;var&#x2F;log&#x2F;dmesg        #显示dmesg文件的前11行</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、tail"><a href="#2、tail" class="headerlink" title="2、tail"></a>2、tail</h2><p>tail：查看文件末尾的后十行（默认）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# tail &#x2F;var&#x2F;log&#x2F;dmesg                   #显示dmesg文件的后十行</span><br></pre></td></tr></table></figure>
+
+<p>选项：</p>
+<ol>
+<li><p>-n：n代表行数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# tail -11 &#x2F;var&#x2F;log&#x2F;dmesg  #显示dmesg文件的后11行</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>-f ：跟踪文件末尾的内容变化，实时显示更新的内容</p>
+</li>
+</ol>
+<h1 id="五、wc命令"><a href="#五、wc命令" class="headerlink" title="五、wc命令"></a>五、wc命令</h1><h2 id="1-wc（Word-count）"><a href="#1-wc（Word-count）" class="headerlink" title="1.wc（Word count）"></a>1.wc（Word count）</h2><p>​        统计文件中单词数量等信息，输出结果依次为行数、单词数、字符数、文件名</p>
+<h2 id="2-命令格式-2"><a href="#2-命令格式-2" class="headerlink" title="2.命令格式"></a>2.命令格式</h2><p>​        wc [选项] 目标文件</p>
+<h2 id="3-选项"><a href="#3-选项" class="headerlink" title="3.选项"></a>3.选项</h2><ol>
+<li>-l：line 统计行数</li>
+<li>-w：Word 统计单词个数</li>
+<li>-c：统计字节</li>
+</ol>
+<h1 id="六、grep命令"><a href="#六、grep命令" class="headerlink" title="六、grep命令"></a>六、grep命令</h1><h2 id="1-grep"><a href="#1-grep" class="headerlink" title="1.grep"></a>1.grep</h2><p>​        检索和过滤文件内容，在文件中查找显示包含指定字符串的行</p>
+<h2 id="2-命令格式-3"><a href="#2-命令格式-3" class="headerlink" title="2.命令格式"></a>2.命令格式</h2><p>​        grep [选项] 查找条件 目标文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# grep -v &quot;^#&quot; &#x2F;etc&#x2F;httpd&#x2F;conf&#x2F;httpd.conf 	#在httpd.conf文件中查找除了#开头的行</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-常用选项-2"><a href="#3-常用选项-2" class="headerlink" title="3.常用选项"></a>3.常用选项</h2><ol>
+<li>-i：查找时忽略大小写</li>
+<li>-v：反转查找，取反，输出与查询条件不相符的行</li>
+</ol>
+<h2 id="4-查找条件"><a href="#4-查找条件" class="headerlink" title="4.查找条件"></a>4.查找条件</h2><p>​        要查找的字符串以英文双引号括起来</p>
+<ol>
+<li>”^..”：表示以”..”开头</li>
+<li>“..$”：表示以”..”结尾</li>
+<li>“^$”：表示空行</li>
+</ol>
+<h1 id="七、压缩-amp-解压"><a href="#七、压缩-amp-解压" class="headerlink" title="七、压缩&amp;解压"></a>七、压缩&amp;解压</h1><h2 id="1-gzip命令"><a href="#1-gzip命令" class="headerlink" title="1.gzip命令"></a>1.gzip命令</h2><p>1.1.gzip：用于制作压缩文件，解开压缩文件（不保留原文件）</p>
+<p>1.2.选项：</p>
+<p>​        -9 ：表示高压缩比，用在创建压缩文件时使用</p>
+<p>​        -d ：用于解压压缩文件</p>
+<p>1.3.压缩：gzip  -9 文件名</p>
+<p>1.4.解压缩：gzip -d .gz格式的压缩文件</p>
+<h2 id="2-bzip2命令"><a href="#2-bzip2命令" class="headerlink" title="2.bzip2命令"></a>2.bzip2命令</h2><p>2.1.bzip2：用于制作压缩文件，解开压缩文件，压缩效率更高（不保留原文件）</p>
+<p>2.2.选项：</p>
+<p>​        -9 ：表示高压缩比，用在创建压缩文件时使用</p>
+<p>​        -d ：用于解压压缩文件</p>
+<p>2.3.压缩：bzip2 -9 文件名</p>
+<p>2.4.解压缩：bzip2 -d .bz格式的压缩文件</p>
+<h2 id="3-tar命令"><a href="#3-tar命令" class="headerlink" title="3.tar命令"></a>3.tar命令</h2><p>3.1.tar：制作归档文件，释放归档文件，用来压缩文件夹（打包）（保留原文件）</p>
+<p>3.2.打包：tar  [选项] 归档文件名 源文件或目标文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# tar -czf 1.txt.tar.gz 1.txt		#将1.txt文件打包成1.txt.tar.gz压缩文件</span><br></pre></td></tr></table></figure>
+
+<p>3.3.解包：tar  [选项] 归档文件名 [-C 目标目录]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# tar -zxf 1.txt.tar.gz -C &#x2F;aaa	#将1.txt.tar.gz文件解压到aaa文件夹下</span><br></pre></td></tr></table></figure>
+
+<p>3.4选项</p>
+<ol>
+<li>-c ：create 创建.tar格式的包</li>
+<li>-x ：解开.tar格式的包</li>
+<li>-v ：输出过程</li>
+<li>-f ：表示使用归档文件（使用其它选项时必须加上-f选项连用）</li>
+<li>-p ：打包时保留原始文件及目录权限</li>
+<li>-t ：列表查看包内的文件</li>
+<li>-C ：解包时指定释放的目标文件夹</li>
+<li>-z ：调用gzip程序进行压缩或解压</li>
+<li>-j ：调用bzip2程序进行压缩或解压</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/" data-id="ck6j6p04400013cuubrl2hbcr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vim基本使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/12/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2020-02-12T10:40:55.010Z" itemprop="datePublished">2020-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/12/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">vim基本使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1、什么是vi编辑器"><a href="#1、什么是vi编辑器" class="headerlink" title="1、什么是vi编辑器"></a>1、什么是vi编辑器</h2><h1 id="一、什么是vi编辑器"><a href="#一、什么是vi编辑器" class="headerlink" title="一、什么是vi编辑器"></a>一、什么是vi编辑器</h1><p>Vi编辑器用来创建或修改文本文件，是Linux系统中的各种配置文件的主要修改工具</p>
+<p>Vim：是vi编辑器的增强版本，有颜色区分</p>
+<h1 id="二、vi编辑器的三种工作模式"><a href="#二、vi编辑器的三种工作模式" class="headerlink" title="二、vi编辑器的三种工作模式"></a>二、vi编辑器的三种工作模式</h1><p>1、命令模式</p>
+<p>2、输入模式</p>
+<p>3、末行模式</p>
+<p>三种工作模式之间的关系：</p>
+<p>命令模式——键入（a\i\o）——输入模式——键入（esc）——命令模式</p>
+<p>命令模式——键入（:）——末行模式——键入（esc）——命令模式</p>
+<h1 id="三、命令模式下的操作"><a href="#三、命令模式下的操作" class="headerlink" title="三、命令模式下的操作"></a>三、命令模式下的操作</h1><h2 id="1、光标移动"><a href="#1、光标移动" class="headerlink" title="1、光标移动"></a>1、光标移动</h2><p>上下左右</p>
+<h2 id="2、翻页"><a href="#2、翻页" class="headerlink" title="2、翻页"></a>2、翻页</h2><p>上一页：PgUp/Ctrl + b</p>
+<p>下一页：PgDn/Ctrl + f</p>
+<h2 id="3、行内快速跳转"><a href="#3、行内快速跳转" class="headerlink" title="3、行内快速跳转"></a>3、行内快速跳转</h2><p>跳转至行首：Home / “^” /”0”（零）</p>
+<p>跳转至行末：End / “$”</p>
+<h2 id="4、行间快速跳转"><a href="#4、行间快速跳转" class="headerlink" title="4、行间快速跳转"></a>4、行间快速跳转</h2><p>1G / gg：回到行首</p>
+<p>G：转至最后一行</p>
+<p>#G：跳转到文件中的第#行</p>
+<h2 id="5、行号显示"><a href="#5、行号显示" class="headerlink" title="5、行号显示"></a>5、行号显示</h2><p>:set nu               #显示行号                                       </p>
+<p>:set nonu         #取消行号显示       </p>
+<h2 id="6、删除"><a href="#6、删除" class="headerlink" title="6、删除"></a>6、删除</h2><p>X或del ：删除光标所在的单个字符</p>
+<p>dd ：删除光标所在行</p>
+<p>#dd ：删除从光标开始的#行</p>
+<p>d^ ：删除从光标开始到行首的所有内容（不包括光标所在字符）</p>
+<p>d$ ：删除从光标开始到行末的所有内容（不包括光标所在字符）</p>
+<h2 id="7、复制"><a href="#7、复制" class="headerlink" title="7、复制"></a>7、复制</h2><p>yy ：复制整行内容</p>
+<p>#yy ：复制从光标开始的#行</p>
+<h2 id="8、粘贴"><a href="#8、粘贴" class="headerlink" title="8、粘贴"></a>8、粘贴</h2><p>P(大写) ：粘贴内容到光标之前</p>
+<p>p(小写) ：粘贴内容到光标之后</p>
+<h2 id="9、内容查找"><a href="#9、内容查找" class="headerlink" title="9、内容查找"></a>9、内容查找</h2><p>/word ：从上到下查找字符（串）word</p>
+<p>?word ：从下到上查找字符（串）word</p>
+<p>n ：下一个</p>
+<p>N ：上一个</p>
+<h2 id="10、撤销编辑"><a href="#10、撤销编辑" class="headerlink" title="10、撤销编辑"></a>10、撤销编辑</h2><p>u ：按一次取消最近一次的操作，多次重复按u键，回复已经进行多次的操作</p>
+<p>U ：用于取消当前行所有的编辑</p>
+<p>ZZ ：保存当前文件内容并退出vi编辑器</p>
+<h1 id="四、末行模式下的操作"><a href="#四、末行模式下的操作" class="headerlink" title="四、末行模式下的操作"></a>四、末行模式下的操作</h1><h3 id="1、保存及退出"><a href="#1、保存及退出" class="headerlink" title="1、保存及退出"></a>1、保存及退出</h3><p>​         保存文件：</p>
+<p>​                   :w                      #保存修改的内容</p>
+<p>​                   :w /a.txt            #另存为</p>
+<p>​         退出：</p>
+<p>​                   :q                        #未修改退出</p>
+<p>​                   :q!                     #放弃对文件的修改，并退出</p>
+<h3 id="2、保存退出"><a href="#2、保存退出" class="headerlink" title="2、保存退出"></a>2、保存退出</h3><p>​         :wq            #保存并退出</p>
+<p>​         </p>
+<h3 id="3、打开新文件或读入其他文件内容"><a href="#3、打开新文件或读入其他文件内容" class="headerlink" title="3、打开新文件或读入其他文件内容"></a>3、打开新文件或读入其他文件内容</h3><p>​         :e 文件   #读入该文件内容</p>
+<p>​         :r 文件    #在当前文件中光标所在行后读入其他文件的内容</p>
+<h3 id="4、文件内容的替换"><a href="#4、文件内容的替换" class="headerlink" title="4、文件内容的替换"></a>4、文件内容的替换</h3><p>​         1、:s /old/new                 #在当前行中用new替换第一个old</p>
+<p>​         2、:s /old/new/g              #替换当前行中所有的old为new</p>
+<p>​         3、:#1,#2 s /old/new/g   #在行号#1到#2中，替换所有的old为new</p>
+<p>​         4、:%s /old/new/g           #在整个文件范围内替换old为new</p>
+<p>​         5、:s /old/new/c               #每个替换动作都会提醒用户确认</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/12/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ck6j6p6b900023cuucza84cd0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-用户管理及权限" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/12/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E5%8F%8A%E6%9D%83%E9%99%90/" class="article-date">
+  <time datetime="2020-02-12T10:40:55.010Z" itemprop="datePublished">2020-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/12/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E5%8F%8A%E6%9D%83%E9%99%90/">用户管理及权限</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="用户和组管理及权限设置"><a href="#用户和组管理及权限设置" class="headerlink" title="用户和组管理及权限设置"></a>用户和组管理及权限设置</h1><h2 id="用户"><a href="#用户" class="headerlink" title="用户"></a>用户</h2><p>作用<strong>：</strong>用于管理Linux系统的文件</p>
+<h2 id="用户分类"><a href="#用户分类" class="headerlink" title="用户分类"></a>用户分类</h2><p><strong>超级用户</strong>：root 一个Linux系统只能有一个超级用户，持有最高管理权限</p>
+<p><strong>普通用户</strong>：一般只在用户自己的宿主目录下有完整的权限</p>
+<p><strong>程序用户</strong>：用来维持系统或程序的正常运行，一般不允许登录到系统</p>
+<h2 id="组"><a href="#组" class="headerlink" title="组"></a>组</h2><p>作用：用于管理用户，是用户的集合</p>
+<h2 id="组分类"><a href="#组分类" class="headerlink" title="组分类"></a>组分类</h2><p>基本组：在创建用户时，系统会默认创建一个与用户同名的基本组（私有组），将用户添加到组中</p>
+<p>附加组：手动将用户添加进去的组</p>
+<p>例如创建一个用户aaa,那么用户aaa的基本组是aaa，如果将aaa加入root组，那么root就是用户aaa的附加组</p>
+<h2 id="UID和GID"><a href="#UID和GID" class="headerlink" title="UID和GID"></a>UID和GID</h2><p>UID（user identity）：用户编号，root的UID永远为0，程序用户的UID为1-499,普通用户的UID从500开始</p>
+<p>GID（group identity）：组编号，root的GID永远为0，程序用户的GID为1-499，普通用户的GID从500开始</p>
+<h2 id="用户账号文件"><a href="#用户账号文件" class="headerlink" title="用户账号文件"></a>用户账号文件</h2><p><strong>/etc/passwd</strong>文件保存用户名称，宿主目录，登录shell等信息，每一行对应一个用户的账号记录，例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS ~]# cat &#x2F;etc&#x2F;passwd</span><br><span class="line"></span><br><span class="line">root:x:0:0:root:&#x2F;root:&#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
+
+<p><strong>解析</strong>：（从左到右依次）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root：       #用户名</span><br><span class="line">x：          #密码占位符，考虑安全性，口令密码不使用明文进行保存，而是用‘X’填充</span><br><span class="line">0：          #用户UID</span><br><span class="line">0：          #用户GID</span><br><span class="line">root：       #用户属组</span><br><span class="line">&#x2F;root：      #用户宿主目录</span><br><span class="line">&#x2F;bin&#x2F;bash：  #用户登录的shell信息</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>/etc/shadow</strong>文件：passwd对于任何用户均可读，为增加系统安全性，用户口令通常用shadow passwords保护，即保存在shadow文件中，此文件只对root用户可读，例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS ~]# ll &#x2F;etc&#x2F;shadow</span><br><span class="line"></span><br><span class="line">----------. 1 root root 612 8月  30 20:05 &#x2F;etc&#x2F;shadow</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong>：保存各用户账户的密码等信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS ~]# cat &#x2F;etc&#x2F;shadow</span><br><span class="line"></span><br><span class="line">root:(password):17773:0:99999:7:::</span><br></pre></td></tr></table></figure>
+
+<p><strong>解析</strong>：（从左到右依次）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root：           #用户名</span><br><span class="line">(password)：  	#加密的密码字段</span><br><span class="line">17773：          #上次修改密码的时间（天），默认从1970年1月1日开始计数辰）</span><br><span class="line">0：              #密码最短有效时间，默认0天</span><br><span class="line">99999：          #密码最长有效时间，默认99999天</span><br><span class="line">7：              #警告时间，密码到期前7天提醒用户更新</span><br><span class="line">空格：            #不活动时间，在用户密码到期后多少天禁用此用户</span><br><span class="line">空格：            #失效时间，从1970.1.1起到用户被禁用的天数</span><br><span class="line">空格：            #标志，保留位</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="添加用户（useradd）"><a href="#添加用户（useradd）" class="headerlink" title="添加用户（useradd）"></a>添加用户（useradd）</h2><p>格式：useradd [选项] 用户名</p>
+<p>选项：</p>
+<ol>
+<li>-u ：指定用户的UID标记号</li>
+<li>-d ：指定用户的宿主目录，默认为/home/用户名</li>
+<li>-e ：指定用户的失效时间</li>
+<li>-g ：指定用户的基本组名或GID</li>
+<li>-G ：指定用户的附加组名或GID</li>
+<li>-M ：不为用户建立并初始化宿主目录</li>
+<li>-s ：指定用户登录shell</li>
+</ol>
+<h2 id="设置-更改用户密码（passwd）"><a href="#设置-更改用户密码（passwd）" class="headerlink" title="设置/更改用户密码（passwd）"></a>设置/更改用户密码（passwd）</h2><p>格式：passwd [选项] 用户名</p>
+<p>选项：</p>
+<ol>
+<li>-d ：delete清空用户密码，可以无密码登录</li>
+<li>-l ：lock锁定用户账号</li>
+<li>-S ：status查看用户账号状态</li>
+<li>-u ：unlock解锁用户账户</li>
+<li>另：passwd 用户名     #修改账户密码</li>
+</ol>
+<h2 id="用户主要配置文件"><a href="#用户主要配置文件" class="headerlink" title="用户主要配置文件"></a>用户主要配置文件</h2><p>来源：创建一个用户时，系统自动从/etc/skel拷贝配置到用户宿主目录（隐藏文件）</p>
+<p><img src="file:///C:%5CUsers%5CZF%5CAppData%5CLocal%5CTemp%5Cmsohtmlclip1%5C01%5Cclip_image002.jpg" alt="img"></p>
+<p><strong>~./bash_profile</strong>       #用户登录时执行，用户可编辑——通过堡垒机管理服务器</p>
+<p><strong>~./bashrc</strong>                  #用户每次进入新的bash环境时执行——给命令取别名</p>
+<p><strong>~./bash_logout</strong>       #用户退出登录时执行——用户关机时清除缓存和操作</p>
+<h2 id="修改用户账号的属性"><a href="#修改用户账号的属性" class="headerlink" title="修改用户账号的属性"></a>修改用户账号的属性</h2><p>格式：usermod [选项] 用户名</p>
+<p>选项：</p>
+<ol>
+<li>-l ：更改用户账号的登录名称</li>
+<li>-L ：锁定用户账号</li>
+<li>-U ：解锁用户账号</li>
+<li>下列选项与useradd命令中的含义相同：-u,-d,-e,-g,-G,-S</li>
+</ol>
+<h2 id="删除用户（userdel）"><a href="#删除用户（userdel）" class="headerlink" title="删除用户（userdel）"></a>删除用户（userdel）</h2><p>格式：userdel [选项] 用户名</p>
+<p>选项：</p>
+<p>-r ：删除用户时删除宿主目录</p>
+<h2 id="组账户文件"><a href="#组账户文件" class="headerlink" title="组账户文件"></a>组账户文件</h2><p><strong>/etc/group</strong>文件保存各用户的分组信息，与passwd类似，每行记录一个组的信息，任何用户可读，例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS home]# cat &#x2F;etc&#x2F;group</span><br><span class="line"></span><br><span class="line">bin:x:1:bin,daemon</span><br></pre></td></tr></table></figure>
+
+<p>解析：（从左到右依次）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	bin ：               #组名</span><br><span class="line">	X ：                 #组口令占位符，用‘X’占位</span><br><span class="line">	1 ：                 #组标志号（GID）</span><br><span class="line">	</span><br><span class="line">bin,daemon： #组成员，成员之间用‘,’分隔</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>/etc/gshadow</strong>文件用于定义用户组口令、组管理员等信息，与/etc/shadow类似，每一行记录一个组的信息，例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS home]# cat &#x2F;etc&#x2F;gshadow</span><br><span class="line"></span><br><span class="line">bin:::bin,daemon</span><br></pre></td></tr></table></figure>
+
+<p>解析：（从左到右依次）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	bin ：           #组名</span><br><span class="line">	空格 ：           #组口令占位符，用‘！！’占位</span><br><span class="line">	空格 ：           #组管理员账号</span><br><span class="line">	</span><br><span class="line">bin,daemon： #组成员，成员之间用‘,’分隔</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="添加组帐号（groupadd）"><a href="#添加组帐号（groupadd）" class="headerlink" title="添加组帐号（groupadd）"></a>添加组帐号（groupadd）</h2><p>格式：groupadd [-g GID] 组帐号名</p>
+<h2 id="添加组成员（gpasswd）"><a href="#添加组成员（gpasswd）" class="headerlink" title="添加组成员（gpasswd）"></a>添加组成员（gpasswd）</h2><p>gpasswd命令：设置帐号密码，添加删除组成员—-&gt;极少用或根本不用</p>
+<p>格式：gpasswd [选项] 用户名 组名</p>
+<p>选项：</p>
+<ol>
+<li>-a ：                 #向组内添加一个用户</li>
+<li>-d ：                 #从组内删除一个用户</li>
+<li>-M ：                #定义组成员列表，以逗号分隔</li>
+</ol>
+<h2 id="删除组帐号（groupdel）"><a href="#删除组帐号（groupdel）" class="headerlink" title="删除组帐号（groupdel）"></a>删除组帐号（groupdel）</h2><p>格式：groupdel组帐号名</p>
+<h2 id="查询帐号信息"><a href="#查询帐号信息" class="headerlink" title="查询帐号信息"></a>查询帐号信息</h2><p>id 用户名</p>
+<p>groups 用户名</p>
+<p>finger 用户名</p>
+<p>user</p>
+<p>w</p>
+<p>Who</p>
+<h2 id="文件目录的权限和归属"><a href="#文件目录的权限和归属" class="headerlink" title="文件目录的权限和归属"></a>文件目录的权限和归属</h2><h3 id="访问权限："><a href="#访问权限：" class="headerlink" title="访问权限："></a>访问权限：</h3><p>读取r：允许查看文件内容，显示目录列表</p>
+<p>写入w：允许修改文件内容，允许在目录中新建，移动，删除文件或子目录</p>
+<p>执行x：允许运行程序，切换目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS &#x2F;]# ll 1.txt</span><br><span class="line"></span><br><span class="line">-rw-r--r-- 1 root root 0 8月  31 23:57 1.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>设置文件和目录的权限（chmod）</p>
+<p>格式1：chmod [ugoa] [+-=] 文件或目录</p>
+<p>选项：</p>
+<ol>
+<li>u:user</li>
+<li>g:group</li>
+<li>o:other</li>
+<li>a:all</li>
+<li>+:添加权限</li>
+<li>-:删除权限</li>
+<li>=:直接赋权</li>
+</ol>
+<p>格式2：chmod [nnn] 文件或目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex :chmod 644 1.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="归属："><a href="#归属：" class="headerlink" title="归属："></a>归属：</h3><p>属主：拥有该文件或目录的用户账户</p>
+<p>属组：用户该文件或目录的组账户</p>
+<p>设置文件和目录的归属（chown）</p>
+<p>格式：chown 属主:属组 文件或目录</p>
+<p>chown 属主 文件或目录</p>
+<p>chown :属组 文件或目录</p>
+<p>常用选项</p>
+<p>-R: 递归修改指定目录先所有文件，子目录的归属。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/12/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E5%8F%8A%E6%9D%83%E9%99%90/" data-id="ck6j6q0gy00053cuu2t1t3gm6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-linux基本命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time datetime="2020-02-12T10:37:50.598Z" itemprop="datePublished">2020-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">linux基本命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、shell"><a href="#一、shell" class="headerlink" title="一、shell"></a>一、shell</h1><h2 id="1-shell是什么"><a href="#1-shell是什么" class="headerlink" title="1.shell是什么"></a>1.shell是什么</h2><p>​        shell是一种脚本语言，同时也是Linux系统中运行的一种特殊程序，在用户和内核之间充当“翻译官”，用来实现人机交互。</p>
+<h2 id="2-shell的工作"><a href="#2-shell的工作" class="headerlink" title="2.shell的工作"></a>2.shell的工作</h2><p>​        接收用户输入的命令–&gt;解释命令–&gt;传递给系统内核</p>
+<h2 id="3-bash是什么"><a href="#3-bash是什么" class="headerlink" title="3.bash是什么"></a>3.bash是什么</h2><p>​        bash是Linux系统中默认使用的shell程序，bash存放的位置：/bin/bash</p>
+<h2 id="4-命令分类"><a href="#4-命令分类" class="headerlink" title="4.命令分类"></a>4.命令分类</h2><p>​        Linux命令分为内部命令和外部命令，内部命令是指系统集成的命令（程序），开机自动载入内存；外部命令是指用户安装的程序，必须知道文件的位置才能使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注：Linux外部命令由环境变量PATH决定，可以通过echo $PATH来打印环境变量</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="二、通用命令行使用格式"><a href="#二、通用命令行使用格式" class="headerlink" title="二、通用命令行使用格式"></a>二、通用命令行使用格式</h1><h2 id="1-格式"><a href="#1-格式" class="headerlink" title="1.格式"></a>1.格式</h2><p>命令字 [选项]  [参数]</p>
+<p>命令字：决定命令实现的功能</p>
+<p>选项：调节命令的具体功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">选项注意事项：</span><br><span class="line">1、不同的命令字使用的选项会不同</span><br><span class="line">2、多个选项之间使用空格分隔</span><br><span class="line">3、若不使用选项，执行命令字的默认功能</span><br><span class="line">4、短格式选项：一般在选项前使用‘-’符号引导</span><br><span class="line">5、短格式默认跟的是单个字符，多个字符可以组合到一起</span><br><span class="line">6、多个单字符选项可以组合到一起使用</span><br><span class="line">7、长格式选项：一般在选项前使用‘--’符号引导</span><br><span class="line">8、长格式默认跟的是单词，多个单词之间必须使用空格和‘--’分隔</span><br></pre></td></tr></table></figure>
+
+<p>参数：指的是操作对象</p>
+<p>对象：包括文件，目录，用户</p>
+<h2 id="2-注意"><a href="#2-注意" class="headerlink" title="2.注意"></a>2.注意</h2><ol>
+<li>命令区分大小写</li>
+<li>命令区分全角\半角</li>
+<li>命令切忌使用中文符号</li>
+</ol>
+<h1 id="三、快捷键"><a href="#三、快捷键" class="headerlink" title="三、快捷键"></a>三、快捷键</h1><ol>
+<li>Tab：补全命令&amp;显示文件夹内容</li>
+<li>反斜杠‘\’：强制换行，但不中断命令</li>
+<li>Ctrl + U：快速删除光标之前的所有内容</li>
+<li>Ctrl + K：快速删除光标之后的所有内容</li>
+<li>Ctrl + A：回到行首</li>
+<li>Ctrl + L：==clear 清屏</li>
+</ol>
+<h1 id="四、帮助命令"><a href="#四、帮助命令" class="headerlink" title="四、帮助命令"></a>四、帮助命令</h1><ol>
+<li>help +命令</li>
+<li>命令 –help</li>
+<li>Man 文件（q退出）</li>
+</ol>
+<h1 id="五、输出重定向-amp-管道"><a href="#五、输出重定向-amp-管道" class="headerlink" title="五、输出重定向&amp;管道"></a>五、输出重定向&amp;管道</h1><h2 id="1-输出重定向"><a href="#1-输出重定向" class="headerlink" title="1.输出重定向"></a>1.输出重定向</h2><p>​        输出重定向使用‘&gt;’表示，将命令成功执行后的屏幕输出结果保存到大于符号后指定的文件中</p>
+<h2 id="2-管道"><a href="#2-管道" class="headerlink" title="2.管道"></a>2.管道</h2><p>​        管道用‘|’表示，用于将前面命令的屏幕输出结果作为后面命令的操作对象（输入）</p>
+<h2 id="3-追加"><a href="#3-追加" class="headerlink" title="3.追加"></a>3.追加</h2><p>​        追加用‘&gt;&gt;’表示，将大于号前面的屏幕输出追加到后面的文件末尾</p>
+<h1 id="六、显示查看常用命令"><a href="#六、显示查看常用命令" class="headerlink" title="六、显示查看常用命令"></a>六、显示查看常用命令</h1><h2 id="1-pwd命令"><a href="#1-pwd命令" class="headerlink" title="1.pwd命令"></a>1.pwd命令</h2><p>​        用于显示当前工作目录</p>
+<h2 id="2-cd命令"><a href="#2-cd命令" class="headerlink" title="2.cd命令"></a>2.cd命令</h2><p>​        用来切换目录</p>
+<ol>
+<li>​    用法：cd +目录位置(绝对路径|相对路径)</li>
+<li>​    cd ~ / cd +enter（不指定位置）：切换到当前用户的宿主目录</li>
+<li>​    cd -    ：切换到上一次执行cd命令所在目录</li>
+<li>​    绝对路径：从根目录开始</li>
+<li>​    相对路径：从当前目录开始</li>
+<li>​    ‘.’：表示当前目录</li>
+</ol>
+<h2 id="3-ls命令"><a href="#3-ls命令" class="headerlink" title="3.ls命令"></a>3.ls命令</h2><p>​        显示信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、ls -l：以长格式显示文件和目录的列表，包括权限、大小、最后更新时间等详细信息</span><br><span class="line">2、ls -a：显示隐藏目录和文件，以及‘.’,‘..’文件</span><br><span class="line">3、ls -A：只显示隐藏文件和目录</span><br><span class="line">4、ls -d：显示当前目录本身属性</span><br><span class="line">5、ls -h：显示目录或文件大小，以（KB、MB）显示，默认大小单位为B</span><br><span class="line">6、ls -R：递归显示当前目录及其子目录中的所有内容</span><br><span class="line">7、ls --color：在字符模式中以不同颜色显示不同类型文件（默认集成在ls命令中）</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-du命令（disk-use）"><a href="#4-du命令（disk-use）" class="headerlink" title="4.du命令（disk use）"></a>4.du命令（disk use）</h2><p>​        用来统计目录及文件空间占用情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、用法：du [选项] [目录或文件]</span><br><span class="line">2、Du -a :统计是包括所有文件，而不仅仅统计目录</span><br><span class="line">3、du -h：以KB、MB显示文件大小</span><br><span class="line">4、Du -s：只统计每个参数所占用空间的总大小</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5.其他"></a>5.其他</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、通配符：</span><br><span class="line">	?：匹配一个字符</span><br><span class="line">	*：匹配多个字符</span><br><span class="line">2、alias：别名		#一般为用户自己创建使用，且只在当前bash中生效</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="七、管理文件和目录常用命令"><a href="#七、管理文件和目录常用命令" class="headerlink" title="七、管理文件和目录常用命令"></a>七、管理文件和目录常用命令</h1><h2 id="1-创建文件和目录"><a href="#1-创建文件和目录" class="headerlink" title="1.创建文件和目录"></a>1.创建文件和目录</h2><p>1.mkdir（make directory） [选项] [目录位置及名称]<br>        mkdir -p         #创建包含子目录的目录（级联创建）</p>
+<p>2.touch         #创建文件/更新文件的最后更改时间</p>
+<p>3.ln            #创建链接（软连接|硬链接），为目录或文件创建链接文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">注意：</span><br><span class="line">	1、创建链接时最好使用绝对路径</span><br><span class="line">	2、软链接：（ln -s）适用于文件或目录，与原始文件可以位于不同的文件系统中（能跨越分区），删除源文件后软链接失效（同步更新）。当源文件存在时，链接文件正常使用，删除原文件后，链接文件失效</span><br><span class="line">	3、硬链接：（ln）适用于文件，与原始文件不可以位于不同的文件系统中（不能跨越分区），删除源文件后硬链接不失效（同步更新）。当源文件存在时，链接文件正常使用，删除源文件后，链接文件依然有效</span><br></pre></td></tr></table></figure>
+
+<p>4.cp（copy）        #复制文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp -r		#递归复制，用于复制文件夹</span><br><span class="line">cp -i		#当目标文件存在时，提醒用户</span><br><span class="line">cp -p		#保持文件的权限，属主，属组及时间标记等属性不变</span><br><span class="line">cp -f		#强制执行复制</span><br></pre></td></tr></table></figure>
+
+<p>5.rm（remove）    #删除文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、rm -f		#强制删除</span><br><span class="line">2、rm -i		#提醒用户</span><br><span class="line">3、rm -r		#迭代</span><br></pre></td></tr></table></figure>
+
+<p>6.mv（move）        #移动/重命名文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、mv -f		#强制执行，覆盖前不询问</span><br><span class="line">2、mv -i		#interactive，覆盖前询问</span><br><span class="line">3、mv -u		#update，只在源文件比目标文件新，或目标文件不存在时才执行</span><br><span class="line">4、mv -v		#verbose，显示移动过程</span><br></pre></td></tr></table></figure>
+
+<p>7.which</p>
+<p>​        which命令主要用来1、寻找执行程序，which查找的目录依赖于环境变量PATH中定义的路径，用法：which +命令|程序名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注意：</span><br><span class="line">	1、当which查找到第一个目标后不再继续查找</span><br><span class="line">	2、which用来查找内部命令时，将找不到对应的程序</span><br></pre></td></tr></table></figure>
+
+<p>8.find</p>
+<p>​        find命令主要用来寻找文件或文件夹，支持条件查找，用法：find  [查找范围（路径）]  [查找条件表达式]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、查找条件表达式：</span><br><span class="line">	-name :按照文件名称查找</span><br><span class="line">	-size ：按照文件大小查找</span><br><span class="line">	-user ：按照文件属主查找</span><br><span class="line">	-type ：按照文件类型查找</span><br><span class="line">2、支持逻辑表达式</span><br><span class="line">	-a：and（与）		#例：find  &#x2F;  -type  c  -a  -name  vcsa6</span><br><span class="line">	-o ：or（或）		#例：find  &#x2F;aaa  -name  \*.sh  -o  -type  f</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" data-id="ck6j6mbti0000ucuu8bnm7mhj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-交换机基本操作" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/02/11/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="article-date">
@@ -127,55 +993,6 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/02/11/hello-world/" class="article-date">
-  <time datetime="2020-02-11T11:04:45.728Z" itemprop="datePublished">2020-02-11</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/11/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/11/hello-world/" data-id="ck6htta99000024uuck27hsce" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
 </section>
@@ -207,11 +1024,23 @@
       <ul>
         
           <li>
-            <a href="/2020/02/11/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">交换机基本操作</a>
+            <a href="/2020/02/12/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">linux基本命令</a>
           </li>
         
           <li>
-            <a href="/2020/02/11/hello-world/">Hello World</a>
+            <a href="/2020/02/12/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/">进程管理及任务调度</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/">linux基本命令&amp;文件目录管理</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/">linux基本命令II</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">vim基本使用</a>
           </li>
         
       </ul>

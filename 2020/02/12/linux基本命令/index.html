@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>linux基本命令 | TSArvin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、shell1.shell是什么​        shell是一种脚本语言，同时也是Linux系统中运行的一种特殊程序，在用户和内核之间充当“翻译官”，用来实现人机交互。 2.shell的工作​        接收用户输入的命令–&gt;解释命令–&gt;传递给系统内核 3.bash是什么​        bash是Linux系统中默认使用的shell程序，bash存放的位置：&#x2F;bin&#x2F;bash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux基本命令">
+<meta property="og:url" content="http://yoursite.com/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="TSArvin">
+<meta property="og:description" content="一、shell1.shell是什么​        shell是一种脚本语言，同时也是Linux系统中运行的一种特殊程序，在用户和内核之间充当“翻译官”，用来实现人机交互。 2.shell的工作​        接收用户输入的命令–&gt;解释命令–&gt;传递给系统内核 3.bash是什么​        bash是Linux系统中默认使用的shell程序，bash存放的位置：&#x2F;bin&#x2F;bash">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-12T10:37:50.598Z">
+<meta property="article:modified_time" content="2020-02-12T10:39:58.707Z">
+<meta property="article:author" content="TSArvin">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="TSArvin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">TSArvin</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心之所向，行之所至</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-linux基本命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" class="article-date">
+  <time datetime="2020-02-12T10:37:50.598Z" itemprop="datePublished">2020-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux基本命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、shell"><a href="#一、shell" class="headerlink" title="一、shell"></a>一、shell</h1><h2 id="1-shell是什么"><a href="#1-shell是什么" class="headerlink" title="1.shell是什么"></a>1.shell是什么</h2><p>​        shell是一种脚本语言，同时也是Linux系统中运行的一种特殊程序，在用户和内核之间充当“翻译官”，用来实现人机交互。</p>
+<h2 id="2-shell的工作"><a href="#2-shell的工作" class="headerlink" title="2.shell的工作"></a>2.shell的工作</h2><p>​        接收用户输入的命令–&gt;解释命令–&gt;传递给系统内核</p>
+<h2 id="3-bash是什么"><a href="#3-bash是什么" class="headerlink" title="3.bash是什么"></a>3.bash是什么</h2><p>​        bash是Linux系统中默认使用的shell程序，bash存放的位置：/bin/bash</p>
+<h2 id="4-命令分类"><a href="#4-命令分类" class="headerlink" title="4.命令分类"></a>4.命令分类</h2><p>​        Linux命令分为内部命令和外部命令，内部命令是指系统集成的命令（程序），开机自动载入内存；外部命令是指用户安装的程序，必须知道文件的位置才能使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注：Linux外部命令由环境变量PATH决定，可以通过echo $PATH来打印环境变量</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="二、通用命令行使用格式"><a href="#二、通用命令行使用格式" class="headerlink" title="二、通用命令行使用格式"></a>二、通用命令行使用格式</h1><h2 id="1-格式"><a href="#1-格式" class="headerlink" title="1.格式"></a>1.格式</h2><p>命令字 [选项]  [参数]</p>
+<p>命令字：决定命令实现的功能</p>
+<p>选项：调节命令的具体功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">选项注意事项：</span><br><span class="line">1、不同的命令字使用的选项会不同</span><br><span class="line">2、多个选项之间使用空格分隔</span><br><span class="line">3、若不使用选项，执行命令字的默认功能</span><br><span class="line">4、短格式选项：一般在选项前使用‘-’符号引导</span><br><span class="line">5、短格式默认跟的是单个字符，多个字符可以组合到一起</span><br><span class="line">6、多个单字符选项可以组合到一起使用</span><br><span class="line">7、长格式选项：一般在选项前使用‘--’符号引导</span><br><span class="line">8、长格式默认跟的是单词，多个单词之间必须使用空格和‘--’分隔</span><br></pre></td></tr></table></figure>
+
+<p>参数：指的是操作对象</p>
+<p>对象：包括文件，目录，用户</p>
+<h2 id="2-注意"><a href="#2-注意" class="headerlink" title="2.注意"></a>2.注意</h2><ol>
+<li>命令区分大小写</li>
+<li>命令区分全角\半角</li>
+<li>命令切忌使用中文符号</li>
+</ol>
+<h1 id="三、快捷键"><a href="#三、快捷键" class="headerlink" title="三、快捷键"></a>三、快捷键</h1><ol>
+<li>Tab：补全命令&amp;显示文件夹内容</li>
+<li>反斜杠‘\’：强制换行，但不中断命令</li>
+<li>Ctrl + U：快速删除光标之前的所有内容</li>
+<li>Ctrl + K：快速删除光标之后的所有内容</li>
+<li>Ctrl + A：回到行首</li>
+<li>Ctrl + L：==clear 清屏</li>
+</ol>
+<h1 id="四、帮助命令"><a href="#四、帮助命令" class="headerlink" title="四、帮助命令"></a>四、帮助命令</h1><ol>
+<li>help +命令</li>
+<li>命令 –help</li>
+<li>Man 文件（q退出）</li>
+</ol>
+<h1 id="五、输出重定向-amp-管道"><a href="#五、输出重定向-amp-管道" class="headerlink" title="五、输出重定向&amp;管道"></a>五、输出重定向&amp;管道</h1><h2 id="1-输出重定向"><a href="#1-输出重定向" class="headerlink" title="1.输出重定向"></a>1.输出重定向</h2><p>​        输出重定向使用‘&gt;’表示，将命令成功执行后的屏幕输出结果保存到大于符号后指定的文件中</p>
+<h2 id="2-管道"><a href="#2-管道" class="headerlink" title="2.管道"></a>2.管道</h2><p>​        管道用‘|’表示，用于将前面命令的屏幕输出结果作为后面命令的操作对象（输入）</p>
+<h2 id="3-追加"><a href="#3-追加" class="headerlink" title="3.追加"></a>3.追加</h2><p>​        追加用‘&gt;&gt;’表示，将大于号前面的屏幕输出追加到后面的文件末尾</p>
+<h1 id="六、显示查看常用命令"><a href="#六、显示查看常用命令" class="headerlink" title="六、显示查看常用命令"></a>六、显示查看常用命令</h1><h2 id="1-pwd命令"><a href="#1-pwd命令" class="headerlink" title="1.pwd命令"></a>1.pwd命令</h2><p>​        用于显示当前工作目录</p>
+<h2 id="2-cd命令"><a href="#2-cd命令" class="headerlink" title="2.cd命令"></a>2.cd命令</h2><p>​        用来切换目录</p>
+<ol>
+<li>​    用法：cd +目录位置(绝对路径|相对路径)</li>
+<li>​    cd ~ / cd +enter（不指定位置）：切换到当前用户的宿主目录</li>
+<li>​    cd -    ：切换到上一次执行cd命令所在目录</li>
+<li>​    绝对路径：从根目录开始</li>
+<li>​    相对路径：从当前目录开始</li>
+<li>​    ‘.’：表示当前目录</li>
+</ol>
+<h2 id="3-ls命令"><a href="#3-ls命令" class="headerlink" title="3.ls命令"></a>3.ls命令</h2><p>​        显示信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、ls -l：以长格式显示文件和目录的列表，包括权限、大小、最后更新时间等详细信息</span><br><span class="line">2、ls -a：显示隐藏目录和文件，以及‘.’,‘..’文件</span><br><span class="line">3、ls -A：只显示隐藏文件和目录</span><br><span class="line">4、ls -d：显示当前目录本身属性</span><br><span class="line">5、ls -h：显示目录或文件大小，以（KB、MB）显示，默认大小单位为B</span><br><span class="line">6、ls -R：递归显示当前目录及其子目录中的所有内容</span><br><span class="line">7、ls --color：在字符模式中以不同颜色显示不同类型文件（默认集成在ls命令中）</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-du命令（disk-use）"><a href="#4-du命令（disk-use）" class="headerlink" title="4.du命令（disk use）"></a>4.du命令（disk use）</h2><p>​        用来统计目录及文件空间占用情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、用法：du [选项] [目录或文件]</span><br><span class="line">2、Du -a :统计是包括所有文件，而不仅仅统计目录</span><br><span class="line">3、du -h：以KB、MB显示文件大小</span><br><span class="line">4、Du -s：只统计每个参数所占用空间的总大小</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5.其他"></a>5.其他</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、通配符：</span><br><span class="line">	?：匹配一个字符</span><br><span class="line">	*：匹配多个字符</span><br><span class="line">2、alias：别名		#一般为用户自己创建使用，且只在当前bash中生效</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="七、管理文件和目录常用命令"><a href="#七、管理文件和目录常用命令" class="headerlink" title="七、管理文件和目录常用命令"></a>七、管理文件和目录常用命令</h1><h2 id="1-创建文件和目录"><a href="#1-创建文件和目录" class="headerlink" title="1.创建文件和目录"></a>1.创建文件和目录</h2><p>1.mkdir（make directory） [选项] [目录位置及名称]<br>        mkdir -p         #创建包含子目录的目录（级联创建）</p>
+<p>2.touch         #创建文件/更新文件的最后更改时间</p>
+<p>3.ln            #创建链接（软连接|硬链接），为目录或文件创建链接文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">注意：</span><br><span class="line">	1、创建链接时最好使用绝对路径</span><br><span class="line">	2、软链接：（ln -s）适用于文件或目录，与原始文件可以位于不同的文件系统中（能跨越分区），删除源文件后软链接失效（同步更新）。当源文件存在时，链接文件正常使用，删除原文件后，链接文件失效</span><br><span class="line">	3、硬链接：（ln）适用于文件，与原始文件不可以位于不同的文件系统中（不能跨越分区），删除源文件后硬链接不失效（同步更新）。当源文件存在时，链接文件正常使用，删除源文件后，链接文件依然有效</span><br></pre></td></tr></table></figure>
+
+<p>4.cp（copy）        #复制文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp -r		#递归复制，用于复制文件夹</span><br><span class="line">cp -i		#当目标文件存在时，提醒用户</span><br><span class="line">cp -p		#保持文件的权限，属主，属组及时间标记等属性不变</span><br><span class="line">cp -f		#强制执行复制</span><br></pre></td></tr></table></figure>
+
+<p>5.rm（remove）    #删除文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、rm -f		#强制删除</span><br><span class="line">2、rm -i		#提醒用户</span><br><span class="line">3、rm -r		#迭代</span><br></pre></td></tr></table></figure>
+
+<p>6.mv（move）        #移动/重命名文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、mv -f		#强制执行，覆盖前不询问</span><br><span class="line">2、mv -i		#interactive，覆盖前询问</span><br><span class="line">3、mv -u		#update，只在源文件比目标文件新，或目标文件不存在时才执行</span><br><span class="line">4、mv -v		#verbose，显示移动过程</span><br></pre></td></tr></table></figure>
+
+<p>7.which</p>
+<p>​        which命令主要用来1、寻找执行程序，which查找的目录依赖于环境变量PATH中定义的路径，用法：which +命令|程序名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注意：</span><br><span class="line">	1、当which查找到第一个目标后不再继续查找</span><br><span class="line">	2、which用来查找内部命令时，将找不到对应的程序</span><br></pre></td></tr></table></figure>
+
+<p>8.find</p>
+<p>​        find命令主要用来寻找文件或文件夹，支持条件查找，用法：find  [查找范围（路径）]  [查找条件表达式]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、查找条件表达式：</span><br><span class="line">	-name :按照文件名称查找</span><br><span class="line">	-size ：按照文件大小查找</span><br><span class="line">	-user ：按照文件属主查找</span><br><span class="line">	-type ：按照文件类型查找</span><br><span class="line">2、支持逻辑表达式</span><br><span class="line">	-a：and（与）		#例：find  &#x2F;  -type  c  -a  -name  vcsa6</span><br><span class="line">	-o ：or（或）		#例：find  &#x2F;aaa  -name  \*.sh  -o  -type  f</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/" data-id="ck6j6mbti0000ucuu8bnm7mhj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/02/12/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E5%8F%8A%E6%9D%83%E9%99%90/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          用户管理及权限
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/11/%E4%BA%A4%E6%8D%A2%E6%9C%BA%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">交换机基本操作</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/12/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">linux基本命令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/">进程管理及任务调度</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/">linux基本命令&amp;文件目录管理</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/">linux基本命令II</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">vim基本使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 TSArvin<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

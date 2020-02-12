@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>linux基本命令&amp;文件目录管理 | TSArvin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、安装完操作系统后必要的两个操作1.关闭防火墙123456789CentOS6：service iptables stop		#关闭防火墙service iptables status		#查看防火墙状态chkconfig iptables off		#禁止防火墙开机自启chkconfig iptables --list	#查看iptables在各个模式下的状态CentOS7：systemlct">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux基本命令&amp;文件目录管理">
+<meta property="og:url" content="http://yoursite.com/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/index.html">
+<meta property="og:site_name" content="TSArvin">
+<meta property="og:description" content="一、安装完操作系统后必要的两个操作1.关闭防火墙123456789CentOS6：service iptables stop		#关闭防火墙service iptables status		#查看防火墙状态chkconfig iptables off		#禁止防火墙开机自启chkconfig iptables --list	#查看iptables在各个模式下的状态CentOS7：systemlct">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-12T10:40:55.010Z">
+<meta property="article:modified_time" content="2020-02-12T10:41:03.685Z">
+<meta property="article:author" content="TSArvin">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="TSArvin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">TSArvin</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心之所向，行之所至</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-linux基本命令&amp;文件目录管理" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/" class="article-date">
+  <time datetime="2020-02-12T10:40:55.010Z" itemprop="datePublished">2020-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux基本命令&amp;文件目录管理
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、安装完操作系统后必要的两个操作"><a href="#一、安装完操作系统后必要的两个操作" class="headerlink" title="一、安装完操作系统后必要的两个操作"></a>一、安装完操作系统后必要的两个操作</h1><h2 id="1-关闭防火墙"><a href="#1-关闭防火墙" class="headerlink" title="1.关闭防火墙"></a>1.关闭防火墙</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CentOS6：</span><br><span class="line">service iptables stop		#关闭防火墙</span><br><span class="line">service iptables status		#查看防火墙状态</span><br><span class="line"></span><br><span class="line">chkconfig iptables off		#禁止防火墙开机自启</span><br><span class="line">chkconfig iptables --list	#查看iptables在各个模式下的状态</span><br><span class="line"></span><br><span class="line">CentOS7：</span><br><span class="line">systemlctl stop firewalld	#关闭防火墙</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-关闭selinux"><a href="#2-关闭selinux" class="headerlink" title="2.关闭selinux"></a>2.关闭selinux</h2><h3 id="2-1永久关闭"><a href="#2-1永久关闭" class="headerlink" title="2.1永久关闭"></a>2.1永久关闭</h3><p>​        编辑/etc/sysconfig/selinux文件，将SELINUX=enforcing改为disabled，重启生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#39;s&#x2F;enforcing&#x2F;disabled&#x2F;&#39; &#x2F;etc&#x2F;sysconfig&#x2F;selinux</span><br></pre></td></tr></table></figure>
+
+<p>​        重启之后可以通过/usr/sbin/sestatus -v查看selinux状态，如果输出disabled则表示关闭，修改成功</p>
+<h3 id="2-2临时关闭"><a href="#2-2临时关闭" class="headerlink" title="2.2临时关闭"></a>2.2临时关闭</h3><p>​        注：临时关闭selinux重启服务器后失效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0	#设置selinux为permissive模式</span><br><span class="line">setenforce 1	#设置selinux为enforcing模式</span><br><span class="line"></span><br><span class="line">getenforce		#查看selinux状态</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、Linux开机过程"><a href="#二、Linux开机过程" class="headerlink" title="二、Linux开机过程"></a>二、Linux开机过程</h1><p>​        BIOS–&gt;MBR–&gt;GRUB–&gt;kernel–&gt;init–&gt;startup        </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BIOS：硬件检测阶段</span><br><span class="line">MBR：主引导记录</span><br><span class="line">GRUB：引导装载程序</span><br><span class="line">Kernel：加载内核</span><br><span class="line">Init：启动初始进程</span><br><span class="line">Startup：启动</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="三、初始化进程init"><a href="#三、初始化进程init" class="headerlink" title="三、初始化进程init"></a>三、初始化进程init</h1><h2 id="1-查看init进程"><a href="#1-查看init进程" class="headerlink" title="1.查看init进程"></a>1.查看init进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;etc&#x2F;inittab		#查看init进程</span><br><span class="line">其中：0：挂起状态（关机）；1：单用户模式；2：多用户模式（没有network）；3：多用户模式（network）；4：未被定义使用；5：桌面模式；6：重启</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-模式切换"><a href="#2-模式切换" class="headerlink" title="2.模式切换"></a>2.模式切换</h2><p>语法：init +模式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">init 3		#切换到字符模式</span><br><span class="line">init 5		#切换到桌面模式(startx)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="四、系统服务控制"><a href="#四、系统服务控制" class="headerlink" title="四、系统服务控制"></a>四、系统服务控制</h1><h2 id="1-service命令"><a href="#1-service命令" class="headerlink" title="1.service命令"></a>1.service命令</h2><p>service命令用来对一个服务进行开启关闭操作，以及查看服务状态。</p>
+<p>格式：service service_name service_status</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">注意：#service_name必须是 &#x2F;etc&#x2F;init.d 中存在的服务</span><br><span class="line">	 #service_status有五种，start|stop|restart|reload|status</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-runlevel命令"><a href="#2-runlevel命令" class="headerlink" title="2.runlevel命令"></a>2.runlevel命令</h2><p>runlevel命令用来查看运行级别，例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop &#x2F;]# runlevel</span><br><span class="line">3	5		#其中3表示开机后上一次运行级别，5表示当前运行级别</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-chkconfig命令"><a href="#3-chkconfig命令" class="headerlink" title="3.chkconfig命令"></a>3.chkconfig命令</h2><p>chkconfig命令用来查看开机运行的程序，可以控制多个runlevel</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">注意：chkconfig命令只针对2,3,4,5(runlevel)</span><br><span class="line">chkconfig service_name on|off		#设置服务开机自启或不自启</span><br><span class="line">chkconfig service_name --list		#查看服务在各个runlevel下的自启情况</span><br><span class="line">chkconfig --runlevel X service_name on|off		#针对某个runlevel进行服务开机自启控制</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="五、terminal下输出表示的含义"><a href="#五、terminal下输出表示的含义" class="headerlink" title="五、terminal下输出表示的含义"></a>五、terminal下输出表示的含义</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# </span><br><span class="line">root：表示当前用户</span><br><span class="line">desktop：表示主机名</span><br><span class="line">~：表示当前用户的home目录（默认情况下，除root用户外，其他用户只对home目录有完整的权限）</span><br><span class="line">#：表示当前用户为管理员用户</span><br><span class="line">$：表示当前用户为一般用户</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="六、Linux文件系统"><a href="#六、Linux文件系统" class="headerlink" title="六、Linux文件系统"></a>六、Linux文件系统</h1><p>Linux文件机构为树形结构，常见目录代表的含义如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1、&#x2F;：根目录，是所有分区，目录结构的起点</span><br><span class="line">2、&#x2F;boot：存放系统内核和启动文件的目录，安装时建议单独为&#x2F;boot目录划分一个分区，便于维护和备份</span><br><span class="line">3、&#x2F;bin：用来存放所有用户都可执行的且常用的命令。</span><br><span class="line">4、&#x2F;sbin:存放基本的管理命令，但一般只有管理员才能使用</span><br><span class="line">5、&#x2F;etc:保存有关系统设置与管理的文件。</span><br><span class="line">6、&#x2F;usr:用户应用程序存放的目录，类似于windows下的Program Files</span><br><span class="line">7、&#x2F;var:存放经常变换的文件，例如日志文件，建议var独立分区。</span><br><span class="line">8、&#x2F;home:除超级用户以外的用户的宿主目录都建立在该目录下。</span><br><span class="line">9、&#x2F;root:root用户的宿主文件夹</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="七、查看系统的简单命令"><a href="#七、查看系统的简单命令" class="headerlink" title="七、查看系统的简单命令"></a>七、查看系统的简单命令</h1><h2 id="1-exit命令"><a href="#1-exit命令" class="headerlink" title="1.exit命令"></a>1.exit命令</h2><p>​    exit命令用于退出当前命令的操作环境</p>
+<h2 id="2-uname命令"><a href="#2-uname命令" class="headerlink" title="2.uname命令"></a>2.uname命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uname -r		#显示内核版本</span><br><span class="line">uname -a		#显示主机名、内核版本、硬件平台等详细信息</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-cat命令"><a href="#3-cat命令" class="headerlink" title="3.cat命令"></a>3.cat命令</h2><p>cat命令用于查看文件内容，经常和grep命令连用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">常见查看系统信息命令：</span><br><span class="line">cat &#x2F;proc&#x2F;cpuinfo		#查看CPU信息</span><br><span class="line">cat &#x2F;proc&#x2F;meminfo		#查看内存及swap信息</span><br><span class="line">cat &#x2F;proc&#x2F;swaps			#查看swap信息</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-ifconfig命令"><a href="#4-ifconfig命令" class="headerlink" title="4.ifconfig命令"></a>4.ifconfig命令</h2><p>ifconfig命令用来查看网卡信息，如果命令找不到，则可直接运行yum -y install net-tools即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig		#查看当前所有网卡信息</span><br><span class="line">ifconfig 网卡名		#查看具体某张网卡信息，其中RX、TX分别表示收包和发包</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-hostname命令"><a href="#5-hostname命令" class="headerlink" title="5.hostname命令"></a>5.hostname命令</h2><p>hostname命令用来查看主机名或更改主机名（更改重启后生效）</p>
+<h2 id="6-su命令"><a href="#6-su命令" class="headerlink" title="6.su命令"></a>6.su命令</h2><p>su命令用来切换用户，需要注意的是：普通用户切换到root用户需要验证密码，而root用户切换到普通用户不需要验证密码。</p>
+<h2 id="7-关机和重启"><a href="#7-关机和重启" class="headerlink" title="7.关机和重启"></a>7.关机和重启</h2><p>a.shutdown命令</p>
+<p>用来关机或重启。shutdown -r/-h（reboot/halt） +分钟数 +描述[可选]</p>
+<p>b.取消shutdown</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.使用快捷键Ctrl+C自主取消</span><br><span class="line">2.shutdown -c	#超级用户在其他bash中取消</span><br></pre></td></tr></table></figure>
+
+<p>c.关机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.init 0</span><br><span class="line">2.shutdown</span><br><span class="line">3.shutdown -h now		#立即关机</span><br></pre></td></tr></table></figure>
+
+<p>d.重启</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.reboot</span><br><span class="line">2.init 6</span><br><span class="line">3.shutdown -r now		#立即重启</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="八、Linux分区管理"><a href="#八、Linux分区管理" class="headerlink" title="八、Linux分区管理"></a>八、Linux分区管理</h1><h2 id="1-linux中万物皆文件"><a href="#1-linux中万物皆文件" class="headerlink" title="1.linux中万物皆文件"></a>1.linux中万物皆文件</h2><h2 id="2-dev-sda5含义：代表一个硬盘分区"><a href="#2-dev-sda5含义：代表一个硬盘分区" class="headerlink" title="2./dev/sda5含义：代表一个硬盘分区"></a>2./dev/sda5含义：代表一个硬盘分区</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1、sd：sici格式</span><br><span class="line">2、a：第一块磁盘</span><br><span class="line">3、5：第一块逻辑分区</span><br><span class="line">4、分区分为主分区和逻辑分区，主分区最多不超过四块（可标记为活动分区用来安装操作系统）</span><br><span class="line">	sda1,sda2,sda3(主分区)</span><br><span class="line">	sda4(逻辑分区)，第一块逻辑分区为sda5,往后加1，以此类推</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-分区必须挂载到一个目录上"><a href="#3-分区必须挂载到一个目录上" class="headerlink" title="3.分区必须挂载到一个目录上"></a>3.分区必须挂载到一个目录上</h2><h2 id="4-linux文件系统类型"><a href="#4-linux文件系统类型" class="headerlink" title="4.linux文件系统类型"></a>4.linux文件系统类型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ext3</span><br><span class="line">ext4</span><br><span class="line">swap：Linux分区的一种类型，一般为内存的两倍，当内存超过2G或4G时可不需要swap分区</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-fat32"><a href="#5-fat32" class="headerlink" title="5.fat32"></a>5.fat32</h2><p>​    速度慢，不支持单个文件大于4G</p>
+<h2 id="6-NTFS"><a href="#6-NTFS" class="headerlink" title="6.NTFS"></a>6.NTFS</h2><p>​    速度快，支持索引，支持压缩，支持加密，支持大文件</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/" data-id="ck6j6opfx00003cuu44cochv2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/02/12/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          进程管理及任务调度
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">linux基本命令II</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/12/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">linux基本命令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/">进程管理及任务调度</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/">linux基本命令&amp;文件目录管理</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/">linux基本命令II</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">vim基本使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 TSArvin<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>vim基本使用 | TSArvin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1、什么是vi编辑器一、什么是vi编辑器Vi编辑器用来创建或修改文本文件，是Linux系统中的各种配置文件的主要修改工具 Vim：是vi编辑器的增强版本，有颜色区分 二、vi编辑器的三种工作模式1、命令模式 2、输入模式 3、末行模式 三种工作模式之间的关系： 命令模式——键入（a\i\o）——输入模式——键入（esc）——命令模式 命令模式——键入（:）——末行模式——键入（esc）——命令模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim基本使用">
+<meta property="og:url" content="http://yoursite.com/2020/02/12/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="TSArvin">
+<meta property="og:description" content="1、什么是vi编辑器一、什么是vi编辑器Vi编辑器用来创建或修改文本文件，是Linux系统中的各种配置文件的主要修改工具 Vim：是vi编辑器的增强版本，有颜色区分 二、vi编辑器的三种工作模式1、命令模式 2、输入模式 3、末行模式 三种工作模式之间的关系： 命令模式——键入（a\i\o）——输入模式——键入（esc）——命令模式 命令模式——键入（:）——末行模式——键入（esc）——命令模式">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-12T10:40:55.010Z">
+<meta property="article:modified_time" content="2020-02-12T10:41:25.560Z">
+<meta property="article:author" content="TSArvin">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="TSArvin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">TSArvin</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心之所向，行之所至</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vim基本使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/12/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" class="article-date">
+  <time datetime="2020-02-12T10:40:55.010Z" itemprop="datePublished">2020-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vim基本使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1、什么是vi编辑器"><a href="#1、什么是vi编辑器" class="headerlink" title="1、什么是vi编辑器"></a>1、什么是vi编辑器</h2><h1 id="一、什么是vi编辑器"><a href="#一、什么是vi编辑器" class="headerlink" title="一、什么是vi编辑器"></a>一、什么是vi编辑器</h1><p>Vi编辑器用来创建或修改文本文件，是Linux系统中的各种配置文件的主要修改工具</p>
+<p>Vim：是vi编辑器的增强版本，有颜色区分</p>
+<h1 id="二、vi编辑器的三种工作模式"><a href="#二、vi编辑器的三种工作模式" class="headerlink" title="二、vi编辑器的三种工作模式"></a>二、vi编辑器的三种工作模式</h1><p>1、命令模式</p>
+<p>2、输入模式</p>
+<p>3、末行模式</p>
+<p>三种工作模式之间的关系：</p>
+<p>命令模式——键入（a\i\o）——输入模式——键入（esc）——命令模式</p>
+<p>命令模式——键入（:）——末行模式——键入（esc）——命令模式</p>
+<h1 id="三、命令模式下的操作"><a href="#三、命令模式下的操作" class="headerlink" title="三、命令模式下的操作"></a>三、命令模式下的操作</h1><h2 id="1、光标移动"><a href="#1、光标移动" class="headerlink" title="1、光标移动"></a>1、光标移动</h2><p>上下左右</p>
+<h2 id="2、翻页"><a href="#2、翻页" class="headerlink" title="2、翻页"></a>2、翻页</h2><p>上一页：PgUp/Ctrl + b</p>
+<p>下一页：PgDn/Ctrl + f</p>
+<h2 id="3、行内快速跳转"><a href="#3、行内快速跳转" class="headerlink" title="3、行内快速跳转"></a>3、行内快速跳转</h2><p>跳转至行首：Home / “^” /”0”（零）</p>
+<p>跳转至行末：End / “$”</p>
+<h2 id="4、行间快速跳转"><a href="#4、行间快速跳转" class="headerlink" title="4、行间快速跳转"></a>4、行间快速跳转</h2><p>1G / gg：回到行首</p>
+<p>G：转至最后一行</p>
+<p>#G：跳转到文件中的第#行</p>
+<h2 id="5、行号显示"><a href="#5、行号显示" class="headerlink" title="5、行号显示"></a>5、行号显示</h2><p>:set nu               #显示行号                                       </p>
+<p>:set nonu         #取消行号显示       </p>
+<h2 id="6、删除"><a href="#6、删除" class="headerlink" title="6、删除"></a>6、删除</h2><p>X或del ：删除光标所在的单个字符</p>
+<p>dd ：删除光标所在行</p>
+<p>#dd ：删除从光标开始的#行</p>
+<p>d^ ：删除从光标开始到行首的所有内容（不包括光标所在字符）</p>
+<p>d$ ：删除从光标开始到行末的所有内容（不包括光标所在字符）</p>
+<h2 id="7、复制"><a href="#7、复制" class="headerlink" title="7、复制"></a>7、复制</h2><p>yy ：复制整行内容</p>
+<p>#yy ：复制从光标开始的#行</p>
+<h2 id="8、粘贴"><a href="#8、粘贴" class="headerlink" title="8、粘贴"></a>8、粘贴</h2><p>P(大写) ：粘贴内容到光标之前</p>
+<p>p(小写) ：粘贴内容到光标之后</p>
+<h2 id="9、内容查找"><a href="#9、内容查找" class="headerlink" title="9、内容查找"></a>9、内容查找</h2><p>/word ：从上到下查找字符（串）word</p>
+<p>?word ：从下到上查找字符（串）word</p>
+<p>n ：下一个</p>
+<p>N ：上一个</p>
+<h2 id="10、撤销编辑"><a href="#10、撤销编辑" class="headerlink" title="10、撤销编辑"></a>10、撤销编辑</h2><p>u ：按一次取消最近一次的操作，多次重复按u键，回复已经进行多次的操作</p>
+<p>U ：用于取消当前行所有的编辑</p>
+<p>ZZ ：保存当前文件内容并退出vi编辑器</p>
+<h1 id="四、末行模式下的操作"><a href="#四、末行模式下的操作" class="headerlink" title="四、末行模式下的操作"></a>四、末行模式下的操作</h1><h3 id="1、保存及退出"><a href="#1、保存及退出" class="headerlink" title="1、保存及退出"></a>1、保存及退出</h3><p>​         保存文件：</p>
+<p>​                   :w                      #保存修改的内容</p>
+<p>​                   :w /a.txt            #另存为</p>
+<p>​         退出：</p>
+<p>​                   :q                        #未修改退出</p>
+<p>​                   :q!                     #放弃对文件的修改，并退出</p>
+<h3 id="2、保存退出"><a href="#2、保存退出" class="headerlink" title="2、保存退出"></a>2、保存退出</h3><p>​         :wq            #保存并退出</p>
+<p>​         </p>
+<h3 id="3、打开新文件或读入其他文件内容"><a href="#3、打开新文件或读入其他文件内容" class="headerlink" title="3、打开新文件或读入其他文件内容"></a>3、打开新文件或读入其他文件内容</h3><p>​         :e 文件   #读入该文件内容</p>
+<p>​         :r 文件    #在当前文件中光标所在行后读入其他文件的内容</p>
+<h3 id="4、文件内容的替换"><a href="#4、文件内容的替换" class="headerlink" title="4、文件内容的替换"></a>4、文件内容的替换</h3><p>​         1、:s /old/new                 #在当前行中用new替换第一个old</p>
+<p>​         2、:s /old/new/g              #替换当前行中所有的old为new</p>
+<p>​         3、:#1,#2 s /old/new/g   #在行号#1到#2中，替换所有的old为new</p>
+<p>​         4、:%s /old/new/g           #在整个文件范围内替换old为new</p>
+<p>​         5、:s /old/new/c               #每个替换动作都会提醒用户确认</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/12/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/" data-id="ck6j6p6b900023cuucza84cd0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          linux基本命令II
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/12/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E5%8F%8A%E6%9D%83%E9%99%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">用户管理及权限</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/12/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">linux基本命令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/">进程管理及任务调度</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/">linux基本命令&amp;文件目录管理</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/">linux基本命令II</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">vim基本使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 TSArvin<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

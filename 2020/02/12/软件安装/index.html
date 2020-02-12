@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>linux基本命令 | TSArvin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="软件的封包1、windows&amp;linux平台windows下的安装文件类型：msi,exe,bat ​        linux 下常见封包： ​                   rpm封包 ——.rpm ​                   deb封包——.deb (ubuntu) ​                   源代码软件包——一般为’tar.gz’&#x2F;’tar.bz2’等">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux基本命令">
+<meta property="og:url" content="http://yoursite.com/2020/02/12/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/index.html">
+<meta property="og:site_name" content="TSArvin">
+<meta property="og:description" content="软件的封包1、windows&amp;linux平台windows下的安装文件类型：msi,exe,bat ​        linux 下常见封包： ​                   rpm封包 ——.rpm ​                   deb封包——.deb (ubuntu) ​                   源代码软件包——一般为’tar.gz’&#x2F;’tar.bz2’等">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C2.png">
+<meta property="og:image" content="c:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C1.png">
+<meta property="og:image" content="c:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C3.png">
+<meta property="og:image" content="c:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C4.png">
+<meta property="og:image" content="c:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C5.png">
+<meta property="og:image" content="c:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C6.png">
+<meta property="og:image" content="c:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C7.png">
+<meta property="og:image" content="c:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C8.png">
+<meta property="og:image" content="c:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C9.png">
+<meta property="og:image" content="c:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C10.png">
+<meta property="og:image" content="c:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C11.png">
+<meta property="article:published_time" content="2020-02-12T10:40:55.101Z">
+<meta property="article:modified_time" content="2020-02-12T10:41:51.207Z">
+<meta property="article:author" content="TSArvin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C2.png">
+  
+    <link rel="alternate" href="/atom.xml" title="TSArvin" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">TSArvin</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">心之所向，行之所至</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-软件安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/12/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" class="article-date">
+  <time datetime="2020-02-12T10:40:55.101Z" itemprop="datePublished">2020-02-12</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      linux基本命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="软件的封包"><a href="#软件的封包" class="headerlink" title="软件的封包"></a>软件的封包</h1><h2 id="1、windows-amp-linux平台"><a href="#1、windows-amp-linux平台" class="headerlink" title="1、windows&amp;linux平台"></a>1、windows&amp;linux平台</h2><p>windows下的安装文件类型：msi,exe,bat</p>
+<p>​        linux 下常见封包：</p>
+<p>​                   rpm封包 ——.rpm</p>
+<p>​                   deb封包——.deb (ubuntu)</p>
+<p>​                   源代码软件包——一般为’tar.gz’/’tar.bz2’等格式，包含程序的原始代码</p>
+<p>​                   附带安装程序的软件包——在压缩文件内提供shell.sh，setup等安装程序，或以’bin’格式的单个执行文件</p>
+<p>​                   绿色免安装软件包——在压缩包内部提供已经编译好的程序文件，揭开压缩后即可直接使用</p>
+<h2 id="2、rpm命令"><a href="#2、rpm命令" class="headerlink" title="2、rpm命令"></a>2、rpm命令</h2><h3 id="1、rpm"><a href="#1、rpm" class="headerlink" title="1、rpm"></a>1、rpm</h3><p>rpm由Redhat公司提出，被大多数Linux发行版采用，rpm建立统一的数据库文件，详细记录软件的安装、卸载等变化信息，能够自动分析软件包的依赖关系，但是不能解决（缺点）。</p>
+<h3 id="2、rpm包名解析"><a href="#2、rpm包名解析" class="headerlink" title="2、rpm包名解析"></a>2、rpm包名解析</h3><p>ruby-1.8.7.352-13.el6.x86_64.rpm</p>
+<p>​         –ruby：软件名称</p>
+<p>​         –1.8.7.352-13.el6：版本号</p>
+<p>​         – x86_64：应用平台</p>
+<p>​         应用平台发展：i386-&gt;i586-&gt;i686-&gt;norach(不区分硬件平台)</p>
+<h3 id="3、rpm查询已经安装的rpm软件信息"><a href="#3、rpm查询已经安装的rpm软件信息" class="headerlink" title="3、rpm查询已经安装的rpm软件信息"></a>3、rpm查询已经安装的rpm软件信息</h3><p>格式：rpm –q[子选项] [软件名]</p>
+<p>用法：</p>
+<p>​         1、-qa ：all查看所有已经安装的rpm软件列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm –qa python</span><br></pre></td></tr></table></figure>
+
+<p>​          2、-qi ：information查看指定软件的详细信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm -qi python</span><br></pre></td></tr></table></figure>
+
+<p>​          3、-qc ：configuration仅显示指定软件包安装的配置文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm –qc httpd</span><br></pre></td></tr></table></figure>
+
+<p>​           4、-qd ：document仅显示指定软件包安装的文档文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm –qd httpd</span><br></pre></td></tr></table></figure>
+
+<p>​           5、-qf ：from查询应用是由哪个软件包安装的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm –qf &#x2F;usr&#x2F;bin&#x2F;vim</span><br></pre></td></tr></table></figure>
+
+<p>​           </p>
+<h3 id="4、查询未安装的rpm包"><a href="#4、查询未安装的rpm包" class="headerlink" title="4、查询未安装的rpm包"></a>4、查询未安装的rpm包</h3><p>格式：rpm –qp[子选项] [rpm包]</p>
+<p>用法：</p>
+<p>​        1、-qpi ：通过rpm包文件查看该软件的详细信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm -qpi webmin-1.690-1.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<p>​        2、-qpl ：查看软件包内所包含的目录和文件列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex： rpm -qpl webmin-1.690-1.noarch.rpm</span><br></pre></td></tr></table></figure>
+
+<p>​           </p>
+<h3 id="5、安装升级rpm软件"><a href="#5、安装升级rpm软件" class="headerlink" title="5、安装升级rpm软件"></a>5、安装升级rpm软件</h3><p>格式：rpm [选项] rpm包文件</p>
+<p>用法：</p>
+<p>​        -i ：install 安装一个新的rpm包</p>
+<p>​        -U ：update 升级某个rpm软件包，若原本未安装，则进行安装</p>
+<p>​        -F ：更新某个rpm软件，若原本未安装，则放弃安装</p>
+<p>​        –force ：强制安装所指定的软件包</p>
+<p>​        –nodeps ：忽略软件的依赖关系（不推荐）</p>
+<p>​        -h ：以‘#’显示安装进度</p>
+<p>​        -v ：显示安装过程中的详细信息</p>
+<h3 id="6、rpm-安装"><a href="#6、rpm-安装" class="headerlink" title="6、rpm 安装"></a>6、rpm 安装</h3><p>语法：rpm -ivh 软件包</p>
+<p>ex：rpm -ivh webmin-1.690-1.noarch.rpm              #rpm安装webmin程序（桌面版）<img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C2.png" alt="">     </p>
+<p>检验是否安装成功——网页访问         192.168.8.44:10000<img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C1.png" alt="">          </p>
+<p>ex：rpm -ivh webmin-1.690-1.noarch.rpm              #rpm安装webmin程序（最小化版）<img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C3.png" alt=""></p>
+<p>在最小化系统中安装webmin会遇到依赖关系的问题，解决办法：先将webmin依赖的软件安装好（perl），再安装webmin</p>
+<p>(1)       进入/usr/bin安装依赖软件<img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C4.png" alt=""></p>
+<p>(2)       rpm安装webmin<img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C5.png" alt=""> </p>
+<h3 id="7、rpm卸载"><a href="#7、rpm卸载" class="headerlink" title="7、rpm卸载"></a>7、rpm卸载</h3><p>语法：rpm -e 程序名</p>
+<p>ex：rpm -e webmin                   #卸载webmin程序    <img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C6.png" alt=""></p>
+<p>再次查看是否卸载成功：rpm -qa webmin</p>
+<p> <img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C7.png" alt="">      </p>
+<h3 id="8、维护rpm数据库信息–重建rpm数据库"><a href="#8、维护rpm数据库信息–重建rpm数据库" class="headerlink" title="8、维护rpm数据库信息–重建rpm数据库"></a>8、维护rpm数据库信息–重建rpm数据库</h3><p>rpm –rebuilddb</p>
+<p>rpm –initdb</p>
+<h3 id="9、解决软件包的依赖关系"><a href="#9、解决软件包的依赖关系" class="headerlink" title="9、解决软件包的依赖关系"></a>9、解决软件包的依赖关系</h3><p>1、安装有依赖关系的多个软件时，被依赖的软件必须最先安装，可同时指定多个rpm包进行安装</p>
+<p>2、卸载依赖关系的多个软件包时，依赖其他程序的软件包必须最先卸载，可同时指定多个rpm包进行卸载</p>
+<p>3、忽略依赖关系：–nodeps，不推荐，可能造成软件异常</p>
+<h2 id="3、源码安装"><a href="#3、源码安装" class="headerlink" title="3、源码安装"></a>3、源码安装</h2><h3 id="1、源码安装的优点"><a href="#1、源码安装的优点" class="headerlink" title="1、源码安装的优点"></a>1、源码安装的优点</h3><p>获得最新版本的软件，及时修复bug；可根据用户需要，灵活制定软件功能</p>
+<h3 id="2、应用场合"><a href="#2、应用场合" class="headerlink" title="2、应用场合"></a>2、应用场合</h3><p>1、安装较新版本的应用时（自由软件的最新版本发布大多数都是源代码）</p>
+<p>2、当前安装的程序无法满足需求的时候（编译安装可以自定义修改指定功能）</p>
+<p>3、需要为应用程序添加新的功能时（用户可以重新配置，自由修改源代码，加入新的功能）</p>
+<h3 id="3、Tarball封包"><a href="#3、Tarball封包" class="headerlink" title="3、Tarball封包"></a>3、Tarball封包</h3><p>封包种类：tar.gz / tar.bz2</p>
+<h3 id="4、md5sum校验工具"><a href="#4、md5sum校验工具" class="headerlink" title="4、md5sum校验工具"></a>4、md5sum校验工具</h3><p>计算md5的校验和，然后与官方的md5值进行比较，相同即为未被修改</p>
+<p>ex：md5sum apache-tomcat-7.0.54.tar.gz             #计算apache-tomcat安装包的md5</p>
+<p><img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C8.png" alt="">           </p>
+<h3 id="5、源码安装环境：需要支持c-c"><a href="#5、源码安装环境：需要支持c-c" class="headerlink" title="5、源码安装环境：需要支持c/c++"></a>5、源码安装环境：需要支持c/c++</h3><p>安装环境：yum -y install gcc gcc-c++ make</p>
+<p><img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C9.png" alt="">      </p>
+<p>查看安装版本：</p>
+<p>gcc –version  &amp;&amp; make –version</p>
+<p><img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C10.png" alt="">    </p>
+<h3 id="6、源码安装步骤"><a href="#6、源码安装步骤" class="headerlink" title="6、源码安装步骤"></a>6、源码安装步骤</h3><p>1、下载源码包——tar解包到指定目录</p>
+<p>2、./configure 配置，设置安装目录，安装模块等（进入解压后的安装包后./configure）</p>
+<p>3、make编译，生成可执行二进制文件</p>
+<p>4、make install 安装，复制二进制文件到系统，配置应用环境</p>
+<p>ex：源码安装httpd</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf httpd-2.2.15.tar.gz -C &#x2F;usr&#x2F;local          #将安装包解压到&#x2F;usr&#x2F;local目录</span><br><span class="line"></span><br><span class="line">mkdir httpd               #创建软件安装目录</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;cd httpd-2.2.15&#x2F;                 #进入程序&#x2F;bin目录</span><br><span class="line"></span><br><span class="line">   .&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;httpd              #配置安装环境</span><br><span class="line"></span><br><span class="line">echo $?           #验证是否出错(0表示没有出错)</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install              #编译安装（编译时间较长）</span><br><span class="line"></span><br><span class="line">echo $?                             #查看上一过程是否出错</span><br></pre></td></tr></table></figure>
+
+<p>​           </p>
+<p>检验成功：</p>
+<p>cd /usr/local/httpd/bin             #进入安装目录bin文件夹</p>
+<p>./apachectl                                   #检验</p>
+<p><img src="C:%5CUsers%5CZF%5CDesktop%5CBolg%5Cthemes%5Cnext%5Csource%5Cimages%5Cimages%5C11.png" alt="">           </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/12/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/" data-id="ck6j6pq3o00043cuuhgtkffz1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/12/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">进程管理及任务调度</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/02/12/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">linux基本命令</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/">进程管理及任务调度</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/">linux基本命令&amp;文件目录管理</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/">linux基本命令II</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/12/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">vim基本使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 TSArvin<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
