@@ -104,31 +104,6 @@
     
     
     <entry>
-      <title>vim基本使用</title>
-      <link href="/2020/08/01/linux/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
-      <url>/2020/08/01/linux/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
-      
-        <content type="html"><![CDATA[<h2 id="1、什么是vi编辑器"><a href="#1、什么是vi编辑器" class="headerlink" title="1、什么是vi编辑器"></a>1、什么是vi编辑器</h2><h1 id="一、什么是vi编辑器"><a href="#一、什么是vi编辑器" class="headerlink" title="一、什么是vi编辑器"></a>一、什么是vi编辑器</h1><p>Vi编辑器用来创建或修改文本文件，是Linux系统中的各种配置文件的主要修改工具</p><p>Vim：是vi编辑器的增强版本，有颜色区分</p><h1 id="二、vi编辑器的三种工作模式"><a href="#二、vi编辑器的三种工作模式" class="headerlink" title="二、vi编辑器的三种工作模式"></a>二、vi编辑器的三种工作模式</h1><p>1、命令模式</p><p>2、输入模式</p><p>3、末行模式</p><p>三种工作模式之间的关系：</p><p>命令模式——键入（a\i\o）——输入模式——键入（esc）——命令模式</p><p>命令模式——键入（:）——末行模式——键入（esc）——命令模式</p><h1 id="三、命令模式下的操作"><a href="#三、命令模式下的操作" class="headerlink" title="三、命令模式下的操作"></a>三、命令模式下的操作</h1><h2 id="1、光标移动"><a href="#1、光标移动" class="headerlink" title="1、光标移动"></a>1、光标移动</h2><p>上下左右</p><h2 id="2、翻页"><a href="#2、翻页" class="headerlink" title="2、翻页"></a>2、翻页</h2><p>上一页：PgUp/Ctrl + b</p><p>下一页：PgDn/Ctrl + f</p><h2 id="3、行内快速跳转"><a href="#3、行内快速跳转" class="headerlink" title="3、行内快速跳转"></a>3、行内快速跳转</h2><p>跳转至行首：Home / “^” /”0”（零）</p><p>跳转至行末：End / “$”</p><h2 id="4、行间快速跳转"><a href="#4、行间快速跳转" class="headerlink" title="4、行间快速跳转"></a>4、行间快速跳转</h2><p>1G / gg：回到行首</p><p>G：转至最后一行</p><p>#G：跳转到文件中的第#行</p><h2 id="5、行号显示"><a href="#5、行号显示" class="headerlink" title="5、行号显示"></a>5、行号显示</h2><p>:set nu               #显示行号                                       </p><p>:set nonu         #取消行号显示       </p><h2 id="6、删除"><a href="#6、删除" class="headerlink" title="6、删除"></a>6、删除</h2><p>X或del ：删除光标所在的单个字符</p><p>dd ：删除光标所在行</p><p>#dd ：删除从光标开始的#行</p><p>d^ ：删除从光标开始到行首的所有内容（不包括光标所在字符）</p><p>d$ ：删除从光标开始到行末的所有内容（不包括光标所在字符）</p><h2 id="7、复制"><a href="#7、复制" class="headerlink" title="7、复制"></a>7、复制</h2><p>yy ：复制整行内容</p><p>#yy ：复制从光标开始的#行</p><h2 id="8、粘贴"><a href="#8、粘贴" class="headerlink" title="8、粘贴"></a>8、粘贴</h2><p>P(大写) ：粘贴内容到光标之前</p><p>p(小写) ：粘贴内容到光标之后</p><h2 id="9、内容查找"><a href="#9、内容查找" class="headerlink" title="9、内容查找"></a>9、内容查找</h2><p>/word ：从上到下查找字符（串）word</p><p>?word ：从下到上查找字符（串）word</p><p>n ：下一个</p><p>N ：上一个</p><h2 id="10、撤销编辑"><a href="#10、撤销编辑" class="headerlink" title="10、撤销编辑"></a>10、撤销编辑</h2><p>u ：按一次取消最近一次的操作，多次重复按u键，回复已经进行多次的操作</p><p>U ：用于取消当前行所有的编辑</p><p>ZZ ：保存当前文件内容并退出vi编辑器</p><h1 id="四、末行模式下的操作"><a href="#四、末行模式下的操作" class="headerlink" title="四、末行模式下的操作"></a>四、末行模式下的操作</h1><h3 id="1、保存及退出"><a href="#1、保存及退出" class="headerlink" title="1、保存及退出"></a>1、保存及退出</h3><p>​         保存文件：</p><p>​                   :w                      #保存修改的内容</p><p>​                   :w /a.txt            #另存为</p><p>​         退出：</p><p>​                   :q                        #未修改退出</p><p>​                   :q!                     #放弃对文件的修改，并退出</p><h3 id="2、保存退出"><a href="#2、保存退出" class="headerlink" title="2、保存退出"></a>2、保存退出</h3><p>​         :wq            #保存并退出</p><p>​         </p><h3 id="3、打开新文件或读入其他文件内容"><a href="#3、打开新文件或读入其他文件内容" class="headerlink" title="3、打开新文件或读入其他文件内容"></a>3、打开新文件或读入其他文件内容</h3><p>​         :e 文件   #读入该文件内容</p><p>​         :r 文件    #在当前文件中光标所在行后读入其他文件的内容</p><h3 id="4、文件内容的替换"><a href="#4、文件内容的替换" class="headerlink" title="4、文件内容的替换"></a>4、文件内容的替换</h3><p>​         1、:s /old/new                 #在当前行中用new替换第一个old</p><p>​         2、:s /old/new/g              #替换当前行中所有的old为new</p><p>​         3、:#1,#2 s /old/new/g   #在行号#1到#2中，替换所有的old为new</p><p>​         4、:%s /old/new/g           #在整个文件范围内替换old为new</p><p>​         5、:s /old/new/c               #每个替换动作都会提醒用户确认</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux基础 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>linux软件安装</title>
       <link href="/2020/08/01/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/"/>
       <url>/2020/08/01/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/</url>
@@ -271,6 +246,31 @@
         <tags>
             
             <tag> Switch </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vim基本使用</title>
+      <link href="/2020/08/01/linux/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/"/>
+      <url>/2020/08/01/linux/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1、什么是vi编辑器"><a href="#1、什么是vi编辑器" class="headerlink" title="1、什么是vi编辑器"></a>1、什么是vi编辑器</h2><h1 id="一、什么是vi编辑器"><a href="#一、什么是vi编辑器" class="headerlink" title="一、什么是vi编辑器"></a>一、什么是vi编辑器</h1><p>Vi编辑器用来创建或修改文本文件，是Linux系统中的各种配置文件的主要修改工具</p><p>Vim：是vi编辑器的增强版本，有颜色区分</p><h1 id="二、vi编辑器的三种工作模式"><a href="#二、vi编辑器的三种工作模式" class="headerlink" title="二、vi编辑器的三种工作模式"></a>二、vi编辑器的三种工作模式</h1><p>1、命令模式</p><p>2、输入模式</p><p>3、末行模式</p><p>三种工作模式之间的关系：</p><p>命令模式——键入（a\i\o）——输入模式——键入（esc）——命令模式</p><p>命令模式——键入（:）——末行模式——键入（esc）——命令模式</p><h1 id="三、命令模式下的操作"><a href="#三、命令模式下的操作" class="headerlink" title="三、命令模式下的操作"></a>三、命令模式下的操作</h1><h2 id="1、光标移动"><a href="#1、光标移动" class="headerlink" title="1、光标移动"></a>1、光标移动</h2><p>上下左右</p><h2 id="2、翻页"><a href="#2、翻页" class="headerlink" title="2、翻页"></a>2、翻页</h2><p>上一页：PgUp/Ctrl + b</p><p>下一页：PgDn/Ctrl + f</p><h2 id="3、行内快速跳转"><a href="#3、行内快速跳转" class="headerlink" title="3、行内快速跳转"></a>3、行内快速跳转</h2><p>跳转至行首：Home / “^” /”0”（零）</p><p>跳转至行末：End / “$”</p><h2 id="4、行间快速跳转"><a href="#4、行间快速跳转" class="headerlink" title="4、行间快速跳转"></a>4、行间快速跳转</h2><p>1G / gg：回到行首</p><p>G：转至最后一行</p><p>#G：跳转到文件中的第#行</p><h2 id="5、行号显示"><a href="#5、行号显示" class="headerlink" title="5、行号显示"></a>5、行号显示</h2><p>:set nu               #显示行号                                       </p><p>:set nonu         #取消行号显示       </p><h2 id="6、删除"><a href="#6、删除" class="headerlink" title="6、删除"></a>6、删除</h2><p>X或del ：删除光标所在的单个字符</p><p>dd ：删除光标所在行</p><p>#dd ：删除从光标开始的#行</p><p>d^ ：删除从光标开始到行首的所有内容（不包括光标所在字符）</p><p>d$ ：删除从光标开始到行末的所有内容（不包括光标所在字符）</p><h2 id="7、复制"><a href="#7、复制" class="headerlink" title="7、复制"></a>7、复制</h2><p>yy ：复制整行内容</p><p>#yy ：复制从光标开始的#行</p><h2 id="8、粘贴"><a href="#8、粘贴" class="headerlink" title="8、粘贴"></a>8、粘贴</h2><p>P(大写) ：粘贴内容到光标之前</p><p>p(小写) ：粘贴内容到光标之后</p><h2 id="9、内容查找"><a href="#9、内容查找" class="headerlink" title="9、内容查找"></a>9、内容查找</h2><p>/word ：从上到下查找字符（串）word</p><p>?word ：从下到上查找字符（串）word</p><p>n ：下一个</p><p>N ：上一个</p><h2 id="10、撤销编辑"><a href="#10、撤销编辑" class="headerlink" title="10、撤销编辑"></a>10、撤销编辑</h2><p>u ：按一次取消最近一次的操作，多次重复按u键，回复已经进行多次的操作</p><p>U ：用于取消当前行所有的编辑</p><p>ZZ ：保存当前文件内容并退出vi编辑器</p><h1 id="四、末行模式下的操作"><a href="#四、末行模式下的操作" class="headerlink" title="四、末行模式下的操作"></a>四、末行模式下的操作</h1><h3 id="1、保存及退出"><a href="#1、保存及退出" class="headerlink" title="1、保存及退出"></a>1、保存及退出</h3><p>​         保存文件：</p><p>​                   :w                      #保存修改的内容</p><p>​                   :w /a.txt            #另存为</p><p>​         退出：</p><p>​                   :q                        #未修改退出</p><p>​                   :q!                     #放弃对文件的修改，并退出</p><h3 id="2、保存退出"><a href="#2、保存退出" class="headerlink" title="2、保存退出"></a>2、保存退出</h3><p>​         :wq            #保存并退出</p><p>​         </p><h3 id="3、打开新文件或读入其他文件内容"><a href="#3、打开新文件或读入其他文件内容" class="headerlink" title="3、打开新文件或读入其他文件内容"></a>3、打开新文件或读入其他文件内容</h3><p>​         :e 文件   #读入该文件内容</p><p>​         :r 文件    #在当前文件中光标所在行后读入其他文件的内容</p><h3 id="4、文件内容的替换"><a href="#4、文件内容的替换" class="headerlink" title="4、文件内容的替换"></a>4、文件内容的替换</h3><p>​         1、:s /old/new                 #在当前行中用new替换第一个old</p><p>​         2、:s /old/new/g              #替换当前行中所有的old为new</p><p>​         3、:#1,#2 s /old/new/g   #在行号#1到#2中，替换所有的old为new</p><p>​         4、:%s /old/new/g           #在整个文件范围内替换old为new</p><p>​         5、:s /old/new/c               #每个替换动作都会提醒用户确认</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux基础 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
             
         </tags>
       
