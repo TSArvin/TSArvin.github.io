@@ -464,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    286
+                    282
                 </div>
                 
 
@@ -483,20 +483,30 @@
             <div id="articleContent">
                 <h1 id="random模块"><a href="#random模块" class="headerlink" title="random模块"></a>random模块</h1><h2 id="randint-方法"><a href="#randint-方法" class="headerlink" title="randint()方法"></a>randint()方法</h2><p>randint方法用来生成一个指定范围内的随机整数</p>
 <p>用法：randint(start,end)，取值范围[start:end]</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(random.randint(<span class="number">0</span>,<span class="number">1</span>))</span><br><span class="line"><span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(random.randint(<span class="number">0</span>,<span class="number">1</span>))</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">&gt;&gt;&gt; print(random.randint(0,1))
+0
+&gt;&gt;&gt; print(random.randint(0,1))
+1</code></pre>
 <h2 id="sample-方法"><a href="#sample-方法" class="headerlink" title="sample()方法"></a>sample()方法</h2><p>sample方法用来抽样，从指定样本中抽取指定数目的样本</p>
 <p>用法：sample(Iterable,num)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#随机生成100个样本</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>lst = [random.randint(<span class="number">0</span>,<span class="number">50</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">100</span>)]</span><br><span class="line"><span class="comment">#抽样10个</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(random.sample(lst,<span class="number">10</span>))</span><br><span class="line">[<span class="number">43</span>, <span class="number">50</span>, <span class="number">35</span>, <span class="number">45</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">20</span>, <span class="number">13</span>, <span class="number">24</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">#随机生成100个样本
+&gt;&gt;&gt; lst = [random.randint(0,50) for _ in range(100)]
+#抽样10个
+&gt;&gt;&gt; print(random.sample(lst,10))
+[43, 50, 35, 45, 5, 7, 20, 13, 24, 3]</code></pre>
 <h2 id="shuffle-方法"><a href="#shuffle-方法" class="headerlink" title="shuffle()方法"></a>shuffle()方法</h2><p>使用shuffle方法来重洗数据集，值得注意的是“shuffle”是对<strong>lst</strong>就地洗牌，节省存储空间</p>
 <p>用法：shuffle(Iterable)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>lst = [random.randint(<span class="number">0</span>,<span class="number">50</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">100</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(lst[:<span class="number">5</span>])</span><br><span class="line">[<span class="number">47</span>, <span class="number">42</span>, <span class="number">18</span>, <span class="number">18</span>, <span class="number">37</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>shuffle(lst)		<span class="comment">#冲洗数据集</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(lst[:<span class="number">5</span>])</span><br><span class="line">[<span class="number">19</span>, <span class="number">42</span>, <span class="number">42</span>, <span class="number">39</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">&gt;&gt;&gt; lst = [random.randint(0,50) for _ in range(100)]
+&gt;&gt;&gt; print(lst[:5])
+[47, 42, 18, 18, 37]
+&gt;&gt;&gt; shuffle(lst)        #冲洗数据集
+&gt;&gt;&gt; print(lst[:5])
+[19, 42, 42, 39, 6]</code></pre>
 <h2 id="uniform-方法"><a href="#uniform-方法" class="headerlink" title="uniform()方法"></a>uniform()方法</h2><p>uniform方法生成指定范围内的一个随机16位浮点数，如下生成两对均匀分布的二维坐标点</p>
 <p>用法：uniform(start,end)，取值范围[start:end)</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>[(random.uniform(<span class="number">0</span>,<span class="number">10</span>),random.uniform(<span class="number">0</span>,<span class="number">10</span>)) <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">2</span>)]</span><br><span class="line">[(<span class="number">5.846067283306517</span>, <span class="number">0.3220977673858716</span>), </span><br><span class="line"> (<span class="number">8.795611799349297</span>, <span class="number">5.844042941914149</span>)]</span><br></pre></td></tr></table></figure>
-
+<pre><code class="python">&gt;&gt;&gt; [(random.uniform(0,10),random.uniform(0,10)) for _ in range(2)]
+[(5.846067283306517, 0.3220977673858716), 
+ (8.795611799349297, 5.844042941914149)]</code></pre>
 
             </div>
             <hr/>
@@ -634,21 +644,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/08/01/linux/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/">
+                <a href="/2020/08/01/others/markdown%E8%AF%AD%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="进程管理及任务调度">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="MarkDown语法">
                         
-                        <span class="card-title">进程管理及任务调度</span>
+                        <span class="card-title">MarkDown语法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、进程管理1、程序和进程关系程序：保存在硬盘光盘等存储介质中可执行的代码和数据，静态保存的代码
-进程：在cpu及内存中运行的程序代码，动态执行的代码。
-​                   父进程，子进程：每个进程可以创建一个或多个进程
+                            Markdown语法一、标题标题的使用格式，使用（井号键加空格键表示）共有六个等级
+# 一级标题，快捷键：ctrl+1
+## 二级标题，快捷键：ctrl+2
+### 三级标题，快捷键：ctrl+3
+#### 四级标题，快捷键：ctrl+4
+
                         
                     </div>
                     <div class="publish-info">
@@ -659,8 +672,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    Linux基础
+                            <a href="/categories/markdown/" class="post-category">
+                                    markdown
                                 </a>
                             
                             
@@ -670,8 +683,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/%E5%85%B6%E4%BB%96/">
+                        <span class="chip bg-color">其他</span>
                     </a>
                     
                 </div>
@@ -698,7 +711,7 @@
                     <div class="summary block-with-text">
                         
                             关键字global和nonlocal的用法一、 global​        global关键字用来在函数或其他局部作用域中修改全局变量
-1.1 在不使用global关键字的情况下对全局变量进行修改12345&gt;&gt;&gt; cou
+1.1 在不使用global关键字的情况下对全局变量进行修改&gt;&gt;&gt; count = 
                         
                     </div>
                     <div class="publish-info">
@@ -861,6 +874,16 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
 
     <footer class="page-footer bg-color">
     

@@ -481,79 +481,80 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、安装完操作系统后必要的两个操作"><a href="#一、安装完操作系统后必要的两个操作" class="headerlink" title="一、安装完操作系统后必要的两个操作"></a>一、安装完操作系统后必要的两个操作</h1><h2 id="1-关闭防火墙"><a href="#1-关闭防火墙" class="headerlink" title="1.关闭防火墙"></a>1.关闭防火墙</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CentOS6：</span><br><span class="line">service iptables stop		#关闭防火墙</span><br><span class="line">service iptables status		#查看防火墙状态</span><br><span class="line"></span><br><span class="line">chkconfig iptables off		#禁止防火墙开机自启</span><br><span class="line">chkconfig iptables --list	#查看iptables在各个模式下的状态</span><br><span class="line"></span><br><span class="line">CentOS7：</span><br><span class="line">systemlctl stop firewalld	#关闭防火墙</span><br></pre></td></tr></table></figure>
+                <h1 id="一、安装完操作系统后必要的两个操作"><a href="#一、安装完操作系统后必要的两个操作" class="headerlink" title="一、安装完操作系统后必要的两个操作"></a>一、安装完操作系统后必要的两个操作</h1><h2 id="1-关闭防火墙"><a href="#1-关闭防火墙" class="headerlink" title="1.关闭防火墙"></a>1.关闭防火墙</h2><pre><code>CentOS6：
+service iptables stop        #关闭防火墙
+service iptables status        #查看防火墙状态
 
-<h2 id="2-关闭selinux"><a href="#2-关闭selinux" class="headerlink" title="2.关闭selinux"></a>2.关闭selinux</h2><h3 id="2-1永久关闭"><a href="#2-1永久关闭" class="headerlink" title="2.1永久关闭"></a>2.1永久关闭</h3><p>​        编辑/etc/sysconfig/selinux文件，将SELINUX=enforcing改为disabled，重启生效</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#39;s&#x2F;enforcing&#x2F;disabled&#x2F;&#39; &#x2F;etc&#x2F;sysconfig&#x2F;selinux</span><br></pre></td></tr></table></figure>
+chkconfig iptables off        #禁止防火墙开机自启
+chkconfig iptables --list    #查看iptables在各个模式下的状态
 
-<p>​        重启之后可以通过/usr/sbin/sestatus -v查看selinux状态，如果输出disabled则表示关闭，修改成功</p>
+CentOS7：
+systemlctl stop firewalld    #关闭防火墙</code></pre><h2 id="2-关闭selinux"><a href="#2-关闭selinux" class="headerlink" title="2.关闭selinux"></a>2.关闭selinux</h2><h3 id="2-1永久关闭"><a href="#2-1永久关闭" class="headerlink" title="2.1永久关闭"></a>2.1永久关闭</h3><p>​        编辑/etc/sysconfig/selinux文件，将SELINUX=enforcing改为disabled，重启生效</p>
+<pre><code>sed -i &#39;s/enforcing/disabled/&#39; /etc/sysconfig/selinux</code></pre><p>​        重启之后可以通过/usr/sbin/sestatus -v查看selinux状态，如果输出disabled则表示关闭，修改成功</p>
 <h3 id="2-2临时关闭"><a href="#2-2临时关闭" class="headerlink" title="2.2临时关闭"></a>2.2临时关闭</h3><p>​        注：临时关闭selinux重启服务器后失效</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0	#设置selinux为permissive模式</span><br><span class="line">setenforce 1	#设置selinux为enforcing模式</span><br><span class="line"></span><br><span class="line">getenforce		#查看selinux状态</span><br></pre></td></tr></table></figure>
+<pre><code>setenforce 0    #设置selinux为permissive模式
+setenforce 1    #设置selinux为enforcing模式
 
-<h1 id="二、Linux开机过程"><a href="#二、Linux开机过程" class="headerlink" title="二、Linux开机过程"></a>二、Linux开机过程</h1><p>​        BIOS–&gt;MBR–&gt;GRUB–&gt;kernel–&gt;init–&gt;startup        </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BIOS：硬件检测阶段</span><br><span class="line">MBR：主引导记录</span><br><span class="line">GRUB：引导装载程序</span><br><span class="line">Kernel：加载内核</span><br><span class="line">Init：启动初始进程</span><br><span class="line">Startup：启动</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="三、初始化进程init"><a href="#三、初始化进程init" class="headerlink" title="三、初始化进程init"></a>三、初始化进程init</h1><h2 id="1-查看init进程"><a href="#1-查看init进程" class="headerlink" title="1.查看init进程"></a>1.查看init进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;etc&#x2F;inittab		#查看init进程</span><br><span class="line">其中：0：挂起状态（关机）；1：单用户模式；2：多用户模式（没有network）；3：多用户模式（network）；4：未被定义使用；5：桌面模式；6：重启</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="2-模式切换"><a href="#2-模式切换" class="headerlink" title="2.模式切换"></a>2.模式切换</h2><p>语法：init +模式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">init 3		#切换到字符模式</span><br><span class="line">init 5		#切换到桌面模式(startx)</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="四、系统服务控制"><a href="#四、系统服务控制" class="headerlink" title="四、系统服务控制"></a>四、系统服务控制</h1><h2 id="1-service命令"><a href="#1-service命令" class="headerlink" title="1.service命令"></a>1.service命令</h2><p>service命令用来对一个服务进行开启关闭操作，以及查看服务状态。</p>
+getenforce        #查看selinux状态</code></pre><h1 id="二、Linux开机过程"><a href="#二、Linux开机过程" class="headerlink" title="二、Linux开机过程"></a>二、Linux开机过程</h1><p>​        BIOS–&gt;MBR–&gt;GRUB–&gt;kernel–&gt;init–&gt;startup        </p>
+<pre><code>BIOS：硬件检测阶段
+MBR：主引导记录
+GRUB：引导装载程序
+Kernel：加载内核
+Init：启动初始进程
+Startup：启动</code></pre><h1 id="三、初始化进程init"><a href="#三、初始化进程init" class="headerlink" title="三、初始化进程init"></a>三、初始化进程init</h1><h2 id="1-查看init进程"><a href="#1-查看init进程" class="headerlink" title="1.查看init进程"></a>1.查看init进程</h2><pre><code>cat /etc/inittab        #查看init进程
+其中：0：挂起状态（关机）；1：单用户模式；2：多用户模式（没有network）；3：多用户模式（network）；4：未被定义使用；5：桌面模式；6：重启</code></pre><h2 id="2-模式切换"><a href="#2-模式切换" class="headerlink" title="2.模式切换"></a>2.模式切换</h2><p>语法：init +模式</p>
+<pre><code>init 3        #切换到字符模式
+init 5        #切换到桌面模式(startx)</code></pre><h1 id="四、系统服务控制"><a href="#四、系统服务控制" class="headerlink" title="四、系统服务控制"></a>四、系统服务控制</h1><h2 id="1-service命令"><a href="#1-service命令" class="headerlink" title="1.service命令"></a>1.service命令</h2><p>service命令用来对一个服务进行开启关闭操作，以及查看服务状态。</p>
 <p>格式：service service_name service_status</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">注意：#service_name必须是 &#x2F;etc&#x2F;init.d 中存在的服务</span><br><span class="line">	 #service_status有五种，start|stop|restart|reload|status</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-runlevel命令"><a href="#2-runlevel命令" class="headerlink" title="2.runlevel命令"></a>2.runlevel命令</h2><p>runlevel命令用来查看运行级别，例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop &#x2F;]# runlevel</span><br><span class="line">3	5		#其中3表示开机后上一次运行级别，5表示当前运行级别</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-chkconfig命令"><a href="#3-chkconfig命令" class="headerlink" title="3.chkconfig命令"></a>3.chkconfig命令</h2><p>chkconfig命令用来查看开机运行的程序，可以控制多个runlevel</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">注意：chkconfig命令只针对2,3,4,5(runlevel)</span><br><span class="line">chkconfig service_name on|off		#设置服务开机自启或不自启</span><br><span class="line">chkconfig service_name --list		#查看服务在各个runlevel下的自启情况</span><br><span class="line">chkconfig --runlevel X service_name on|off		#针对某个runlevel进行服务开机自启控制</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="五、terminal下输出表示的含义"><a href="#五、terminal下输出表示的含义" class="headerlink" title="五、terminal下输出表示的含义"></a>五、terminal下输出表示的含义</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# </span><br><span class="line">root：表示当前用户</span><br><span class="line">desktop：表示主机名</span><br><span class="line">~：表示当前用户的home目录（默认情况下，除root用户外，其他用户只对home目录有完整的权限）</span><br><span class="line">#：表示当前用户为管理员用户</span><br><span class="line">$：表示当前用户为一般用户</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="六、Linux文件系统"><a href="#六、Linux文件系统" class="headerlink" title="六、Linux文件系统"></a>六、Linux文件系统</h1><p>Linux文件机构为树形结构，常见目录代表的含义如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1、&#x2F;：根目录，是所有分区，目录结构的起点</span><br><span class="line">2、&#x2F;boot：存放系统内核和启动文件的目录，安装时建议单独为&#x2F;boot目录划分一个分区，便于维护和备份</span><br><span class="line">3、&#x2F;bin：用来存放所有用户都可执行的且常用的命令。</span><br><span class="line">4、&#x2F;sbin:存放基本的管理命令，但一般只有管理员才能使用</span><br><span class="line">5、&#x2F;etc:保存有关系统设置与管理的文件。</span><br><span class="line">6、&#x2F;usr:用户应用程序存放的目录，类似于windows下的Program Files</span><br><span class="line">7、&#x2F;var:存放经常变换的文件，例如日志文件，建议var独立分区。</span><br><span class="line">8、&#x2F;home:除超级用户以外的用户的宿主目录都建立在该目录下。</span><br><span class="line">9、&#x2F;root:root用户的宿主文件夹</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="七、查看系统的简单命令"><a href="#七、查看系统的简单命令" class="headerlink" title="七、查看系统的简单命令"></a>七、查看系统的简单命令</h1><h2 id="1-exit命令"><a href="#1-exit命令" class="headerlink" title="1.exit命令"></a>1.exit命令</h2><p>​    exit命令用于退出当前命令的操作环境</p>
-<h2 id="2-uname命令"><a href="#2-uname命令" class="headerlink" title="2.uname命令"></a>2.uname命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uname -r		#显示内核版本</span><br><span class="line">uname -a		#显示主机名、内核版本、硬件平台等详细信息</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-cat命令"><a href="#3-cat命令" class="headerlink" title="3.cat命令"></a>3.cat命令</h2><p>cat命令用于查看文件内容，经常和grep命令连用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">常见查看系统信息命令：</span><br><span class="line">cat &#x2F;proc&#x2F;cpuinfo		#查看CPU信息</span><br><span class="line">cat &#x2F;proc&#x2F;meminfo		#查看内存及swap信息</span><br><span class="line">cat &#x2F;proc&#x2F;swaps			#查看swap信息</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-ifconfig命令"><a href="#4-ifconfig命令" class="headerlink" title="4.ifconfig命令"></a>4.ifconfig命令</h2><p>ifconfig命令用来查看网卡信息，如果命令找不到，则可直接运行yum -y install net-tools即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig		#查看当前所有网卡信息</span><br><span class="line">ifconfig 网卡名		#查看具体某张网卡信息，其中RX、TX分别表示收包和发包</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-hostname命令"><a href="#5-hostname命令" class="headerlink" title="5.hostname命令"></a>5.hostname命令</h2><p>hostname命令用来查看主机名或更改主机名（更改重启后生效）</p>
+<pre><code>注意：#service_name必须是 /etc/init.d 中存在的服务
+     #service_status有五种，start|stop|restart|reload|status</code></pre><h2 id="2-runlevel命令"><a href="#2-runlevel命令" class="headerlink" title="2.runlevel命令"></a>2.runlevel命令</h2><p>runlevel命令用来查看运行级别，例：</p>
+<pre><code>[root@desktop /]# runlevel
+3    5        #其中3表示开机后上一次运行级别，5表示当前运行级别</code></pre><h2 id="3-chkconfig命令"><a href="#3-chkconfig命令" class="headerlink" title="3.chkconfig命令"></a>3.chkconfig命令</h2><p>chkconfig命令用来查看开机运行的程序，可以控制多个runlevel</p>
+<pre><code>注意：chkconfig命令只针对2,3,4,5(runlevel)
+chkconfig service_name on|off        #设置服务开机自启或不自启
+chkconfig service_name --list        #查看服务在各个runlevel下的自启情况
+chkconfig --runlevel X service_name on|off        #针对某个runlevel进行服务开机自启控制</code></pre><h1 id="五、terminal下输出表示的含义"><a href="#五、terminal下输出表示的含义" class="headerlink" title="五、terminal下输出表示的含义"></a>五、terminal下输出表示的含义</h1><pre><code>[root@desktop ~]# 
+root：表示当前用户
+desktop：表示主机名
+~：表示当前用户的home目录（默认情况下，除root用户外，其他用户只对home目录有完整的权限）
+#：表示当前用户为管理员用户
+$：表示当前用户为一般用户</code></pre><h1 id="六、Linux文件系统"><a href="#六、Linux文件系统" class="headerlink" title="六、Linux文件系统"></a>六、Linux文件系统</h1><p>Linux文件机构为树形结构，常见目录代表的含义如下：</p>
+<pre><code>1、/：根目录，是所有分区，目录结构的起点
+2、/boot：存放系统内核和启动文件的目录，安装时建议单独为/boot目录划分一个分区，便于维护和备份
+3、/bin：用来存放所有用户都可执行的且常用的命令。
+4、/sbin:存放基本的管理命令，但一般只有管理员才能使用
+5、/etc:保存有关系统设置与管理的文件。
+6、/usr:用户应用程序存放的目录，类似于windows下的Program Files
+7、/var:存放经常变换的文件，例如日志文件，建议var独立分区。
+8、/home:除超级用户以外的用户的宿主目录都建立在该目录下。
+9、/root:root用户的宿主文件夹</code></pre><h1 id="七、查看系统的简单命令"><a href="#七、查看系统的简单命令" class="headerlink" title="七、查看系统的简单命令"></a>七、查看系统的简单命令</h1><h2 id="1-exit命令"><a href="#1-exit命令" class="headerlink" title="1.exit命令"></a>1.exit命令</h2><p>​    exit命令用于退出当前命令的操作环境</p>
+<h2 id="2-uname命令"><a href="#2-uname命令" class="headerlink" title="2.uname命令"></a>2.uname命令</h2><pre><code>uname -r        #显示内核版本
+uname -a        #显示主机名、内核版本、硬件平台等详细信息</code></pre><h2 id="3-cat命令"><a href="#3-cat命令" class="headerlink" title="3.cat命令"></a>3.cat命令</h2><p>cat命令用于查看文件内容，经常和grep命令连用</p>
+<pre><code>常见查看系统信息命令：
+cat /proc/cpuinfo        #查看CPU信息
+cat /proc/meminfo        #查看内存及swap信息
+cat /proc/swaps            #查看swap信息</code></pre><h2 id="4-ifconfig命令"><a href="#4-ifconfig命令" class="headerlink" title="4.ifconfig命令"></a>4.ifconfig命令</h2><p>ifconfig命令用来查看网卡信息，如果命令找不到，则可直接运行yum -y install net-tools即可</p>
+<pre><code>ifconfig        #查看当前所有网卡信息
+ifconfig 网卡名        #查看具体某张网卡信息，其中RX、TX分别表示收包和发包</code></pre><h2 id="5-hostname命令"><a href="#5-hostname命令" class="headerlink" title="5.hostname命令"></a>5.hostname命令</h2><p>hostname命令用来查看主机名或更改主机名（更改重启后生效）</p>
 <h2 id="6-su命令"><a href="#6-su命令" class="headerlink" title="6.su命令"></a>6.su命令</h2><p>su命令用来切换用户，需要注意的是：普通用户切换到root用户需要验证密码，而root用户切换到普通用户不需要验证密码。</p>
 <h2 id="7-关机和重启"><a href="#7-关机和重启" class="headerlink" title="7.关机和重启"></a>7.关机和重启</h2><p>a.shutdown命令</p>
 <p>用来关机或重启。shutdown -r/-h（reboot/halt） +分钟数 +描述[可选]</p>
 <p>b.取消shutdown</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.使用快捷键Ctrl+C自主取消</span><br><span class="line">2.shutdown -c	#超级用户在其他bash中取消</span><br></pre></td></tr></table></figure>
-
-<p>c.关机</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.init 0</span><br><span class="line">2.shutdown</span><br><span class="line">3.shutdown -h now		#立即关机</span><br></pre></td></tr></table></figure>
-
-<p>d.重启</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.reboot</span><br><span class="line">2.init 6</span><br><span class="line">3.shutdown -r now		#立即重启</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="八、Linux分区管理"><a href="#八、Linux分区管理" class="headerlink" title="八、Linux分区管理"></a>八、Linux分区管理</h1><h2 id="1-linux中万物皆文件"><a href="#1-linux中万物皆文件" class="headerlink" title="1.linux中万物皆文件"></a>1.linux中万物皆文件</h2><h2 id="2-dev-sda5含义：代表一个硬盘分区"><a href="#2-dev-sda5含义：代表一个硬盘分区" class="headerlink" title="2./dev/sda5含义：代表一个硬盘分区"></a>2./dev/sda5含义：代表一个硬盘分区</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1、sd：sici格式</span><br><span class="line">2、a：第一块磁盘</span><br><span class="line">3、5：第一块逻辑分区</span><br><span class="line">4、分区分为主分区和逻辑分区，主分区最多不超过四块（可标记为活动分区用来安装操作系统）</span><br><span class="line">	sda1,sda2,sda3(主分区)</span><br><span class="line">	sda4(逻辑分区)，第一块逻辑分区为sda5,往后加1，以此类推</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-分区必须挂载到一个目录上"><a href="#3-分区必须挂载到一个目录上" class="headerlink" title="3.分区必须挂载到一个目录上"></a>3.分区必须挂载到一个目录上</h2><h2 id="4-linux文件系统类型"><a href="#4-linux文件系统类型" class="headerlink" title="4.linux文件系统类型"></a>4.linux文件系统类型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ext3</span><br><span class="line">ext4</span><br><span class="line">swap：Linux分区的一种类型，一般为内存的两倍，当内存超过2G或4G时可不需要swap分区</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-fat32"><a href="#5-fat32" class="headerlink" title="5.fat32"></a>5.fat32</h2><p>​    速度慢，不支持单个文件大于4G</p>
+<pre><code>1.使用快捷键Ctrl+C自主取消
+2.shutdown -c    #超级用户在其他bash中取消</code></pre><p>c.关机</p>
+<pre><code>1.init 0
+2.shutdown
+3.shutdown -h now        #立即关机</code></pre><p>d.重启</p>
+<pre><code>1.reboot
+2.init 6
+3.shutdown -r now        #立即重启</code></pre><h1 id="八、Linux分区管理"><a href="#八、Linux分区管理" class="headerlink" title="八、Linux分区管理"></a>八、Linux分区管理</h1><h2 id="1-linux中万物皆文件"><a href="#1-linux中万物皆文件" class="headerlink" title="1.linux中万物皆文件"></a>1.linux中万物皆文件</h2><h2 id="2-dev-sda5含义：代表一个硬盘分区"><a href="#2-dev-sda5含义：代表一个硬盘分区" class="headerlink" title="2./dev/sda5含义：代表一个硬盘分区"></a>2./dev/sda5含义：代表一个硬盘分区</h2><pre><code>    1、sd：sici格式
+    2、a：第一块磁盘
+    3、5：第一块逻辑分区
+    4、分区分为主分区和逻辑分区，主分区最多不超过四块（可标记为活动分区用来安装操作系统）
+        sda1,sda2,sda3(主分区)
+        sda4(逻辑分区)，第一块逻辑分区为sda5,往后加1，以此类推</code></pre><h2 id="3-分区必须挂载到一个目录上"><a href="#3-分区必须挂载到一个目录上" class="headerlink" title="3.分区必须挂载到一个目录上"></a>3.分区必须挂载到一个目录上</h2><h2 id="4-linux文件系统类型"><a href="#4-linux文件系统类型" class="headerlink" title="4.linux文件系统类型"></a>4.linux文件系统类型</h2><pre><code>ext3
+ext4
+swap：Linux分区的一种类型，一般为内存的两倍，当内存超过2G或4G时可不需要swap分区</code></pre><h2 id="5-fat32"><a href="#5-fat32" class="headerlink" title="5.fat32"></a>5.fat32</h2><p>​    速度慢，不支持单个文件大于4G</p>
 <h2 id="6-NTFS"><a href="#6-NTFS" class="headerlink" title="6.NTFS"></a>6.NTFS</h2><p>​    速度快，支持索引，支持压缩，支持加密，支持大文件</p>
 
             </div>
@@ -688,30 +689,31 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/08/01/linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/">
+                <a href="/2020/08/01/linux/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="linux基本命令&amp;文件目录管理">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="进程管理及任务调度">
                         
-                        <span class="card-title">linux基本命令&amp;文件目录管理</span>
+                        <span class="card-title">进程管理及任务调度</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、安装完操作系统后必要的两个操作1.关闭防火墙123456789CentOS6：service iptables stop		#关闭防火墙service iptables status		#查看防火墙状态chkconfig iptable
+                            一、进程管理1、程序和进程关系程序：保存在硬盘光盘等存储介质中可执行的代码和数据，静态保存的代码
+进程：在cpu及内存中运行的程序代码，动态执行的代码。
+​                   父进程，子进程：每个进程可以创建一个或多个进程
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -724,7 +726,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -921,6 +922,16 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
 
     <footer class="page-footer bg-color">
     

@@ -464,7 +464,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.5k
                 </div>
                 
 
@@ -492,25 +492,31 @@
 <h2 id="UID和GID"><a href="#UID和GID" class="headerlink" title="UID和GID"></a>UID和GID</h2><p>UID（user identity）：用户编号，root的UID永远为0，程序用户的UID为1-499,普通用户的UID从500开始</p>
 <p>GID（group identity）：组编号，root的GID永远为0，程序用户的GID为1-499，普通用户的GID从500开始</p>
 <h2 id="用户账号文件"><a href="#用户账号文件" class="headerlink" title="用户账号文件"></a>用户账号文件</h2><p><strong>/etc/passwd</strong>文件保存用户名称，宿主目录，登录shell等信息，每一行对应一个用户的账号记录，例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS ~]# cat &#x2F;etc&#x2F;passwd</span><br><span class="line"></span><br><span class="line">root:x:0:0:root:&#x2F;root:&#x2F;bin&#x2F;bash</span><br></pre></td></tr></table></figure>
+<pre><code>[root@CentOS ~]# cat /etc/passwd
 
-<p><strong>解析</strong>：（从左到右依次）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root：       #用户名</span><br><span class="line">x：          #密码占位符，考虑安全性，口令密码不使用明文进行保存，而是用‘X’填充</span><br><span class="line">0：          #用户UID</span><br><span class="line">0：          #用户GID</span><br><span class="line">root：       #用户属组</span><br><span class="line">&#x2F;root：      #用户宿主目录</span><br><span class="line">&#x2F;bin&#x2F;bash：  #用户登录的shell信息</span><br></pre></td></tr></table></figure>
+root:x:0:0:root:/root:/bin/bash</code></pre><p><strong>解析</strong>：（从左到右依次）</p>
+<pre><code>    root：       #用户名
+    x：          #密码占位符，考虑安全性，口令密码不使用明文进行保存，而是用‘X’填充
+    0：          #用户UID
+    0：          #用户GID
+    root：       #用户属组
+    /root：      #用户宿主目录
+    /bin/bash：  #用户登录的shell信息</code></pre><p><strong>/etc/shadow</strong>文件：passwd对于任何用户均可读，为增加系统安全性，用户口令通常用shadow passwords保护，即保存在shadow文件中，此文件只对root用户可读，例：</p>
+<pre><code>[root@CentOS ~]# ll /etc/shadow
 
+----------. 1 root root 612 8月  30 20:05 /etc/shadow</code></pre><p><strong>作用</strong>：保存各用户账户的密码等信息</p>
+<pre><code>[root@CentOS ~]# cat /etc/shadow
 
-
-<p><strong>/etc/shadow</strong>文件：passwd对于任何用户均可读，为增加系统安全性，用户口令通常用shadow passwords保护，即保存在shadow文件中，此文件只对root用户可读，例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS ~]# ll &#x2F;etc&#x2F;shadow</span><br><span class="line"></span><br><span class="line">----------. 1 root root 612 8月  30 20:05 &#x2F;etc&#x2F;shadow</span><br></pre></td></tr></table></figure>
-
-<p><strong>作用</strong>：保存各用户账户的密码等信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS ~]# cat &#x2F;etc&#x2F;shadow</span><br><span class="line"></span><br><span class="line">root:(password):17773:0:99999:7:::</span><br></pre></td></tr></table></figure>
-
-<p><strong>解析</strong>：（从左到右依次）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">root：           #用户名</span><br><span class="line">(password)：  	#加密的密码字段</span><br><span class="line">17773：          #上次修改密码的时间（天），默认从1970年1月1日开始计数辰）</span><br><span class="line">0：              #密码最短有效时间，默认0天</span><br><span class="line">99999：          #密码最长有效时间，默认99999天</span><br><span class="line">7：              #警告时间，密码到期前7天提醒用户更新</span><br><span class="line">空格：            #不活动时间，在用户密码到期后多少天禁用此用户</span><br><span class="line">空格：            #失效时间，从1970.1.1起到用户被禁用的天数</span><br><span class="line">空格：            #标志，保留位</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="添加用户（useradd）"><a href="#添加用户（useradd）" class="headerlink" title="添加用户（useradd）"></a>添加用户（useradd）</h2><p>格式：useradd [选项] 用户名</p>
+root:(password):17773:0:99999:7:::</code></pre><p><strong>解析</strong>：（从左到右依次）</p>
+<pre><code>    root：           #用户名
+    (password)：      #加密的密码字段
+    17773：          #上次修改密码的时间（天），默认从1970年1月1日开始计数辰）
+    0：              #密码最短有效时间，默认0天
+    99999：          #密码最长有效时间，默认99999天
+    7：              #警告时间，密码到期前7天提醒用户更新
+    空格：            #不活动时间，在用户密码到期后多少天禁用此用户
+    空格：            #失效时间，从1970.1.1起到用户被禁用的天数
+    空格：            #标志，保留位</code></pre><h2 id="添加用户（useradd）"><a href="#添加用户（useradd）" class="headerlink" title="添加用户（useradd）"></a>添加用户（useradd）</h2><p>格式：useradd [选项] 用户名</p>
 <p>选项：</p>
 <ol>
 <li>-u ：指定用户的UID标记号</li>
@@ -547,22 +553,22 @@
 <p>选项：</p>
 <p>-r ：删除用户时删除宿主目录</p>
 <h2 id="组账户文件"><a href="#组账户文件" class="headerlink" title="组账户文件"></a>组账户文件</h2><p><strong>/etc/group</strong>文件保存各用户的分组信息，与passwd类似，每行记录一个组的信息，任何用户可读，例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS home]# cat &#x2F;etc&#x2F;group</span><br><span class="line"></span><br><span class="line">bin:x:1:bin,daemon</span><br></pre></td></tr></table></figure>
+<pre><code>[root@CentOS home]# cat /etc/group
 
-<p>解析：（从左到右依次）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	bin ：               #组名</span><br><span class="line">	X ：                 #组口令占位符，用‘X’占位</span><br><span class="line">	1 ：                 #组标志号（GID）</span><br><span class="line">	</span><br><span class="line">bin,daemon： #组成员，成员之间用‘,’分隔</span><br></pre></td></tr></table></figure>
+bin:x:1:bin,daemon</code></pre><p>解析：（从左到右依次）</p>
+<pre><code>    bin ：               #组名
+    X ：                 #组口令占位符，用‘X’占位
+    1 ：                 #组标志号（GID）
 
+bin,daemon： #组成员，成员之间用‘,’分隔</code></pre><p><strong>/etc/gshadow</strong>文件用于定义用户组口令、组管理员等信息，与/etc/shadow类似，每一行记录一个组的信息，例：</p>
+<pre><code>[root@CentOS home]# cat /etc/gshadow
 
+bin:::bin,daemon</code></pre><p>解析：（从左到右依次）</p>
+<pre><code>    bin ：           #组名
+    空格 ：           #组口令占位符，用‘！！’占位
+    空格 ：           #组管理员账号
 
-<p><strong>/etc/gshadow</strong>文件用于定义用户组口令、组管理员等信息，与/etc/shadow类似，每一行记录一个组的信息，例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS home]# cat &#x2F;etc&#x2F;gshadow</span><br><span class="line"></span><br><span class="line">bin:::bin,daemon</span><br></pre></td></tr></table></figure>
-
-<p>解析：（从左到右依次）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">	bin ：           #组名</span><br><span class="line">	空格 ：           #组口令占位符，用‘！！’占位</span><br><span class="line">	空格 ：           #组管理员账号</span><br><span class="line">	</span><br><span class="line">bin,daemon： #组成员，成员之间用‘,’分隔</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="添加组帐号（groupadd）"><a href="#添加组帐号（groupadd）" class="headerlink" title="添加组帐号（groupadd）"></a>添加组帐号（groupadd）</h2><p>格式：groupadd [-g GID] 组帐号名</p>
+bin,daemon： #组成员，成员之间用‘,’分隔</code></pre><h2 id="添加组帐号（groupadd）"><a href="#添加组帐号（groupadd）" class="headerlink" title="添加组帐号（groupadd）"></a>添加组帐号（groupadd）</h2><p>格式：groupadd [-g GID] 组帐号名</p>
 <h2 id="添加组成员（gpasswd）"><a href="#添加组成员（gpasswd）" class="headerlink" title="添加组成员（gpasswd）"></a>添加组成员（gpasswd）</h2><p>gpasswd命令：设置帐号密码，添加删除组成员—-&gt;极少用或根本不用</p>
 <p>格式：gpasswd [选项] 用户名 组名</p>
 <p>选项：</p>
@@ -581,11 +587,9 @@
 <h2 id="文件目录的权限和归属"><a href="#文件目录的权限和归属" class="headerlink" title="文件目录的权限和归属"></a>文件目录的权限和归属</h2><h3 id="访问权限："><a href="#访问权限：" class="headerlink" title="访问权限："></a>访问权限：</h3><p>读取r：允许查看文件内容，显示目录列表</p>
 <p>写入w：允许修改文件内容，允许在目录中新建，移动，删除文件或子目录</p>
 <p>执行x：允许运行程序，切换目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS &#x2F;]# ll 1.txt</span><br><span class="line"></span><br><span class="line">-rw-r--r-- 1 root root 0 8月  31 23:57 1.txt</span><br></pre></td></tr></table></figure>
+<pre><code>[root@CentOS /]# ll 1.txt
 
-
-
-<p>设置文件和目录的权限（chmod）</p>
+-rw-r--r-- 1 root root 0 8月  31 23:57 1.txt</code></pre><p>设置文件和目录的权限（chmod）</p>
 <p>格式1：chmod [ugoa] [+-=] 文件或目录</p>
 <p>选项：</p>
 <ol>
@@ -598,11 +602,7 @@
 <li>=:直接赋权</li>
 </ol>
 <p>格式2：chmod [nnn] 文件或目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex :chmod 644 1.txt</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="归属："><a href="#归属：" class="headerlink" title="归属："></a>归属：</h3><p>属主：拥有该文件或目录的用户账户</p>
+<pre><code>ex :chmod 644 1.txt</code></pre><h3 id="归属："><a href="#归属：" class="headerlink" title="归属："></a>归属：</h3><p>属主：拥有该文件或目录的用户账户</p>
 <p>属组：用户该文件或目录的组账户</p>
 <p>设置文件和目录的归属（chown）</p>
 <p>格式：chown 属主:属组 文件或目录</p>
@@ -759,7 +759,11 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、安装完操作系统后必要的两个操作1.关闭防火墙123456789CentOS6：service iptables stop		#关闭防火墙service iptables status		#查看防火墙状态chkconfig iptable
+                            一、安装完操作系统后必要的两个操作1.关闭防火墙CentOS6：
+service iptables stop        #关闭防火墙
+service iptables status        #查看防火墙状态
+
+chkconfig 
                         
                     </div>
                     <div class="publish-info">
@@ -974,6 +978,16 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
 
     <footer class="page-footer bg-color">
     

@@ -485,16 +485,18 @@
 <h2 id="2-shell的工作"><a href="#2-shell的工作" class="headerlink" title="2.shell的工作"></a>2.shell的工作</h2><p>​        接收用户输入的命令–&gt;解释命令–&gt;传递给系统内核</p>
 <h2 id="3-bash是什么"><a href="#3-bash是什么" class="headerlink" title="3.bash是什么"></a>3.bash是什么</h2><p>​        bash是Linux系统中默认使用的shell程序，bash存放的位置：/bin/bash</p>
 <h2 id="4-命令分类"><a href="#4-命令分类" class="headerlink" title="4.命令分类"></a>4.命令分类</h2><p>​        Linux命令分为内部命令和外部命令，内部命令是指系统集成的命令（程序），开机自动载入内存；外部命令是指用户安装的程序，必须知道文件的位置才能使用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注：Linux外部命令由环境变量PATH决定，可以通过echo $PATH来打印环境变量</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="二、通用命令行使用格式"><a href="#二、通用命令行使用格式" class="headerlink" title="二、通用命令行使用格式"></a>二、通用命令行使用格式</h1><h2 id="1-格式"><a href="#1-格式" class="headerlink" title="1.格式"></a>1.格式</h2><p>命令字 [选项]  [参数]</p>
+<pre><code>注：Linux外部命令由环境变量PATH决定，可以通过echo $PATH来打印环境变量</code></pre><h1 id="二、通用命令行使用格式"><a href="#二、通用命令行使用格式" class="headerlink" title="二、通用命令行使用格式"></a>二、通用命令行使用格式</h1><h2 id="1-格式"><a href="#1-格式" class="headerlink" title="1.格式"></a>1.格式</h2><p>命令字 [选项]  [参数]</p>
 <p>命令字：决定命令实现的功能</p>
 <p>选项：调节命令的具体功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">选项注意事项：</span><br><span class="line">1、不同的命令字使用的选项会不同</span><br><span class="line">2、多个选项之间使用空格分隔</span><br><span class="line">3、若不使用选项，执行命令字的默认功能</span><br><span class="line">4、短格式选项：一般在选项前使用‘-’符号引导</span><br><span class="line">5、短格式默认跟的是单个字符，多个字符可以组合到一起</span><br><span class="line">6、多个单字符选项可以组合到一起使用</span><br><span class="line">7、长格式选项：一般在选项前使用‘--’符号引导</span><br><span class="line">8、长格式默认跟的是单词，多个单词之间必须使用空格和‘--’分隔</span><br></pre></td></tr></table></figure>
-
-<p>参数：指的是操作对象</p>
+<pre><code>选项注意事项：
+1、不同的命令字使用的选项会不同
+2、多个选项之间使用空格分隔
+3、若不使用选项，执行命令字的默认功能
+4、短格式选项：一般在选项前使用‘-’符号引导
+5、短格式默认跟的是单个字符，多个字符可以组合到一起
+6、多个单字符选项可以组合到一起使用
+7、长格式选项：一般在选项前使用‘--’符号引导
+8、长格式默认跟的是单词，多个单词之间必须使用空格和‘--’分隔</code></pre><p>参数：指的是操作对象</p>
 <p>对象：包括文件，目录，用户</p>
 <h2 id="2-注意"><a href="#2-注意" class="headerlink" title="2.注意"></a>2.注意</h2><ol>
 <li>命令区分大小写</li>
@@ -528,38 +530,50 @@
 <li>​    ‘.’：表示当前目录</li>
 </ol>
 <h2 id="3-ls命令"><a href="#3-ls命令" class="headerlink" title="3.ls命令"></a>3.ls命令</h2><p>​        显示信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、ls -l：以长格式显示文件和目录的列表，包括权限、大小、最后更新时间等详细信息</span><br><span class="line">2、ls -a：显示隐藏目录和文件，以及‘.’,‘..’文件</span><br><span class="line">3、ls -A：只显示隐藏文件和目录</span><br><span class="line">4、ls -d：显示当前目录本身属性</span><br><span class="line">5、ls -h：显示目录或文件大小，以（KB、MB）显示，默认大小单位为B</span><br><span class="line">6、ls -R：递归显示当前目录及其子目录中的所有内容</span><br><span class="line">7、ls --color：在字符模式中以不同颜色显示不同类型文件（默认集成在ls命令中）</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-du命令（disk-use）"><a href="#4-du命令（disk-use）" class="headerlink" title="4.du命令（disk use）"></a>4.du命令（disk use）</h2><p>​        用来统计目录及文件空间占用情况</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、用法：du [选项] [目录或文件]</span><br><span class="line">2、Du -a :统计是包括所有文件，而不仅仅统计目录</span><br><span class="line">3、du -h：以KB、MB显示文件大小</span><br><span class="line">4、Du -s：只统计每个参数所占用空间的总大小</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5.其他"></a>5.其他</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、通配符：</span><br><span class="line">	?：匹配一个字符</span><br><span class="line">	*：匹配多个字符</span><br><span class="line">2、alias：别名		#一般为用户自己创建使用，且只在当前bash中生效</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="七、管理文件和目录常用命令"><a href="#七、管理文件和目录常用命令" class="headerlink" title="七、管理文件和目录常用命令"></a>七、管理文件和目录常用命令</h1><h2 id="1-创建文件和目录"><a href="#1-创建文件和目录" class="headerlink" title="1.创建文件和目录"></a>1.创建文件和目录</h2><p>1.mkdir（make directory） [选项] [目录位置及名称]<br>        mkdir -p         #创建包含子目录的目录（级联创建）</p>
+<pre><code>1、ls -l：以长格式显示文件和目录的列表，包括权限、大小、最后更新时间等详细信息
+2、ls -a：显示隐藏目录和文件，以及‘.’,‘..’文件
+3、ls -A：只显示隐藏文件和目录
+4、ls -d：显示当前目录本身属性
+5、ls -h：显示目录或文件大小，以（KB、MB）显示，默认大小单位为B
+6、ls -R：递归显示当前目录及其子目录中的所有内容
+7、ls --color：在字符模式中以不同颜色显示不同类型文件（默认集成在ls命令中）</code></pre><h2 id="4-du命令（disk-use）"><a href="#4-du命令（disk-use）" class="headerlink" title="4.du命令（disk use）"></a>4.du命令（disk use）</h2><p>​        用来统计目录及文件空间占用情况</p>
+<pre><code>1、用法：du [选项] [目录或文件]
+2、Du -a :统计是包括所有文件，而不仅仅统计目录
+3、du -h：以KB、MB显示文件大小
+4、Du -s：只统计每个参数所占用空间的总大小</code></pre><h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5.其他"></a>5.其他</h2><pre><code>1、通配符：
+    ?：匹配一个字符
+    *：匹配多个字符
+2、alias：别名        #一般为用户自己创建使用，且只在当前bash中生效</code></pre><h1 id="七、管理文件和目录常用命令"><a href="#七、管理文件和目录常用命令" class="headerlink" title="七、管理文件和目录常用命令"></a>七、管理文件和目录常用命令</h1><h2 id="1-创建文件和目录"><a href="#1-创建文件和目录" class="headerlink" title="1.创建文件和目录"></a>1.创建文件和目录</h2><p>1.mkdir（make directory） [选项] [目录位置及名称]<br>        mkdir -p         #创建包含子目录的目录（级联创建）</p>
 <p>2.touch         #创建文件/更新文件的最后更改时间</p>
 <p>3.ln            #创建链接（软连接|硬链接），为目录或文件创建链接文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">注意：</span><br><span class="line">	1、创建链接时最好使用绝对路径</span><br><span class="line">	2、软链接：（ln -s）适用于文件或目录，与原始文件可以位于不同的文件系统中（能跨越分区），删除源文件后软链接失效（同步更新）。当源文件存在时，链接文件正常使用，删除原文件后，链接文件失效</span><br><span class="line">	3、硬链接：（ln）适用于文件，与原始文件不可以位于不同的文件系统中（不能跨越分区），删除源文件后硬链接不失效（同步更新）。当源文件存在时，链接文件正常使用，删除源文件后，链接文件依然有效</span><br></pre></td></tr></table></figure>
-
-<p>4.cp（copy）        #复制文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp -r		#递归复制，用于复制文件夹</span><br><span class="line">cp -i		#当目标文件存在时，提醒用户</span><br><span class="line">cp -p		#保持文件的权限，属主，属组及时间标记等属性不变</span><br><span class="line">cp -f		#强制执行复制</span><br></pre></td></tr></table></figure>
-
-<p>5.rm（remove）    #删除文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、rm -f		#强制删除</span><br><span class="line">2、rm -i		#提醒用户</span><br><span class="line">3、rm -r		#迭代</span><br></pre></td></tr></table></figure>
-
-<p>6.mv（move）        #移动/重命名文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、mv -f		#强制执行，覆盖前不询问</span><br><span class="line">2、mv -i		#interactive，覆盖前询问</span><br><span class="line">3、mv -u		#update，只在源文件比目标文件新，或目标文件不存在时才执行</span><br><span class="line">4、mv -v		#verbose，显示移动过程</span><br></pre></td></tr></table></figure>
-
-<p>7.which</p>
+<pre><code>注意：
+    1、创建链接时最好使用绝对路径
+    2、软链接：（ln -s）适用于文件或目录，与原始文件可以位于不同的文件系统中（能跨越分区），删除源文件后软链接失效（同步更新）。当源文件存在时，链接文件正常使用，删除原文件后，链接文件失效
+    3、硬链接：（ln）适用于文件，与原始文件不可以位于不同的文件系统中（不能跨越分区），删除源文件后硬链接不失效（同步更新）。当源文件存在时，链接文件正常使用，删除源文件后，链接文件依然有效</code></pre><p>4.cp（copy）        #复制文件</p>
+<pre><code>cp -r        #递归复制，用于复制文件夹
+cp -i        #当目标文件存在时，提醒用户
+cp -p        #保持文件的权限，属主，属组及时间标记等属性不变
+cp -f        #强制执行复制</code></pre><p>5.rm（remove）    #删除文件</p>
+<pre><code>1、rm -f        #强制删除
+2、rm -i        #提醒用户
+3、rm -r        #迭代</code></pre><p>6.mv（move）        #移动/重命名文件</p>
+<pre><code>1、mv -f        #强制执行，覆盖前不询问
+2、mv -i        #interactive，覆盖前询问
+3、mv -u        #update，只在源文件比目标文件新，或目标文件不存在时才执行
+4、mv -v        #verbose，显示移动过程</code></pre><p>7.which</p>
 <p>​        which命令主要用来1、寻找执行程序，which查找的目录依赖于环境变量PATH中定义的路径，用法：which +命令|程序名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注意：</span><br><span class="line">	1、当which查找到第一个目标后不再继续查找</span><br><span class="line">	2、which用来查找内部命令时，将找不到对应的程序</span><br></pre></td></tr></table></figure>
-
-<p>8.find</p>
+<pre><code>注意：
+    1、当which查找到第一个目标后不再继续查找
+    2、which用来查找内部命令时，将找不到对应的程序</code></pre><p>8.find</p>
 <p>​        find命令主要用来寻找文件或文件夹，支持条件查找，用法：find  [查找范围（路径）]  [查找条件表达式]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、查找条件表达式：</span><br><span class="line">	-name :按照文件名称查找</span><br><span class="line">	-size ：按照文件大小查找</span><br><span class="line">	-user ：按照文件属主查找</span><br><span class="line">	-type ：按照文件类型查找</span><br><span class="line">2、支持逻辑表达式</span><br><span class="line">	-a：and（与）		#例：find  &#x2F;  -type  c  -a  -name  vcsa6</span><br><span class="line">	-o ：or（或）		#例：find  &#x2F;aaa  -name  \*.sh  -o  -type  f</span><br></pre></td></tr></table></figure>
-
-
+<pre><code>1、查找条件表达式：
+    -name :按照文件名称查找
+    -size ：按照文件大小查找
+    -user ：按照文件属主查找
+    -type ：按照文件类型查找
+2、支持逻辑表达式
+    -a：and（与）        #例：find  /  -type  c  -a  -name  vcsa6
+    -o ：or（或）        #例：find  /aaa  -name  \*.sh  -o  -type  f</code></pre>
             </div>
             <hr/>
 
@@ -692,47 +706,49 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/08/01/others/markdown%E8%AF%AD%E6%B3%95/">
+                <a href="/2020/08/01/linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="MarkDown语法">
+                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="linux基本命令">
                         
-                        <span class="card-title">MarkDown语法</span>
+                        <span class="card-title">linux基本命令</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Markdown语法一、标题标题的使用格式，使用（井号键加空格键表示）共有六个等级
-123456# 一级标题，快捷键：ctrl+1## 二级标题，快捷键：ctrl+2### 三级标题，快捷键：ctrl+3#### 四级标题，快捷键：ctrl
+                            一、shell1.shell是什么​        shell是一种脚本语言，同时也是Linux系统中运行的一种特殊程序，在用户和内核之间充当“翻译官”，用来实现人机交互。
+2.shell的工作​        接收用户输入的命令–&gt;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/markdown/" class="post-category">
-                                    markdown
+                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    Linux基础
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%85%B6%E4%BB%96/">
-                        <span class="chip bg-color">其他</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
@@ -926,6 +942,16 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
 
     <footer class="page-footer bg-color">
     

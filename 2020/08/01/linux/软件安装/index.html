@@ -497,30 +497,16 @@
 <h3 id="3、rpm查询已经安装的rpm软件信息"><a href="#3、rpm查询已经安装的rpm软件信息" class="headerlink" title="3、rpm查询已经安装的rpm软件信息"></a>3、rpm查询已经安装的rpm软件信息</h3><p>格式：rpm –q[子选项] [软件名]</p>
 <p>用法：</p>
 <p>​         1、-qa ：all查看所有已经安装的rpm软件列表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm –qa python</span><br></pre></td></tr></table></figure>
-
-<p>​          2、-qi ：information查看指定软件的详细信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm -qi python</span><br></pre></td></tr></table></figure>
-
-<p>​          3、-qc ：configuration仅显示指定软件包安装的配置文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm –qc httpd</span><br></pre></td></tr></table></figure>
-
-<p>​           4、-qd ：document仅显示指定软件包安装的文档文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm –qd httpd</span><br></pre></td></tr></table></figure>
-
-<p>​           5、-qf ：from查询应用是由哪个软件包安装的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm –qf &#x2F;usr&#x2F;bin&#x2F;vim</span><br></pre></td></tr></table></figure>
-
-<p>​           </p>
+<pre><code>         ex：rpm –qa python                                      </code></pre><p>​          2、-qi ：information查看指定软件的详细信息</p>
+<pre><code>         ex：rpm -qi python</code></pre><p>​          3、-qc ：configuration仅显示指定软件包安装的配置文件</p>
+<pre><code>           ex：rpm –qc httpd</code></pre><p>​           4、-qd ：document仅显示指定软件包安装的文档文件</p>
+<pre><code>         ex：rpm –qd httpd</code></pre><p>​           5、-qf ：from查询应用是由哪个软件包安装的</p>
+<pre><code>         ex：rpm –qf /usr/bin/vim</code></pre><p>​           </p>
 <h3 id="4、查询未安装的rpm包"><a href="#4、查询未安装的rpm包" class="headerlink" title="4、查询未安装的rpm包"></a>4、查询未安装的rpm包</h3><p>格式：rpm –qp[子选项] [rpm包]</p>
 <p>用法：</p>
 <p>​        1、-qpi ：通过rpm包文件查看该软件的详细信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex：rpm -qpi webmin-1.690-1.noarch.rpm</span><br></pre></td></tr></table></figure>
-
-<p>​        2、-qpl ：查看软件包内所包含的目录和文件列表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ex： rpm -qpl webmin-1.690-1.noarch.rpm</span><br></pre></td></tr></table></figure>
-
-<p>​           </p>
+<pre><code>         ex：rpm -qpi webmin-1.690-1.noarch.rpm </code></pre><p>​        2、-qpl ：查看软件包内所包含的目录和文件列表</p>
+<pre><code>         ex： rpm -qpl webmin-1.690-1.noarch.rpm</code></pre><p>​           </p>
 <h3 id="5、安装升级rpm软件"><a href="#5、安装升级rpm软件" class="headerlink" title="5、安装升级rpm软件"></a>5、安装升级rpm软件</h3><p>格式：rpm [选项] rpm包文件</p>
 <p>用法：</p>
 <p>​        -i ：install 安装一个新的rpm包</p>
@@ -564,9 +550,19 @@
 <p>3、make编译，生成可执行二进制文件</p>
 <p>4、make install 安装，复制二进制文件到系统，配置应用环境</p>
 <p>ex：源码安装httpd</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf httpd-2.2.15.tar.gz -C &#x2F;usr&#x2F;local          #将安装包解压到&#x2F;usr&#x2F;local目录</span><br><span class="line"></span><br><span class="line">mkdir httpd               #创建软件安装目录</span><br><span class="line"></span><br><span class="line">cd &#x2F;usr&#x2F;local&#x2F;cd httpd-2.2.15&#x2F;                 #进入程序&#x2F;bin目录</span><br><span class="line"></span><br><span class="line">   .&#x2F;configure --prefix&#x3D;&#x2F;usr&#x2F;local&#x2F;httpd              #配置安装环境</span><br><span class="line"></span><br><span class="line">echo $?           #验证是否出错(0表示没有出错)</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install              #编译安装（编译时间较长）</span><br><span class="line"></span><br><span class="line">echo $?                             #查看上一过程是否出错</span><br></pre></td></tr></table></figure>
+<pre><code>    tar -zxf httpd-2.2.15.tar.gz -C /usr/local          #将安装包解压到/usr/local目录
 
-<p>​           </p>
+    mkdir httpd               #创建软件安装目录
+
+    cd /usr/local/cd httpd-2.2.15/                 #进入程序/bin目录
+
+    ./configure --prefix=/usr/local/httpd              #配置安装环境
+
+    echo $?           #验证是否出错(0表示没有出错)
+
+    make &amp;&amp; make install              #编译安装（编译时间较长）
+
+    echo $?                             #查看上一过程是否出错</code></pre><p>​           </p>
 <p>检验成功：</p>
 <p>cd /usr/local/httpd/bin             #进入安装目录bin文件夹</p>
 <p>./apachectl                                   #检验</p>
@@ -760,20 +756,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/01/linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/">
+                <a href="/2020/08/01/others/markdown%E8%AF%AD%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="linux基本命令">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="MarkDown语法">
                         
-                        <span class="card-title">linux基本命令</span>
+                        <span class="card-title">MarkDown语法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、cat命令1.cat用途​        显示文件内容
-123[root@desktop ~]# cat a.txt		#查看a.txt文件内容[root@desktop ~]# cat &#x2F;proc&#x2F;uptime		
+                            Markdown语法一、标题标题的使用格式，使用（井号键加空格键表示）共有六个等级
+# 一级标题，快捷键：ctrl+1
+## 二级标题，快捷键：ctrl+2
+### 三级标题，快捷键：ctrl+3
+#### 四级标题，快捷键：ctrl+4
+
                         
                     </div>
                     <div class="publish-info">
@@ -784,8 +784,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    Linux基础
+                            <a href="/categories/markdown/" class="post-category">
+                                    markdown
                                 </a>
                             
                             
@@ -795,8 +795,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Linux/">
-                        <span class="chip bg-color">Linux</span>
+                    <a href="/tags/%E5%85%B6%E4%BB%96/">
+                        <span class="chip bg-color">其他</span>
                     </a>
                     
                 </div>
@@ -936,6 +936,16 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 
 
 
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+<!-- 代码语言 -->
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+<!-- 代码块复制 -->
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+<script type="text/javascript" src="/libs/codeBlock/clipboard.min.js"></script>
+<!-- 代码块收缩 -->
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script> 
+<!-- 代码块折行 -->
+<style type="text/css">code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }</style>
 
     <footer class="page-footer bg-color">
     
