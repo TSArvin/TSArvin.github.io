@@ -269,6 +269,7 @@ mark {
 
 .bg-color {
     background-image: linear-gradient(to right, #d2d3d5 0%, #bebfc3 100%);
+	opacity: 0.85;	/* 透明效果 */
 }
 
 .text-color {
@@ -1882,11 +1883,15 @@ footer .copy-right {
 #searchModal {
     min-height: 500px;
     width: 80%;
+	background-color: rgba(0,0,0,0.8)
 }
-
+#searchInput {
+	color: #fff;
+}
 #searchModal .search-header .title {
     font-size: 1.6rem;
-    color: #333;
+    /* color: #333; */
+	color: coral;
 }
 
 #searchResult {
