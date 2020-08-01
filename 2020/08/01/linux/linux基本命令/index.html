@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="linux基本命令II, TSArvin">
+    <meta name="keywords" content="linux基本命令, TSArvin">
     <meta name="description" content="一个不懂技术的小白啊">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>linux基本命令II | TSArvin</title>
+    <title>linux基本命令 | TSArvin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,7 +313,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">linux基本命令II</h1>
+                    <h1 class="description center-align post-title">linux基本命令</h1>
                 </div>
             </div>
         </div>
@@ -428,12 +428,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
+                                Linux基础
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -442,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-12
+                    2020-08-01
                 </div>
                 
 
@@ -458,115 +471,84 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、cat命令"><a href="#一、cat命令" class="headerlink" title="一、cat命令"></a>一、cat命令</h1><h2 id="1-cat用途"><a href="#1-cat用途" class="headerlink" title="1.cat用途"></a>1.cat用途</h2><p>​        显示文件内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# cat a.txt		#查看a.txt文件内容</span><br><span class="line">[root@desktop ~]# cat &#x2F;proc&#x2F;uptime		#查看开机时间</span><br><span class="line">18256.04	18160.06		#第一个值表示系统从开机到现在运行时间（s)，第二个值表示系统开机后空闲时间（s）,系统空闲比&#x3D;第二个值&#x2F;第一个值</span><br></pre></td></tr></table></figure>
+                <h1 id="一、shell"><a href="#一、shell" class="headerlink" title="一、shell"></a>一、shell</h1><h2 id="1-shell是什么"><a href="#1-shell是什么" class="headerlink" title="1.shell是什么"></a>1.shell是什么</h2><p>​        shell是一种脚本语言，同时也是Linux系统中运行的一种特殊程序，在用户和内核之间充当“翻译官”，用来实现人机交互。</p>
+<h2 id="2-shell的工作"><a href="#2-shell的工作" class="headerlink" title="2.shell的工作"></a>2.shell的工作</h2><p>​        接收用户输入的命令–&gt;解释命令–&gt;传递给系统内核</p>
+<h2 id="3-bash是什么"><a href="#3-bash是什么" class="headerlink" title="3.bash是什么"></a>3.bash是什么</h2><p>​        bash是Linux系统中默认使用的shell程序，bash存放的位置：/bin/bash</p>
+<h2 id="4-命令分类"><a href="#4-命令分类" class="headerlink" title="4.命令分类"></a>4.命令分类</h2><p>​        Linux命令分为内部命令和外部命令，内部命令是指系统集成的命令（程序），开机自动载入内存；外部命令是指用户安装的程序，必须知道文件的位置才能使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">注：Linux外部命令由环境变量PATH决定，可以通过echo $PATH来打印环境变量</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-命令格式"><a href="#2-命令格式" class="headerlink" title="2.命令格式"></a>2.命令格式</h2><p>​        cat [选项] 文件名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# cat &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0 		#查看网络配置文件</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-常用选项"><a href="#3-常用选项" class="headerlink" title="3.常用选项"></a>3.常用选项</h2><ol>
-<li>-b：非空行加上序号</li>
-<li>-A：show all  ==-vET</li>
-<li>-v：–show-nonprinting，使用^和M-引用，除LFD和TAB</li>
-<li>-E：–show-ends，在每行结束处显示“$”</li>
-<li>-T：–show-tabs，将跳格字符显示为^I</li>
+
+<h1 id="二、通用命令行使用格式"><a href="#二、通用命令行使用格式" class="headerlink" title="二、通用命令行使用格式"></a>二、通用命令行使用格式</h1><h2 id="1-格式"><a href="#1-格式" class="headerlink" title="1.格式"></a>1.格式</h2><p>命令字 [选项]  [参数]</p>
+<p>命令字：决定命令实现的功能</p>
+<p>选项：调节命令的具体功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">选项注意事项：</span><br><span class="line">1、不同的命令字使用的选项会不同</span><br><span class="line">2、多个选项之间使用空格分隔</span><br><span class="line">3、若不使用选项，执行命令字的默认功能</span><br><span class="line">4、短格式选项：一般在选项前使用‘-’符号引导</span><br><span class="line">5、短格式默认跟的是单个字符，多个字符可以组合到一起</span><br><span class="line">6、多个单字符选项可以组合到一起使用</span><br><span class="line">7、长格式选项：一般在选项前使用‘--’符号引导</span><br><span class="line">8、长格式默认跟的是单词，多个单词之间必须使用空格和‘--’分隔</span><br></pre></td></tr></table></figure>
+
+<p>参数：指的是操作对象</p>
+<p>对象：包括文件，目录，用户</p>
+<h2 id="2-注意"><a href="#2-注意" class="headerlink" title="2.注意"></a>2.注意</h2><ol>
+<li>命令区分大小写</li>
+<li>命令区分全角\半角</li>
+<li>命令切忌使用中文符号</li>
 </ol>
-<h1 id="二、tac命令"><a href="#二、tac命令" class="headerlink" title="二、tac命令"></a>二、tac命令</h1><h2 id="1-tac用途"><a href="#1-tac用途" class="headerlink" title="1.tac用途"></a>1.tac用途</h2><p>​        倒叙浏览，适用于查看系统日志等按时间更新的文件</p>
-<h2 id="2-命令格式-1"><a href="#2-命令格式-1" class="headerlink" title="2.命令格式"></a>2.命令格式</h2><p>​        tac [选项] 文件名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# tac &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0 	#倒序浏览网络配置文件</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-常用选项-1"><a href="#3-常用选项-1" class="headerlink" title="3.常用选项"></a>3.常用选项</h2><ol>
-<li>-b：before 在行前而非行尾添加分隔标志</li>
-<li>-r：regex 将分隔标志视作正则表达式来解析</li>
-<li>-s：separator 使用指定字符串代替换行符做分隔标志</li>
+<h1 id="三、快捷键"><a href="#三、快捷键" class="headerlink" title="三、快捷键"></a>三、快捷键</h1><ol>
+<li>Tab：补全命令&amp;显示文件夹内容</li>
+<li>反斜杠‘\’：强制换行，但不中断命令</li>
+<li>Ctrl + U：快速删除光标之前的所有内容</li>
+<li>Ctrl + K：快速删除光标之后的所有内容</li>
+<li>Ctrl + A：回到行首</li>
+<li>Ctrl + L：==clear 清屏</li>
 </ol>
-<h1 id="三、more-amp-less命令"><a href="#三、more-amp-less命令" class="headerlink" title="三、more&amp;less命令"></a>三、more&amp;less命令</h1><h2 id="1-more用途"><a href="#1-more用途" class="headerlink" title="1.more用途"></a>1.more用途</h2><p>​        全屏方式分页显示文件内容</p>
-<h2 id="2-more命令格式"><a href="#2-more命令格式" class="headerlink" title="2.more命令格式"></a>2.more命令格式</h2><p>​        more  [选项] 文件名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# more &#x2F;var&#x2F;log&#x2F;dmesg		#查看dmesg日志文件</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-more操作方法"><a href="#3-more操作方法" class="headerlink" title="3.more操作方法"></a>3.more操作方法</h2><ol>
-<li>enter：向下逐行滚动</li>
-<li>space：向下逐页翻动</li>
-<li>q：退出</li>
+<h1 id="四、帮助命令"><a href="#四、帮助命令" class="headerlink" title="四、帮助命令"></a>四、帮助命令</h1><ol>
+<li>help +命令</li>
+<li>命令 –help</li>
+<li>Man 文件（q退出）</li>
 </ol>
-<h2 id="4-less用途"><a href="#4-less用途" class="headerlink" title="4.less用途"></a>4.less用途</h2><p>​        与more功能相同，但扩展功能更多</p>
-<h2 id="5-less命令格式"><a href="#5-less命令格式" class="headerlink" title="5.less命令格式"></a>5.less命令格式</h2><p>​        less [选项] 文件名</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# less &#x2F;var&#x2F;log&#x2F;dmesg</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-less操作方法"><a href="#6-less操作方法" class="headerlink" title="6.less操作方法"></a>6.less操作方法</h2><ol>
-<li>PgUP ：上翻页</li>
-<li>PgDn ：下翻页</li>
-<li>‘/’键查找内容，‘n’下一个内容，‘N’上一个内容</li>
-</ol>
-<h1 id="四、head-amp-tail-命令"><a href="#四、head-amp-tail-命令" class="headerlink" title="四、head&amp;tail 命令"></a>四、head&amp;tail 命令</h1><h2 id="1、head"><a href="#1、head" class="headerlink" title="1、head"></a>1、head</h2><p>head：查看文件开头的前十行（默认）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# head &#x2F;var&#x2F;log&#x2F;dmesg      #显示dmesg文件的前十行</span><br></pre></td></tr></table></figure>
-
-<p>选项：-n ：n代表行数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# head -11 &#x2F;var&#x2F;log&#x2F;dmesg        #显示dmesg文件的前11行</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、tail"><a href="#2、tail" class="headerlink" title="2、tail"></a>2、tail</h2><p>tail：查看文件末尾的后十行（默认）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# tail &#x2F;var&#x2F;log&#x2F;dmesg                   #显示dmesg文件的后十行</span><br></pre></td></tr></table></figure>
-
-<p>选项：</p>
+<h1 id="五、输出重定向-amp-管道"><a href="#五、输出重定向-amp-管道" class="headerlink" title="五、输出重定向&amp;管道"></a>五、输出重定向&amp;管道</h1><h2 id="1-输出重定向"><a href="#1-输出重定向" class="headerlink" title="1.输出重定向"></a>1.输出重定向</h2><p>​        输出重定向使用‘&gt;’表示，将命令成功执行后的屏幕输出结果保存到大于符号后指定的文件中</p>
+<h2 id="2-管道"><a href="#2-管道" class="headerlink" title="2.管道"></a>2.管道</h2><p>​        管道用‘|’表示，用于将前面命令的屏幕输出结果作为后面命令的操作对象（输入）</p>
+<h2 id="3-追加"><a href="#3-追加" class="headerlink" title="3.追加"></a>3.追加</h2><p>​        追加用‘&gt;&gt;’表示，将大于号前面的屏幕输出追加到后面的文件末尾</p>
+<h1 id="六、显示查看常用命令"><a href="#六、显示查看常用命令" class="headerlink" title="六、显示查看常用命令"></a>六、显示查看常用命令</h1><h2 id="1-pwd命令"><a href="#1-pwd命令" class="headerlink" title="1.pwd命令"></a>1.pwd命令</h2><p>​        用于显示当前工作目录</p>
+<h2 id="2-cd命令"><a href="#2-cd命令" class="headerlink" title="2.cd命令"></a>2.cd命令</h2><p>​        用来切换目录</p>
 <ol>
-<li><p>-n：n代表行数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# tail -11 &#x2F;var&#x2F;log&#x2F;dmesg  #显示dmesg文件的后11行</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>-f ：跟踪文件末尾的内容变化，实时显示更新的内容</p>
-</li>
+<li>​    用法：cd +目录位置(绝对路径|相对路径)</li>
+<li>​    cd ~ / cd +enter（不指定位置）：切换到当前用户的宿主目录</li>
+<li>​    cd -    ：切换到上一次执行cd命令所在目录</li>
+<li>​    绝对路径：从根目录开始</li>
+<li>​    相对路径：从当前目录开始</li>
+<li>​    ‘.’：表示当前目录</li>
 </ol>
-<h1 id="五、wc命令"><a href="#五、wc命令" class="headerlink" title="五、wc命令"></a>五、wc命令</h1><h2 id="1-wc（Word-count）"><a href="#1-wc（Word-count）" class="headerlink" title="1.wc（Word count）"></a>1.wc（Word count）</h2><p>​        统计文件中单词数量等信息，输出结果依次为行数、单词数、字符数、文件名</p>
-<h2 id="2-命令格式-2"><a href="#2-命令格式-2" class="headerlink" title="2.命令格式"></a>2.命令格式</h2><p>​        wc [选项] 目标文件</p>
-<h2 id="3-选项"><a href="#3-选项" class="headerlink" title="3.选项"></a>3.选项</h2><ol>
-<li>-l：line 统计行数</li>
-<li>-w：Word 统计单词个数</li>
-<li>-c：统计字节</li>
-</ol>
-<h1 id="六、grep命令"><a href="#六、grep命令" class="headerlink" title="六、grep命令"></a>六、grep命令</h1><h2 id="1-grep"><a href="#1-grep" class="headerlink" title="1.grep"></a>1.grep</h2><p>​        检索和过滤文件内容，在文件中查找显示包含指定字符串的行</p>
-<h2 id="2-命令格式-3"><a href="#2-命令格式-3" class="headerlink" title="2.命令格式"></a>2.命令格式</h2><p>​        grep [选项] 查找条件 目标文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# grep -v &quot;^#&quot; &#x2F;etc&#x2F;httpd&#x2F;conf&#x2F;httpd.conf 	#在httpd.conf文件中查找除了#开头的行</span><br></pre></td></tr></table></figure>
+<h2 id="3-ls命令"><a href="#3-ls命令" class="headerlink" title="3.ls命令"></a>3.ls命令</h2><p>​        显示信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1、ls -l：以长格式显示文件和目录的列表，包括权限、大小、最后更新时间等详细信息</span><br><span class="line">2、ls -a：显示隐藏目录和文件，以及‘.’,‘..’文件</span><br><span class="line">3、ls -A：只显示隐藏文件和目录</span><br><span class="line">4、ls -d：显示当前目录本身属性</span><br><span class="line">5、ls -h：显示目录或文件大小，以（KB、MB）显示，默认大小单位为B</span><br><span class="line">6、ls -R：递归显示当前目录及其子目录中的所有内容</span><br><span class="line">7、ls --color：在字符模式中以不同颜色显示不同类型文件（默认集成在ls命令中）</span><br></pre></td></tr></table></figure>
 
-<h2 id="3-常用选项-2"><a href="#3-常用选项-2" class="headerlink" title="3.常用选项"></a>3.常用选项</h2><ol>
-<li>-i：查找时忽略大小写</li>
-<li>-v：反转查找，取反，输出与查询条件不相符的行</li>
-</ol>
-<h2 id="4-查找条件"><a href="#4-查找条件" class="headerlink" title="4.查找条件"></a>4.查找条件</h2><p>​        要查找的字符串以英文双引号括起来</p>
-<ol>
-<li>”^..”：表示以”..”开头</li>
-<li>“..$”：表示以”..”结尾</li>
-<li>“^$”：表示空行</li>
-</ol>
-<h1 id="七、压缩-amp-解压"><a href="#七、压缩-amp-解压" class="headerlink" title="七、压缩&amp;解压"></a>七、压缩&amp;解压</h1><h2 id="1-gzip命令"><a href="#1-gzip命令" class="headerlink" title="1.gzip命令"></a>1.gzip命令</h2><p>1.1.gzip：用于制作压缩文件，解开压缩文件（不保留原文件）</p>
-<p>1.2.选项：</p>
-<p>​        -9 ：表示高压缩比，用在创建压缩文件时使用</p>
-<p>​        -d ：用于解压压缩文件</p>
-<p>1.3.压缩：gzip  -9 文件名</p>
-<p>1.4.解压缩：gzip -d .gz格式的压缩文件</p>
-<h2 id="2-bzip2命令"><a href="#2-bzip2命令" class="headerlink" title="2.bzip2命令"></a>2.bzip2命令</h2><p>2.1.bzip2：用于制作压缩文件，解开压缩文件，压缩效率更高（不保留原文件）</p>
-<p>2.2.选项：</p>
-<p>​        -9 ：表示高压缩比，用在创建压缩文件时使用</p>
-<p>​        -d ：用于解压压缩文件</p>
-<p>2.3.压缩：bzip2 -9 文件名</p>
-<p>2.4.解压缩：bzip2 -d .bz格式的压缩文件</p>
-<h2 id="3-tar命令"><a href="#3-tar命令" class="headerlink" title="3.tar命令"></a>3.tar命令</h2><p>3.1.tar：制作归档文件，释放归档文件，用来压缩文件夹（打包）（保留原文件）</p>
-<p>3.2.打包：tar  [选项] 归档文件名 源文件或目标文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# tar -czf 1.txt.tar.gz 1.txt		#将1.txt文件打包成1.txt.tar.gz压缩文件</span><br></pre></td></tr></table></figure>
+<h2 id="4-du命令（disk-use）"><a href="#4-du命令（disk-use）" class="headerlink" title="4.du命令（disk use）"></a>4.du命令（disk use）</h2><p>​        用来统计目录及文件空间占用情况</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、用法：du [选项] [目录或文件]</span><br><span class="line">2、Du -a :统计是包括所有文件，而不仅仅统计目录</span><br><span class="line">3、du -h：以KB、MB显示文件大小</span><br><span class="line">4、Du -s：只统计每个参数所占用空间的总大小</span><br></pre></td></tr></table></figure>
 
-<p>3.3.解包：tar  [选项] 归档文件名 [-C 目标目录]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# tar -zxf 1.txt.tar.gz -C &#x2F;aaa	#将1.txt.tar.gz文件解压到aaa文件夹下</span><br></pre></td></tr></table></figure>
+<h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5.其他"></a>5.其他</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、通配符：</span><br><span class="line">	?：匹配一个字符</span><br><span class="line">	*：匹配多个字符</span><br><span class="line">2、alias：别名		#一般为用户自己创建使用，且只在当前bash中生效</span><br></pre></td></tr></table></figure>
 
-<p>3.4选项</p>
-<ol>
-<li>-c ：create 创建.tar格式的包</li>
-<li>-x ：解开.tar格式的包</li>
-<li>-v ：输出过程</li>
-<li>-f ：表示使用归档文件（使用其它选项时必须加上-f选项连用）</li>
-<li>-p ：打包时保留原始文件及目录权限</li>
-<li>-t ：列表查看包内的文件</li>
-<li>-C ：解包时指定释放的目标文件夹</li>
-<li>-z ：调用gzip程序进行压缩或解压</li>
-<li>-j ：调用bzip2程序进行压缩或解压</li>
-</ol>
+
+
+<h1 id="七、管理文件和目录常用命令"><a href="#七、管理文件和目录常用命令" class="headerlink" title="七、管理文件和目录常用命令"></a>七、管理文件和目录常用命令</h1><h2 id="1-创建文件和目录"><a href="#1-创建文件和目录" class="headerlink" title="1.创建文件和目录"></a>1.创建文件和目录</h2><p>1.mkdir（make directory） [选项] [目录位置及名称]<br>        mkdir -p         #创建包含子目录的目录（级联创建）</p>
+<p>2.touch         #创建文件/更新文件的最后更改时间</p>
+<p>3.ln            #创建链接（软连接|硬链接），为目录或文件创建链接文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">注意：</span><br><span class="line">	1、创建链接时最好使用绝对路径</span><br><span class="line">	2、软链接：（ln -s）适用于文件或目录，与原始文件可以位于不同的文件系统中（能跨越分区），删除源文件后软链接失效（同步更新）。当源文件存在时，链接文件正常使用，删除原文件后，链接文件失效</span><br><span class="line">	3、硬链接：（ln）适用于文件，与原始文件不可以位于不同的文件系统中（不能跨越分区），删除源文件后硬链接不失效（同步更新）。当源文件存在时，链接文件正常使用，删除源文件后，链接文件依然有效</span><br></pre></td></tr></table></figure>
+
+<p>4.cp（copy）        #复制文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cp -r		#递归复制，用于复制文件夹</span><br><span class="line">cp -i		#当目标文件存在时，提醒用户</span><br><span class="line">cp -p		#保持文件的权限，属主，属组及时间标记等属性不变</span><br><span class="line">cp -f		#强制执行复制</span><br></pre></td></tr></table></figure>
+
+<p>5.rm（remove）    #删除文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、rm -f		#强制删除</span><br><span class="line">2、rm -i		#提醒用户</span><br><span class="line">3、rm -r		#迭代</span><br></pre></td></tr></table></figure>
+
+<p>6.mv（move）        #移动/重命名文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、mv -f		#强制执行，覆盖前不询问</span><br><span class="line">2、mv -i		#interactive，覆盖前询问</span><br><span class="line">3、mv -u		#update，只在源文件比目标文件新，或目标文件不存在时才执行</span><br><span class="line">4、mv -v		#verbose，显示移动过程</span><br></pre></td></tr></table></figure>
+
+<p>7.which</p>
+<p>​        which命令主要用来1、寻找执行程序，which查找的目录依赖于环境变量PATH中定义的路径，用法：which +命令|程序名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">注意：</span><br><span class="line">	1、当which查找到第一个目标后不再继续查找</span><br><span class="line">	2、which用来查找内部命令时，将找不到对应的程序</span><br></pre></td></tr></table></figure>
+
+<p>8.find</p>
+<p>​        find命令主要用来寻找文件或文件夹，支持条件查找，用法：find  [查找范围（路径）]  [查找条件表达式]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1、查找条件表达式：</span><br><span class="line">	-name :按照文件名称查找</span><br><span class="line">	-size ：按照文件大小查找</span><br><span class="line">	-user ：按照文件属主查找</span><br><span class="line">	-type ：按照文件类型查找</span><br><span class="line">2、支持逻辑表达式</span><br><span class="line">	-a：and（与）		#例：find  &#x2F;  -type  c  -a  -name  vcsa6</span><br><span class="line">	-o ：or（或）		#例：find  &#x2F;aaa  -name  \*.sh  -o  -type  f</span><br></pre></td></tr></table></figure>
+
 
             </div>
             <hr/>
@@ -592,7 +574,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/">http://yoursite.com/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/</a>
+                    <a href="http://yoursite.com/2020/08/01/linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/">http://yoursite.com/2020/08/01/linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -629,7 +611,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -798,7 +784,7 @@
         repo: 'TSArvin.gityhub.io',
         owner: 'TSArvin',
         admin: "TSArvin",
-        id: '2020-02-12T18-40-55',
+        id: '2020-08-01T11-11-11',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -826,7 +812,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/">
+                <a href="/2020/08/01/linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/">
                     <div class="card-image">
                         
                         
@@ -843,15 +829,27 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-12
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            TSArvin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    Linux基础
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -863,37 +861,46 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/12/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">
+                <a href="/2020/08/01/linux/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="vim基本使用">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="进程管理及任务调度">
                         
-                        <span class="card-title">vim基本使用</span>
+                        <span class="card-title">进程管理及任务调度</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1、什么是vi编辑器一、什么是vi编辑器Vi编辑器用来创建或修改文本文件，是Linux系统中的各种配置文件的主要修改工具
-Vim：是vi编辑器的增强版本，有颜色区分
-二、vi编辑器的三种工作模式1、命令模式
-2、输入模式
-3、末行模式
-三种
+                            一、进程管理1、程序和进程关系程序：保存在硬盘光盘等存储介质中可执行的代码和数据，静态保存的代码
+进程：在cpu及内存中运行的程序代码，动态执行的代码。
+​                   父进程，子进程：每个进程可以创建一个或多个进程
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            TSArvin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    Linux基础
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
                 </div>
                 
             </div>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="linux基本命令&amp;文件目录管理, TSArvin">
+    <meta name="keywords" content="linux基本命令, TSArvin">
     <meta name="description" content="一个不懂技术的小白啊">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>linux基本命令&amp;文件目录管理 | TSArvin</title>
+    <title>linux基本命令 | TSArvin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">linux基本命令&amp;文件目录管理</h1>
+                    <h1 class="description center-align post-title">linux基本命令</h1>
                 </div>
             </div>
         </div>
@@ -428,12 +428,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
+                                Linux基础
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -442,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-02-12
+                    2020-08-01
                 </div>
                 
 
@@ -458,80 +471,115 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、安装完操作系统后必要的两个操作"><a href="#一、安装完操作系统后必要的两个操作" class="headerlink" title="一、安装完操作系统后必要的两个操作"></a>一、安装完操作系统后必要的两个操作</h1><h2 id="1-关闭防火墙"><a href="#1-关闭防火墙" class="headerlink" title="1.关闭防火墙"></a>1.关闭防火墙</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CentOS6：</span><br><span class="line">service iptables stop		#关闭防火墙</span><br><span class="line">service iptables status		#查看防火墙状态</span><br><span class="line"></span><br><span class="line">chkconfig iptables off		#禁止防火墙开机自启</span><br><span class="line">chkconfig iptables --list	#查看iptables在各个模式下的状态</span><br><span class="line"></span><br><span class="line">CentOS7：</span><br><span class="line">systemlctl stop firewalld	#关闭防火墙</span><br></pre></td></tr></table></figure>
+                <h1 id="一、cat命令"><a href="#一、cat命令" class="headerlink" title="一、cat命令"></a>一、cat命令</h1><h2 id="1-cat用途"><a href="#1-cat用途" class="headerlink" title="1.cat用途"></a>1.cat用途</h2><p>​        显示文件内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# cat a.txt		#查看a.txt文件内容</span><br><span class="line">[root@desktop ~]# cat &#x2F;proc&#x2F;uptime		#查看开机时间</span><br><span class="line">18256.04	18160.06		#第一个值表示系统从开机到现在运行时间（s)，第二个值表示系统开机后空闲时间（s）,系统空闲比&#x3D;第二个值&#x2F;第一个值</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-关闭selinux"><a href="#2-关闭selinux" class="headerlink" title="2.关闭selinux"></a>2.关闭selinux</h2><h3 id="2-1永久关闭"><a href="#2-1永久关闭" class="headerlink" title="2.1永久关闭"></a>2.1永久关闭</h3><p>​        编辑/etc/sysconfig/selinux文件，将SELINUX=enforcing改为disabled，重启生效</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &#39;s&#x2F;enforcing&#x2F;disabled&#x2F;&#39; &#x2F;etc&#x2F;sysconfig&#x2F;selinux</span><br></pre></td></tr></table></figure>
+<h2 id="2-命令格式"><a href="#2-命令格式" class="headerlink" title="2.命令格式"></a>2.命令格式</h2><p>​        cat [选项] 文件名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# cat &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0 		#查看网络配置文件</span><br></pre></td></tr></table></figure>
 
-<p>​        重启之后可以通过/usr/sbin/sestatus -v查看selinux状态，如果输出disabled则表示关闭，修改成功</p>
-<h3 id="2-2临时关闭"><a href="#2-2临时关闭" class="headerlink" title="2.2临时关闭"></a>2.2临时关闭</h3><p>​        注：临时关闭selinux重启服务器后失效</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setenforce 0	#设置selinux为permissive模式</span><br><span class="line">setenforce 1	#设置selinux为enforcing模式</span><br><span class="line"></span><br><span class="line">getenforce		#查看selinux状态</span><br></pre></td></tr></table></figure>
+<h2 id="3-常用选项"><a href="#3-常用选项" class="headerlink" title="3.常用选项"></a>3.常用选项</h2><ol>
+<li>-b：非空行加上序号</li>
+<li>-A：show all  ==-vET</li>
+<li>-v：–show-nonprinting，使用^和M-引用，除LFD和TAB</li>
+<li>-E：–show-ends，在每行结束处显示“$”</li>
+<li>-T：–show-tabs，将跳格字符显示为^I</li>
+</ol>
+<h1 id="二、tac命令"><a href="#二、tac命令" class="headerlink" title="二、tac命令"></a>二、tac命令</h1><h2 id="1-tac用途"><a href="#1-tac用途" class="headerlink" title="1.tac用途"></a>1.tac用途</h2><p>​        倒叙浏览，适用于查看系统日志等按时间更新的文件</p>
+<h2 id="2-命令格式-1"><a href="#2-命令格式-1" class="headerlink" title="2.命令格式"></a>2.命令格式</h2><p>​        tac [选项] 文件名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# tac &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-eth0 	#倒序浏览网络配置文件</span><br></pre></td></tr></table></figure>
 
-<h1 id="二、Linux开机过程"><a href="#二、Linux开机过程" class="headerlink" title="二、Linux开机过程"></a>二、Linux开机过程</h1><p>​        BIOS–&gt;MBR–&gt;GRUB–&gt;kernel–&gt;init–&gt;startup        </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BIOS：硬件检测阶段</span><br><span class="line">MBR：主引导记录</span><br><span class="line">GRUB：引导装载程序</span><br><span class="line">Kernel：加载内核</span><br><span class="line">Init：启动初始进程</span><br><span class="line">Startup：启动</span><br></pre></td></tr></table></figure>
+<h2 id="3-常用选项-1"><a href="#3-常用选项-1" class="headerlink" title="3.常用选项"></a>3.常用选项</h2><ol>
+<li>-b：before 在行前而非行尾添加分隔标志</li>
+<li>-r：regex 将分隔标志视作正则表达式来解析</li>
+<li>-s：separator 使用指定字符串代替换行符做分隔标志</li>
+</ol>
+<h1 id="三、more-amp-less命令"><a href="#三、more-amp-less命令" class="headerlink" title="三、more&amp;less命令"></a>三、more&amp;less命令</h1><h2 id="1-more用途"><a href="#1-more用途" class="headerlink" title="1.more用途"></a>1.more用途</h2><p>​        全屏方式分页显示文件内容</p>
+<h2 id="2-more命令格式"><a href="#2-more命令格式" class="headerlink" title="2.more命令格式"></a>2.more命令格式</h2><p>​        more  [选项] 文件名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# more &#x2F;var&#x2F;log&#x2F;dmesg		#查看dmesg日志文件</span><br></pre></td></tr></table></figure>
 
+<h2 id="3-more操作方法"><a href="#3-more操作方法" class="headerlink" title="3.more操作方法"></a>3.more操作方法</h2><ol>
+<li>enter：向下逐行滚动</li>
+<li>space：向下逐页翻动</li>
+<li>q：退出</li>
+</ol>
+<h2 id="4-less用途"><a href="#4-less用途" class="headerlink" title="4.less用途"></a>4.less用途</h2><p>​        与more功能相同，但扩展功能更多</p>
+<h2 id="5-less命令格式"><a href="#5-less命令格式" class="headerlink" title="5.less命令格式"></a>5.less命令格式</h2><p>​        less [选项] 文件名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# less &#x2F;var&#x2F;log&#x2F;dmesg</span><br></pre></td></tr></table></figure>
 
+<h2 id="6-less操作方法"><a href="#6-less操作方法" class="headerlink" title="6.less操作方法"></a>6.less操作方法</h2><ol>
+<li>PgUP ：上翻页</li>
+<li>PgDn ：下翻页</li>
+<li>‘/’键查找内容，‘n’下一个内容，‘N’上一个内容</li>
+</ol>
+<h1 id="四、head-amp-tail-命令"><a href="#四、head-amp-tail-命令" class="headerlink" title="四、head&amp;tail 命令"></a>四、head&amp;tail 命令</h1><h2 id="1、head"><a href="#1、head" class="headerlink" title="1、head"></a>1、head</h2><p>head：查看文件开头的前十行（默认）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# head &#x2F;var&#x2F;log&#x2F;dmesg      #显示dmesg文件的前十行</span><br></pre></td></tr></table></figure>
 
-<h1 id="三、初始化进程init"><a href="#三、初始化进程init" class="headerlink" title="三、初始化进程init"></a>三、初始化进程init</h1><h2 id="1-查看init进程"><a href="#1-查看init进程" class="headerlink" title="1.查看init进程"></a>1.查看init进程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cat &#x2F;etc&#x2F;inittab		#查看init进程</span><br><span class="line">其中：0：挂起状态（关机）；1：单用户模式；2：多用户模式（没有network）；3：多用户模式（network）；4：未被定义使用；5：桌面模式；6：重启</span><br></pre></td></tr></table></figure>
+<p>选项：-n ：n代表行数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# head -11 &#x2F;var&#x2F;log&#x2F;dmesg        #显示dmesg文件的前11行</span><br></pre></td></tr></table></figure>
 
+<h2 id="2、tail"><a href="#2、tail" class="headerlink" title="2、tail"></a>2、tail</h2><p>tail：查看文件末尾的后十行（默认）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# tail &#x2F;var&#x2F;log&#x2F;dmesg                   #显示dmesg文件的后十行</span><br></pre></td></tr></table></figure>
 
+<p>选项：</p>
+<ol>
+<li><p>-n：n代表行数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# tail -11 &#x2F;var&#x2F;log&#x2F;dmesg  #显示dmesg文件的后11行</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>-f ：跟踪文件末尾的内容变化，实时显示更新的内容</p>
+</li>
+</ol>
+<h1 id="五、wc命令"><a href="#五、wc命令" class="headerlink" title="五、wc命令"></a>五、wc命令</h1><h2 id="1-wc（Word-count）"><a href="#1-wc（Word-count）" class="headerlink" title="1.wc（Word count）"></a>1.wc（Word count）</h2><p>​        统计文件中单词数量等信息，输出结果依次为行数、单词数、字符数、文件名</p>
+<h2 id="2-命令格式-2"><a href="#2-命令格式-2" class="headerlink" title="2.命令格式"></a>2.命令格式</h2><p>​        wc [选项] 目标文件</p>
+<h2 id="3-选项"><a href="#3-选项" class="headerlink" title="3.选项"></a>3.选项</h2><ol>
+<li>-l：line 统计行数</li>
+<li>-w：Word 统计单词个数</li>
+<li>-c：统计字节</li>
+</ol>
+<h1 id="六、grep命令"><a href="#六、grep命令" class="headerlink" title="六、grep命令"></a>六、grep命令</h1><h2 id="1-grep"><a href="#1-grep" class="headerlink" title="1.grep"></a>1.grep</h2><p>​        检索和过滤文件内容，在文件中查找显示包含指定字符串的行</p>
+<h2 id="2-命令格式-3"><a href="#2-命令格式-3" class="headerlink" title="2.命令格式"></a>2.命令格式</h2><p>​        grep [选项] 查找条件 目标文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# grep -v &quot;^#&quot; &#x2F;etc&#x2F;httpd&#x2F;conf&#x2F;httpd.conf 	#在httpd.conf文件中查找除了#开头的行</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-模式切换"><a href="#2-模式切换" class="headerlink" title="2.模式切换"></a>2.模式切换</h2><p>语法：init +模式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">init 3		#切换到字符模式</span><br><span class="line">init 5		#切换到桌面模式(startx)</span><br></pre></td></tr></table></figure>
+<h2 id="3-常用选项-2"><a href="#3-常用选项-2" class="headerlink" title="3.常用选项"></a>3.常用选项</h2><ol>
+<li>-i：查找时忽略大小写</li>
+<li>-v：反转查找，取反，输出与查询条件不相符的行</li>
+</ol>
+<h2 id="4-查找条件"><a href="#4-查找条件" class="headerlink" title="4.查找条件"></a>4.查找条件</h2><p>​        要查找的字符串以英文双引号括起来</p>
+<ol>
+<li>”^..”：表示以”..”开头</li>
+<li>“..$”：表示以”..”结尾</li>
+<li>“^$”：表示空行</li>
+</ol>
+<h1 id="七、压缩-amp-解压"><a href="#七、压缩-amp-解压" class="headerlink" title="七、压缩&amp;解压"></a>七、压缩&amp;解压</h1><h2 id="1-gzip命令"><a href="#1-gzip命令" class="headerlink" title="1.gzip命令"></a>1.gzip命令</h2><p>1.1.gzip：用于制作压缩文件，解开压缩文件（不保留原文件）</p>
+<p>1.2.选项：</p>
+<p>​        -9 ：表示高压缩比，用在创建压缩文件时使用</p>
+<p>​        -d ：用于解压压缩文件</p>
+<p>1.3.压缩：gzip  -9 文件名</p>
+<p>1.4.解压缩：gzip -d .gz格式的压缩文件</p>
+<h2 id="2-bzip2命令"><a href="#2-bzip2命令" class="headerlink" title="2.bzip2命令"></a>2.bzip2命令</h2><p>2.1.bzip2：用于制作压缩文件，解开压缩文件，压缩效率更高（不保留原文件）</p>
+<p>2.2.选项：</p>
+<p>​        -9 ：表示高压缩比，用在创建压缩文件时使用</p>
+<p>​        -d ：用于解压压缩文件</p>
+<p>2.3.压缩：bzip2 -9 文件名</p>
+<p>2.4.解压缩：bzip2 -d .bz格式的压缩文件</p>
+<h2 id="3-tar命令"><a href="#3-tar命令" class="headerlink" title="3.tar命令"></a>3.tar命令</h2><p>3.1.tar：制作归档文件，释放归档文件，用来压缩文件夹（打包）（保留原文件）</p>
+<p>3.2.打包：tar  [选项] 归档文件名 源文件或目标文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# tar -czf 1.txt.tar.gz 1.txt		#将1.txt文件打包成1.txt.tar.gz压缩文件</span><br></pre></td></tr></table></figure>
 
+<p>3.3.解包：tar  [选项] 归档文件名 [-C 目标目录]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# tar -zxf 1.txt.tar.gz -C &#x2F;aaa	#将1.txt.tar.gz文件解压到aaa文件夹下</span><br></pre></td></tr></table></figure>
 
-
-<h1 id="四、系统服务控制"><a href="#四、系统服务控制" class="headerlink" title="四、系统服务控制"></a>四、系统服务控制</h1><h2 id="1-service命令"><a href="#1-service命令" class="headerlink" title="1.service命令"></a>1.service命令</h2><p>service命令用来对一个服务进行开启关闭操作，以及查看服务状态。</p>
-<p>格式：service service_name service_status</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">注意：#service_name必须是 &#x2F;etc&#x2F;init.d 中存在的服务</span><br><span class="line">	 #service_status有五种，start|stop|restart|reload|status</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-runlevel命令"><a href="#2-runlevel命令" class="headerlink" title="2.runlevel命令"></a>2.runlevel命令</h2><p>runlevel命令用来查看运行级别，例：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop &#x2F;]# runlevel</span><br><span class="line">3	5		#其中3表示开机后上一次运行级别，5表示当前运行级别</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-chkconfig命令"><a href="#3-chkconfig命令" class="headerlink" title="3.chkconfig命令"></a>3.chkconfig命令</h2><p>chkconfig命令用来查看开机运行的程序，可以控制多个runlevel</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">注意：chkconfig命令只针对2,3,4,5(runlevel)</span><br><span class="line">chkconfig service_name on|off		#设置服务开机自启或不自启</span><br><span class="line">chkconfig service_name --list		#查看服务在各个runlevel下的自启情况</span><br><span class="line">chkconfig --runlevel X service_name on|off		#针对某个runlevel进行服务开机自启控制</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="五、terminal下输出表示的含义"><a href="#五、terminal下输出表示的含义" class="headerlink" title="五、terminal下输出表示的含义"></a>五、terminal下输出表示的含义</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[root@desktop ~]# </span><br><span class="line">root：表示当前用户</span><br><span class="line">desktop：表示主机名</span><br><span class="line">~：表示当前用户的home目录（默认情况下，除root用户外，其他用户只对home目录有完整的权限）</span><br><span class="line">#：表示当前用户为管理员用户</span><br><span class="line">$：表示当前用户为一般用户</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="六、Linux文件系统"><a href="#六、Linux文件系统" class="headerlink" title="六、Linux文件系统"></a>六、Linux文件系统</h1><p>Linux文件机构为树形结构，常见目录代表的含义如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1、&#x2F;：根目录，是所有分区，目录结构的起点</span><br><span class="line">2、&#x2F;boot：存放系统内核和启动文件的目录，安装时建议单独为&#x2F;boot目录划分一个分区，便于维护和备份</span><br><span class="line">3、&#x2F;bin：用来存放所有用户都可执行的且常用的命令。</span><br><span class="line">4、&#x2F;sbin:存放基本的管理命令，但一般只有管理员才能使用</span><br><span class="line">5、&#x2F;etc:保存有关系统设置与管理的文件。</span><br><span class="line">6、&#x2F;usr:用户应用程序存放的目录，类似于windows下的Program Files</span><br><span class="line">7、&#x2F;var:存放经常变换的文件，例如日志文件，建议var独立分区。</span><br><span class="line">8、&#x2F;home:除超级用户以外的用户的宿主目录都建立在该目录下。</span><br><span class="line">9、&#x2F;root:root用户的宿主文件夹</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="七、查看系统的简单命令"><a href="#七、查看系统的简单命令" class="headerlink" title="七、查看系统的简单命令"></a>七、查看系统的简单命令</h1><h2 id="1-exit命令"><a href="#1-exit命令" class="headerlink" title="1.exit命令"></a>1.exit命令</h2><p>​    exit命令用于退出当前命令的操作环境</p>
-<h2 id="2-uname命令"><a href="#2-uname命令" class="headerlink" title="2.uname命令"></a>2.uname命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uname -r		#显示内核版本</span><br><span class="line">uname -a		#显示主机名、内核版本、硬件平台等详细信息</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-cat命令"><a href="#3-cat命令" class="headerlink" title="3.cat命令"></a>3.cat命令</h2><p>cat命令用于查看文件内容，经常和grep命令连用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">常见查看系统信息命令：</span><br><span class="line">cat &#x2F;proc&#x2F;cpuinfo		#查看CPU信息</span><br><span class="line">cat &#x2F;proc&#x2F;meminfo		#查看内存及swap信息</span><br><span class="line">cat &#x2F;proc&#x2F;swaps			#查看swap信息</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-ifconfig命令"><a href="#4-ifconfig命令" class="headerlink" title="4.ifconfig命令"></a>4.ifconfig命令</h2><p>ifconfig命令用来查看网卡信息，如果命令找不到，则可直接运行yum -y install net-tools即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ifconfig		#查看当前所有网卡信息</span><br><span class="line">ifconfig 网卡名		#查看具体某张网卡信息，其中RX、TX分别表示收包和发包</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-hostname命令"><a href="#5-hostname命令" class="headerlink" title="5.hostname命令"></a>5.hostname命令</h2><p>hostname命令用来查看主机名或更改主机名（更改重启后生效）</p>
-<h2 id="6-su命令"><a href="#6-su命令" class="headerlink" title="6.su命令"></a>6.su命令</h2><p>su命令用来切换用户，需要注意的是：普通用户切换到root用户需要验证密码，而root用户切换到普通用户不需要验证密码。</p>
-<h2 id="7-关机和重启"><a href="#7-关机和重启" class="headerlink" title="7.关机和重启"></a>7.关机和重启</h2><p>a.shutdown命令</p>
-<p>用来关机或重启。shutdown -r/-h（reboot/halt） +分钟数 +描述[可选]</p>
-<p>b.取消shutdown</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.使用快捷键Ctrl+C自主取消</span><br><span class="line">2.shutdown -c	#超级用户在其他bash中取消</span><br></pre></td></tr></table></figure>
-
-<p>c.关机</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.init 0</span><br><span class="line">2.shutdown</span><br><span class="line">3.shutdown -h now		#立即关机</span><br></pre></td></tr></table></figure>
-
-<p>d.重启</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.reboot</span><br><span class="line">2.init 6</span><br><span class="line">3.shutdown -r now		#立即重启</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="八、Linux分区管理"><a href="#八、Linux分区管理" class="headerlink" title="八、Linux分区管理"></a>八、Linux分区管理</h1><h2 id="1-linux中万物皆文件"><a href="#1-linux中万物皆文件" class="headerlink" title="1.linux中万物皆文件"></a>1.linux中万物皆文件</h2><h2 id="2-dev-sda5含义：代表一个硬盘分区"><a href="#2-dev-sda5含义：代表一个硬盘分区" class="headerlink" title="2./dev/sda5含义：代表一个硬盘分区"></a>2./dev/sda5含义：代表一个硬盘分区</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1、sd：sici格式</span><br><span class="line">2、a：第一块磁盘</span><br><span class="line">3、5：第一块逻辑分区</span><br><span class="line">4、分区分为主分区和逻辑分区，主分区最多不超过四块（可标记为活动分区用来安装操作系统）</span><br><span class="line">	sda1,sda2,sda3(主分区)</span><br><span class="line">	sda4(逻辑分区)，第一块逻辑分区为sda5,往后加1，以此类推</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-分区必须挂载到一个目录上"><a href="#3-分区必须挂载到一个目录上" class="headerlink" title="3.分区必须挂载到一个目录上"></a>3.分区必须挂载到一个目录上</h2><h2 id="4-linux文件系统类型"><a href="#4-linux文件系统类型" class="headerlink" title="4.linux文件系统类型"></a>4.linux文件系统类型</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ext3</span><br><span class="line">ext4</span><br><span class="line">swap：Linux分区的一种类型，一般为内存的两倍，当内存超过2G或4G时可不需要swap分区</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-fat32"><a href="#5-fat32" class="headerlink" title="5.fat32"></a>5.fat32</h2><p>​    速度慢，不支持单个文件大于4G</p>
-<h2 id="6-NTFS"><a href="#6-NTFS" class="headerlink" title="6.NTFS"></a>6.NTFS</h2><p>​    速度快，支持索引，支持压缩，支持加密，支持大文件</p>
+<p>3.4选项</p>
+<ol>
+<li>-c ：create 创建.tar格式的包</li>
+<li>-x ：解开.tar格式的包</li>
+<li>-v ：输出过程</li>
+<li>-f ：表示使用归档文件（使用其它选项时必须加上-f选项连用）</li>
+<li>-p ：打包时保留原始文件及目录权限</li>
+<li>-t ：列表查看包内的文件</li>
+<li>-C ：解包时指定释放的目标文件夹</li>
+<li>-z ：调用gzip程序进行压缩或解压</li>
+<li>-j ：调用bzip2程序进行压缩或解压</li>
+</ol>
 
             </div>
             <hr/>
@@ -557,7 +605,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/">http://yoursite.com/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/</a>
+                    <a href="http://yoursite.com/2020/08/01/linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/">http://yoursite.com/2020/08/01/linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -594,7 +642,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -763,7 +815,7 @@
         repo: 'TSArvin.gityhub.io',
         owner: 'TSArvin',
         admin: "TSArvin",
-        id: '2020-02-12T18-40-55',
+        id: '2020-08-01T11-11-11',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -791,7 +843,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/02/12/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/">
+                <a href="/2020/08/01/linux/%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86%E5%8F%8A%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6/">
                     <div class="card-image">
                         
                         
@@ -810,15 +862,27 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-12
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            TSArvin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    Linux基础
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -830,25 +894,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/12/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/">
+                <a href="/2020/08/01/article-title/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="linux基本命令II">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="article title">
                         
-                        <span class="card-title">linux基本命令II</span>
+                        <span class="card-title">article title</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、cat命令1.cat用途​        显示文件内容
-123[root@desktop ~]# cat a.txt		#查看a.txt文件内容[root@desktop ~]# cat &#x2F;proc&#x2F;uptime		
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
                             </span>
                         <span class="publish-author">
                             

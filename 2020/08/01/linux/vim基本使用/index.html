@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="python/关键字global和nonlocal的用法, TSArvin">
+    <meta name="keywords" content="vim基本使用, TSArvin">
     <meta name="description" content="一个不懂技术的小白啊">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>python/关键字global和nonlocal的用法 | TSArvin</title>
+    <title>vim基本使用 | TSArvin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -308,12 +308,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">python/关键字global和nonlocal的用法</h1>
+                    <h1 class="description center-align post-title">vim基本使用</h1>
                 </div>
             </div>
         </div>
@@ -428,12 +428,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
+                                Linux基础
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -442,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-29
+                    2020-08-01
                 </div>
                 
 
@@ -458,20 +471,55 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="关键字global和nonlocal的用法"><a href="#关键字global和nonlocal的用法" class="headerlink" title="关键字global和nonlocal的用法"></a>关键字global和nonlocal的用法</h1><h2 id="一、-global"><a href="#一、-global" class="headerlink" title="一、 global"></a>一、 global</h2><p>​        global关键字用来在函数或其他局部作用域中修改全局变量</p>
-<h4 id="1-1-在不使用global关键字的情况下对全局变量进行修改"><a href="#1-1-在不使用global关键字的情况下对全局变量进行修改" class="headerlink" title="1.1 在不使用global关键字的情况下对全局变量进行修改"></a>1.1 在不使用global关键字的情况下对全局变量进行修改</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>count = <span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">global_test</span><span class="params">()</span>:</span></span><br><span class="line">	count += <span class="number">1</span></span><br><span class="line">	print(count)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>global_test()</span><br></pre></td></tr></table></figure>
-
-<p>​        上述代码块运行时会出现如下错误：</p>
-<figure class="highlight plain"><figcaption><span>local variable 'count' referenced before assignment```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 1.2 如果局部要对全局变量进行修改，应该在局部中声明全局变量</span><br><span class="line"></span><br><span class="line">&#96;&#96;&#96;python</span><br><span class="line">&gt;&gt;&gt; count &#x3D; 0</span><br><span class="line">&gt;&gt;&gt; def global_test():</span><br><span class="line">	global count</span><br><span class="line">	count +&#x3D; 1</span><br><span class="line">	print(count)</span><br><span class="line">&gt;&gt;&gt; global_test()</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<p>​        以上输出结果为1</p>
-<h4 id="1-3-在不修改全局变量的情况下，局部可访问全局变量"><a href="#1-3-在不修改全局变量的情况下，局部可访问全局变量" class="headerlink" title="1.3 在不修改全局变量的情况下，局部可访问全局变量"></a>1.3 在不修改全局变量的情况下，局部可访问全局变量</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>count = <span class="number">0</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">global_test</span><span class="params">()</span>:</span></span><br><span class="line">	print(count)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>global_test()</span><br><span class="line"><span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="二、nonlocal"><a href="#二、nonlocal" class="headerlink" title="二、nonlocal"></a>二、nonlocal</h2><p>​        nonlocal关键字声明的变量既不是局部变量也不是全局变量，而是外部嵌套函数内的变量。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">nonlocal_test</span><span class="params">()</span>:</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test2</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">nonlocal</span> count</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> count</span><br><span class="line">    <span class="keyword">return</span> test2</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>var = nonlocal_test()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(var())</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(var())</span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(var())</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
-
+                <h2 id="1、什么是vi编辑器"><a href="#1、什么是vi编辑器" class="headerlink" title="1、什么是vi编辑器"></a>1、什么是vi编辑器</h2><h1 id="一、什么是vi编辑器"><a href="#一、什么是vi编辑器" class="headerlink" title="一、什么是vi编辑器"></a>一、什么是vi编辑器</h1><p>Vi编辑器用来创建或修改文本文件，是Linux系统中的各种配置文件的主要修改工具</p>
+<p>Vim：是vi编辑器的增强版本，有颜色区分</p>
+<h1 id="二、vi编辑器的三种工作模式"><a href="#二、vi编辑器的三种工作模式" class="headerlink" title="二、vi编辑器的三种工作模式"></a>二、vi编辑器的三种工作模式</h1><p>1、命令模式</p>
+<p>2、输入模式</p>
+<p>3、末行模式</p>
+<p>三种工作模式之间的关系：</p>
+<p>命令模式——键入（a\i\o）——输入模式——键入（esc）——命令模式</p>
+<p>命令模式——键入（:）——末行模式——键入（esc）——命令模式</p>
+<h1 id="三、命令模式下的操作"><a href="#三、命令模式下的操作" class="headerlink" title="三、命令模式下的操作"></a>三、命令模式下的操作</h1><h2 id="1、光标移动"><a href="#1、光标移动" class="headerlink" title="1、光标移动"></a>1、光标移动</h2><p>上下左右</p>
+<h2 id="2、翻页"><a href="#2、翻页" class="headerlink" title="2、翻页"></a>2、翻页</h2><p>上一页：PgUp/Ctrl + b</p>
+<p>下一页：PgDn/Ctrl + f</p>
+<h2 id="3、行内快速跳转"><a href="#3、行内快速跳转" class="headerlink" title="3、行内快速跳转"></a>3、行内快速跳转</h2><p>跳转至行首：Home / “^” /”0”（零）</p>
+<p>跳转至行末：End / “$”</p>
+<h2 id="4、行间快速跳转"><a href="#4、行间快速跳转" class="headerlink" title="4、行间快速跳转"></a>4、行间快速跳转</h2><p>1G / gg：回到行首</p>
+<p>G：转至最后一行</p>
+<p>#G：跳转到文件中的第#行</p>
+<h2 id="5、行号显示"><a href="#5、行号显示" class="headerlink" title="5、行号显示"></a>5、行号显示</h2><p>:set nu               #显示行号                                       </p>
+<p>:set nonu         #取消行号显示       </p>
+<h2 id="6、删除"><a href="#6、删除" class="headerlink" title="6、删除"></a>6、删除</h2><p>X或del ：删除光标所在的单个字符</p>
+<p>dd ：删除光标所在行</p>
+<p>#dd ：删除从光标开始的#行</p>
+<p>d^ ：删除从光标开始到行首的所有内容（不包括光标所在字符）</p>
+<p>d$ ：删除从光标开始到行末的所有内容（不包括光标所在字符）</p>
+<h2 id="7、复制"><a href="#7、复制" class="headerlink" title="7、复制"></a>7、复制</h2><p>yy ：复制整行内容</p>
+<p>#yy ：复制从光标开始的#行</p>
+<h2 id="8、粘贴"><a href="#8、粘贴" class="headerlink" title="8、粘贴"></a>8、粘贴</h2><p>P(大写) ：粘贴内容到光标之前</p>
+<p>p(小写) ：粘贴内容到光标之后</p>
+<h2 id="9、内容查找"><a href="#9、内容查找" class="headerlink" title="9、内容查找"></a>9、内容查找</h2><p>/word ：从上到下查找字符（串）word</p>
+<p>?word ：从下到上查找字符（串）word</p>
+<p>n ：下一个</p>
+<p>N ：上一个</p>
+<h2 id="10、撤销编辑"><a href="#10、撤销编辑" class="headerlink" title="10、撤销编辑"></a>10、撤销编辑</h2><p>u ：按一次取消最近一次的操作，多次重复按u键，回复已经进行多次的操作</p>
+<p>U ：用于取消当前行所有的编辑</p>
+<p>ZZ ：保存当前文件内容并退出vi编辑器</p>
+<h1 id="四、末行模式下的操作"><a href="#四、末行模式下的操作" class="headerlink" title="四、末行模式下的操作"></a>四、末行模式下的操作</h1><h3 id="1、保存及退出"><a href="#1、保存及退出" class="headerlink" title="1、保存及退出"></a>1、保存及退出</h3><p>​         保存文件：</p>
+<p>​                   :w                      #保存修改的内容</p>
+<p>​                   :w /a.txt            #另存为</p>
+<p>​         退出：</p>
+<p>​                   :q                        #未修改退出</p>
+<p>​                   :q!                     #放弃对文件的修改，并退出</p>
+<h3 id="2、保存退出"><a href="#2、保存退出" class="headerlink" title="2、保存退出"></a>2、保存退出</h3><p>​         :wq            #保存并退出</p>
+<p>​         </p>
+<h3 id="3、打开新文件或读入其他文件内容"><a href="#3、打开新文件或读入其他文件内容" class="headerlink" title="3、打开新文件或读入其他文件内容"></a>3、打开新文件或读入其他文件内容</h3><p>​         :e 文件   #读入该文件内容</p>
+<p>​         :r 文件    #在当前文件中光标所在行后读入其他文件的内容</p>
+<h3 id="4、文件内容的替换"><a href="#4、文件内容的替换" class="headerlink" title="4、文件内容的替换"></a>4、文件内容的替换</h3><p>​         1、:s /old/new                 #在当前行中用new替换第一个old</p>
+<p>​         2、:s /old/new/g              #替换当前行中所有的old为new</p>
+<p>​         3、:#1,#2 s /old/new/g   #在行号#1到#2中，替换所有的old为new</p>
+<p>​         4、:%s /old/new/g           #在整个文件范围内替换old为new</p>
+<p>​         5、:s /old/new/c               #每个替换动作都会提醒用户确认</p>
 
             </div>
             <hr/>
@@ -497,7 +545,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/29/python/%E5%85%B3%E9%94%AE%E5%AD%97global%E5%92%8Cnonlocal%E7%9A%84%E7%94%A8%E6%B3%95/">http://yoursite.com/2020/07/29/python/%E5%85%B3%E9%94%AE%E5%AD%97global%E5%92%8Cnonlocal%E7%9A%84%E7%94%A8%E6%B3%95/</a>
+                    <a href="http://yoursite.com/2020/08/01/linux/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/">http://yoursite.com/2020/08/01/linux/vim%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -534,7 +582,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -703,7 +755,7 @@
         repo: 'TSArvin.gityhub.io',
         owner: 'TSArvin',
         admin: "TSArvin",
-        id: '2020-07-29T19-14-16',
+        id: '2020-08-01T11-11-11',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -731,33 +783,47 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/29/markdown%E8%AF%AD%E6%B3%95/">
+                <a href="/2020/08/01/linux/%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86%E5%8F%8A%E6%9D%83%E9%99%90/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="markdown语法">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="用户管理及权限">
                         
-                        <span class="card-title">markdown语法</span>
+                        <span class="card-title">用户管理及权限</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Markdown语法一、标题标题的使用格式，使用（井号键加空格键表示）共有六个等级
-123456# 一级标题，快捷键：ctrl+1## 二级标题，快捷键：ctrl+2### 三级标题，快捷键：ctrl+3#### 四级标题，快捷键：ctrl
+                            用户和组管理及权限设置用户作用：用于管理Linux系统的文件
+用户分类超级用户：root 一个Linux系统只能有一个超级用户，持有最高管理权限
+普通用户：一般只在用户自己的宿主目录下有完整的权限
+程序用户：用来维持系统或程序的正常运行，一
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            TSArvin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    Linux基础
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -769,13 +835,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/02/12/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">
+                <a href="/2020/08/01/linux/%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="linux基本命令">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="linux软件安装">
                         
-                        <span class="card-title">linux基本命令</span>
+                        <span class="card-title">linux软件安装</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -789,15 +855,27 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-12
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            TSArvin
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    Linux基础
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
                 </div>
                 
             </div>
