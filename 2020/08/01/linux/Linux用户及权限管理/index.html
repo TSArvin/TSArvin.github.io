@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 4.2.0"></head>
+<meta name="generator" content="Hexo 4.2.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -323,105 +324,10 @@
 
 
 
-<main class="post-container content">
+<main class="container content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        width: 345px;
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content {
-        height: calc(100vh - 250px);
-        overflow: auto;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-
-        position: absolute;
-        right: 23.5vw;
-        display: block;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+    <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -548,9 +454,9 @@
 -U                创建与用户同名的组；
 -Z                为SELinux 用户映射使用指定 SEUSER。</code></pre><p><strong>示例</strong>：</p>
 <p>a、创建user用户，并加入到user1，user2附属组：</p>
-<pre><code class="shell">useradd -G user1,user2 user</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">useradd -G user1,user2 user<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>b、创建test用户，并指定新的家目录，同时指出其登录的shell：</p>
-<pre><code class="shell">useradd test -d /tmp/ -s /bin/bash</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">useradd test -d /tmp/ -s /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="2-2、删除用户"><a href="#2-2、删除用户" class="headerlink" title="2.2、删除用户"></a>2.2、删除用户</h3><p>​        如果想要删除一个用户，可以使用<strong>userdel</strong>命令，执行命令“userdel user1”就会删除user1用户，当用户属组中没有其他用户时，会一同删除该用户组，但是不会删除user1用户的家目录。</p>
 <p>​        使用<strong>userdel</strong>命令删除用户，用法：userdel  [选项]  登录，常用选项如下：</p>
 <pre><code>-f                强制删除用户（即使在用户登录的情况下）
@@ -559,7 +465,7 @@
 -R                删除chroot到的目录
 -Z                为用户删除所有的Selinux用户映射</code></pre><p><strong>示例</strong>：</p>
 <p>删除user用户，同时删除用户家目录：</p>
-<pre><code class="shell">userdel -r user</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">userdel -r user<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="2-3、修改用户信息"><a href="#2-3、修改用户信息" class="headerlink" title="2.3、修改用户信息"></a>2.3、修改用户信息</h3><p>​        <strong>usermod</strong>命令用来修改用户的基本信息，但是不允许改变正在登录的账号名称，用法：usermod  [选项]  登录，常用的选项参数如下：</p>
 <pre><code>-c                修改账户的备注信息
 -d                修改账户登入时的目录
@@ -573,9 +479,9 @@
 -u                修改用户UID
 -U                解除密码锁定</code></pre><p><strong>示例</strong>：</p>
 <p>a、将user用户改名为test</p>
-<pre><code class="shell">usermod -l test user</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">usermod -l test user<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>b、将user用户添加到root组中</p>
-<pre><code class="shell">usermod -G root user</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">usermod -G root user<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="2-4、修改用户密码"><a href="#2-4、修改用户密码" class="headerlink" title="2.4、修改用户密码"></a>2.4、修改用户密码</h3><p>​        如果想要修改账户密码，可以使用<strong>passwd</strong>命令，passwd命令用于设置用户的认证信息，包括用户密码，密码过期时间等。系统管理员则能用它管理系统中其他用户的密码，一般用户只能变更自己的密码。用法：passwd  [选项]  登录，常用选项参数如下：</p>
 <pre><code>-d                删除密码，仅有系统管理员才能使用；
 -f                强制执行；
@@ -608,9 +514,9 @@ groupmod用法
 groupdel用法
 -R                chroot 到的目录</code></pre><p><strong>示例</strong>：</p>
 <p>a、创建usergroup组，并指定GID为1000</p>
-<pre><code class="shell">groupadd -g 1000 usergroup</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">groupadd -g 1000 usergroup<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>b、将usergroup组名改为testgroup</p>
-<pre><code class="shell">groupmod -n testgroup usergroup</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">groupmod -n testgroup usergroup<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="4、Linux权限管理"><a href="#4、Linux权限管理" class="headerlink" title="4、Linux权限管理"></a>4、Linux权限管理</h2><p>​        Linux权限是操作系统用来限制对资源访问的机制，权限一般分为读、写、执行。系统中每个文件都拥有特定的权限、所属用户及所属组，通过这样的机制来限制哪些用户或用户组可以对特定文件进行相应的操作。</p>
 <p>​        Linux每个进程都是以某个用户身份运行，进程的权限与该用户的权限一样，用户的权限越大，则进程拥有的权限就越大。</p>
 <p>​        Lnux中有的文件及文件夹都有至少权限三种权限，常见的权限如下表所示：</p>
@@ -646,54 +552,54 @@ groupdel用法
 <li>权限三位一组（rwx）,同时需授权给三种角色，UGO；</li>
 <li>每个文件拥有一个所属用户和所属组，对应UGO，不属于该文件所属用户或所属组的使用O来表示。</li>
 </ul>
-<pre><code class="shell">[root@localhost etc]# ls -l passwd                #查看一个文件的详细信息
+<pre class="line-numbers language-shell"><code class="language-shell">[root@localhost etc]# ls -l passwd                #查看一个文件的详细信息
 -rw-r--r-- 1 root root 886 8月   1 18:07 passwd
 其中：
-&quot;-&quot;：普通文件，“d”表示目录，“l”表示链接文件，“c”表示块文件
-&quot;rw-r--r--&quot;：分别对应UGO对该文件的操作权限
-&quot;1&quot;：文件链接数量
-&quot;root&quot;：所属用户
-&quot;root&quot;：所属组
-&quot;888&quot;：文件大小
-&quot;8月 1 18:07&quot;：文件修改时间
-&quot;passwd&quot;：文件名</code></pre>
+"-"：普通文件，“d”表示目录，“l”表示链接文件，“c”表示块文件
+"rw-r--r--"：分别对应UGO对该文件的操作权限
+"1"：文件链接数量
+"root"：所属用户
+"root"：所属组
+"888"：文件大小
+"8月 1 18:07"：文件修改时间
+"passwd"：文件名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="5、chown属主及属组"><a href="#5、chown属主及属组" class="headerlink" title="5、chown属主及属组"></a>5、chown属主及属组</h2><p>​        修改某个用户、组对文件夹的属主及属组，用命令chown实现，案例演示如下：</p>
 <p>(1)  修改testdir文件夹所属的用户为root，其中-R参数表示递归处理所有的文件及子目录。</p>
-<pre><code class="shell">chown -R  root  testdir</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">chown -R  root  testdir<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>(2)  修改testdir文件夹所属的组为root。 </p>
-<pre><code class="shell">chown  -R  :root  testdir
+<pre class="line-numbers language-shell"><code class="language-shell">chown  -R  :root  testdir
 或者:
-chgrp  –R  root  testdir</code></pre>
+chgrp  –R  root  testdir<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>(3)  修改testdir文件夹所属的用户为root，组也为root。</p>
-<pre><code class="shell">chown  -R  root:root  jfedu.net</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">chown  -R  root:root  jfedu.net<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h2 id="6、chmod用户及组权限"><a href="#6、chmod用户及组权限" class="headerlink" title="6、chmod用户及组权限"></a>6、chmod用户及组权限</h2><h3 id="6-1、方式一"><a href="#6-1、方式一" class="headerlink" title="6.1、方式一"></a>6.1、方式一</h3><p>​        修改某个用户、组对文件夹的权限，用命令chmod实现，其中以代指ugo，、-、=代表加入、删除和等于对应权限，具体案例如下：</p>
 <p>(1)   授予用户对testdir目录拥有rwx权限</p>
-<pre><code class="shell">chmod –R u+rwx testdir</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">chmod –R u+rwx testdir<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>(2)  授予组对testdir目录拥有rwx权限</p>
-<pre><code class="shell"> chmod –R g+rwx testdir</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell"> chmod –R g+rwx testdir<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>(3)  授予用户、组、其他人对testdir目录拥有rwx权限</p>
-<pre><code class="shell"> chmod –R u+rwx,g+rwx,o+rwx testdir  </code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell"> chmod –R u+rwx,g+rwx,o+rwx testdir  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>(4)  撤销用户对testdir目录拥有w权限</p>
-<pre><code class="shell">chmod –R u-w testdir</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">chmod –R u-w testdir<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>(5)  撤销用户、组、其他人对testdir目录拥有x权限</p>
-<pre><code class="shell">chmod –R   u-x,g-x,o-x testdir </code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">chmod –R   u-x,g-x,o-x testdir <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>(6)  授予用户、组、其他人对testdir目录只有rx权限</p>
-<pre><code class="shell">chmod –R   u=rx,g=rx,o=rx testdir  </code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">chmod –R   u=rx,g=rx,o=rx testdir  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="6-2、方式二"><a href="#6-2、方式二" class="headerlink" title="6.2、方式二"></a>6.2、方式二</h3><p>​        Linux权限默认使用rwx来表示，为了更简化在系统中对权限进行配置和修改，Linux权限引入二进制表示方法，其中<strong>1</strong>表示有权限，<strong>0</strong>表示没有权限。</p>
 <p><em>rwx = 111 = 4+2+1 = 7</em></p>
 <p><strong>示例</strong>：</p>
 <p>(1)  授予用户对testdir目录拥有rwx权限</p>
-<pre><code class="shell">chmod –R 755 testdir  </code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">chmod –R 755 testdir  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>(2)  授予组对testdir目录拥有rwx权限</p>
-<pre><code class="shell">chmod –R 775 testdir </code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">chmod –R 775 testdir <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>(3)  授予用户、组、其他人对testdir目录拥有rwx权限</p>
-<pre><code class="shell">chmod –R 777 testdir  </code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">chmod –R 777 testdir  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>(4)  撤销用户对testdir目录拥有w权限</p>
-<pre><code class="shell">chmod –R 555 testdir  </code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">chmod –R 555 testdir  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>(5)  撤销用户、组、其他人对testdir目录拥有x权限</p>
-<pre><code class="shell">chmod –R 644 testdir</code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">chmod –R 644 testdir<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>(6)  授予用户、组、其他人对testdir目录只有rx权限</p>
-<pre><code class="shell">chmod –R 555 testdir </code></pre>
+<pre class="line-numbers language-shell"><code class="language-shell">chmod –R 555 testdir <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -827,30 +733,29 @@ chgrp  –R  root  testdir</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/08/01/linux/Linux%E7%94%A8%E6%88%B7%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">
+                <a href="/2020/08/02/Linux%E8%BD%AF%E4%BB%B6%E5%8C%85/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/28.jpg" class="responsive-img" alt="Linux用户及权限管理">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Linux软件包管理">
                         
-                        <span class="card-title">Linux用户及权限管理</span>
+                        <span class="card-title">Linux软件包管理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Linux用户及权限管理​        Linux是一个多用户的操作系统，引入用户可以更加方便管理Linux服务器，系统默认需要以一个用户的身份登入，而且在系统上启动进程也需要以一个用户的身份去运行，用户可以限制某些进程对特定资源的权限控
+                            Linux软件包管理Linux软件包管理大致可分为二进制包、源码包，使用的工具也各不相同。Linux常见软件包分为两种，分别是源代码包（Source Code）、二进制包（Binary Code），源代码包是没有经过编译的包，需要经过GCC
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-02
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -863,7 +768,6 @@ chgrp  –R  root  testdir</code></pre>
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -961,100 +865,6 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </style>
 
 
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
-
     
 
 </main>
@@ -1086,7 +896,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">11.9k</span>&nbsp;字
+                class="white-color">17.3k</span>&nbsp;字
             
             
             
