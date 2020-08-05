@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="linux基本命令&amp;文件目录管理, TSArvin">
+    <meta name="keywords" content="Samba服务搭建, TSArvin">
     <meta name="description" content="一个不懂技术的小白啊">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>linux基本命令&amp;文件目录管理 | TSArvin</title>
+    <title>Samba服务搭建 | TSArvin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">linux基本命令&amp;文件目录管理</h1>
+                    <h1 class="description center-align post-title">Samba服务搭建</h1>
                 </div>
             </div>
         </div>
@@ -324,105 +324,10 @@
 
 
 
-<main class="post-container content">
+<main class="container content">
 
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        width: 345px;
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content {
-        height: calc(100vh - 250px);
-        overflow: auto;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-
-        position: absolute;
-        right: 23.5vw;
-        display: block;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
+    <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -443,8 +348,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
-                                Linux基础
+                            <a href="/categories/Linux%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                Linux网络服务
                             </a>
                         
                     </div>
@@ -456,7 +361,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-01
+                    2020-08-05
                 </div>
                 
 
@@ -465,7 +370,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    734
                 </div>
                 
 
@@ -482,81 +387,64 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="一、安装完操作系统后必要的两个操作"><a href="#一、安装完操作系统后必要的两个操作" class="headerlink" title="一、安装完操作系统后必要的两个操作"></a>一、安装完操作系统后必要的两个操作</h1><h2 id="1-关闭防火墙"><a href="#1-关闭防火墙" class="headerlink" title="1.关闭防火墙"></a>1.关闭防火墙</h2><pre><code>CentOS6：
-service iptables stop        #关闭防火墙
-service iptables status        #查看防火墙状态
+                <h1 id="Samba服务搭建"><a href="#Samba服务搭建" class="headerlink" title="Samba服务搭建"></a>Samba服务搭建</h1><h2 id="1、Samba服务简介"><a href="#1、Samba服务简介" class="headerlink" title="1、Samba服务简介"></a>1、Samba服务简介</h2><p>Samba是Linux和UNIX系统上实现SMB协议的一个免费软件，标准的C/S架构。通过设置NetBIOS over tcp/ip使得Samba不但能与局域网主机分享资源，而且还能与全世界电脑分享资源。</p>
+<p>在windows网络中，主机的数据共享是通过微软的SMB/CIFS网络协议。都是微软私有协议。</p>
+<p>SMB协议（server messages block）：服务消息块，是一种在局域网上共享文件和打印机的一种通讯协议。它为局域网内的不同计算机之间提供文件及打印机等资源的共享服务。</p>
+<p>CIFS协议（common internet file system）：通用互联网文件系统。</p>
+<h2 id="2、Samba主要依赖"><a href="#2、Samba主要依赖" class="headerlink" title="2、Samba主要依赖"></a>2、Samba主要依赖</h2><p>samba-common:主要提供samba服务器的设置文件与设置文件的语法校验程序testparm</p>
+<p>samba-client：客户端</p>
+<p>samba4-libs：状态库文件</p>
+<p>samba-winbind：作为windows域成员的一个中介，它可以把windows域账号里的用户和组信息映射成Linux用户。</p>
+<h2 id="3、Samba的安装"><a href="#3、Samba的安装" class="headerlink" title="3、Samba的安装"></a>3、Samba的安装</h2><p>Samba服务的安装方式有很多，可以使用rpm包安装，也可以直接使用yum安装，由于rpm包的安装方式需要解决的依赖关系太多，而且libwbclient在本地挂载光盘的Packages目录中不存在，不能很好的解决以来问题，所以本次记录就直接使用yum安装。</p>
+<pre class="line-numbers language-shell"><code class="language-shell">yum -y install samba<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>安装结束后可以看到samba的版本号</p>
+<blockquote>
+<p>samba.x86_64 0:4.8.3-4.el7 </p>
+</blockquote>
+<h2 id="4、Samba服务主要程序及文件"><a href="#4、Samba服务主要程序及文件" class="headerlink" title="4、Samba服务主要程序及文件"></a>4、Samba服务主要程序及文件</h2><p>服务：</p>
+<blockquote>
+<p>smbd:提供对服务器中文件/打印资源的共享访问，端口号：T445</p>
+<p>nmbd:netbios,提供基于NetBIOS主机名称的解析，端口号：U137-138</p>
+</blockquote>
+<p>服务脚本：</p>
+<blockquote>
+<p>/etc/init.d/smb</p>
+</blockquote>
+<p>配置文件及目录：</p>
+<blockquote>
+<p>/etc/samba</p>
+<p>/etc/samba/smb.conf</p>
+</blockquote>
+<p>配置文件检查工具：testparm</p>
+<p>配置完成后可以使用”<strong>service smb start|restart|stop</strong>“命令开开启、重启、关闭服务</p>
+<h2 id="5、搭建匿名用户samba服务器"><a href="#5、搭建匿名用户samba服务器" class="headerlink" title="5、搭建匿名用户samba服务器"></a>5、搭建匿名用户samba服务器</h2><p>（1）    编辑配置文件，（可以参考smb.conf.example来配置）设置安装全级别为匿名用户，配置如下：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">[global]
+        workgroup = MYGROUP                        #工作组
+        server string = Samba Server Version %v        #显示信息
+        security = SHARE                #安全级别，share代表匿名用户
+        log file = /var/log/samba/log.%m    #日志文件路径
+        max log size = 50                #最大日志文件大小
+        client signing = required        #客户端登录
+        idmap config * : backend = tdb        
+        cpus options =raw        
 
-chkconfig iptables off        #禁止防火墙开机自启
-chkconfig iptables --list    #查看iptables在各个模式下的状态
+[disk1]                            #共享目录信息
+        comment = for disk1            #介绍
+        path = /disk1            #共享目录路径
+        read only = NO            #匿名用户可写    
+        guest ok = YES            #匿名用户可以访问
 
-CentOS7：
-systemlctl stop firewalld    #关闭防火墙</code></pre><h2 id="2-关闭selinux"><a href="#2-关闭selinux" class="headerlink" title="2.关闭selinux"></a>2.关闭selinux</h2><h3 id="2-1永久关闭"><a href="#2-1永久关闭" class="headerlink" title="2.1永久关闭"></a>2.1永久关闭</h3><p>​        编辑/etc/sysconfig/selinux文件，将SELINUX=enforcing改为disabled，重启生效</p>
-<pre><code>sed -i &#39;s/enforcing/disabled/&#39; /etc/sysconfig/selinux</code></pre><p>​        重启之后可以通过/usr/sbin/sestatus -v查看selinux状态，如果输出disabled则表示关闭，修改成功</p>
-<h3 id="2-2临时关闭"><a href="#2-2临时关闭" class="headerlink" title="2.2临时关闭"></a>2.2临时关闭</h3><p>​        注：临时关闭selinux重启服务器后失效</p>
-<pre><code>setenforce 0    #设置selinux为permissive模式
-setenforce 1    #设置selinux为enforcing模式
-
-getenforce        #查看selinux状态</code></pre><h1 id="二、Linux开机过程"><a href="#二、Linux开机过程" class="headerlink" title="二、Linux开机过程"></a>二、Linux开机过程</h1><p>​        BIOS–&gt;MBR–&gt;GRUB–&gt;kernel–&gt;init–&gt;startup        </p>
-<pre><code>BIOS：硬件检测阶段
-MBR：主引导记录
-GRUB：引导装载程序
-Kernel：加载内核
-Init：启动初始进程
-Startup：启动</code></pre><h1 id="三、初始化进程init"><a href="#三、初始化进程init" class="headerlink" title="三、初始化进程init"></a>三、初始化进程init</h1><h2 id="1-查看init进程"><a href="#1-查看init进程" class="headerlink" title="1.查看init进程"></a>1.查看init进程</h2><pre><code>cat /etc/inittab        #查看init进程
-其中：0：挂起状态（关机）；1：单用户模式；2：多用户模式（没有network）；3：多用户模式（network）；4：未被定义使用；5：桌面模式；6：重启</code></pre><h2 id="2-模式切换"><a href="#2-模式切换" class="headerlink" title="2.模式切换"></a>2.模式切换</h2><p>语法：init +模式</p>
-<pre><code>init 3        #切换到字符模式
-init 5        #切换到桌面模式(startx)</code></pre><h1 id="四、系统服务控制"><a href="#四、系统服务控制" class="headerlink" title="四、系统服务控制"></a>四、系统服务控制</h1><h2 id="1-service命令"><a href="#1-service命令" class="headerlink" title="1.service命令"></a>1.service命令</h2><p>service命令用来对一个服务进行开启关闭操作，以及查看服务状态。</p>
-<p>格式：service service_name service_status</p>
-<pre><code>注意：#service_name必须是 /etc/init.d 中存在的服务
-     #service_status有五种，start|stop|restart|reload|status</code></pre><h2 id="2-runlevel命令"><a href="#2-runlevel命令" class="headerlink" title="2.runlevel命令"></a>2.runlevel命令</h2><p>runlevel命令用来查看运行级别，例：</p>
-<pre><code>[root@desktop /]# runlevel
-3    5        #其中3表示开机后上一次运行级别，5表示当前运行级别</code></pre><h2 id="3-chkconfig命令"><a href="#3-chkconfig命令" class="headerlink" title="3.chkconfig命令"></a>3.chkconfig命令</h2><p>chkconfig命令用来查看开机运行的程序，可以控制多个runlevel</p>
-<pre><code>注意：chkconfig命令只针对2,3,4,5(runlevel)
-chkconfig service_name on|off        #设置服务开机自启或不自启
-chkconfig service_name --list        #查看服务在各个runlevel下的自启情况
-chkconfig --runlevel X service_name on|off        #针对某个runlevel进行服务开机自启控制</code></pre><h1 id="五、terminal下输出表示的含义"><a href="#五、terminal下输出表示的含义" class="headerlink" title="五、terminal下输出表示的含义"></a>五、terminal下输出表示的含义</h1><pre><code>[root@desktop ~]# 
-root：表示当前用户
-desktop：表示主机名
-~：表示当前用户的home目录（默认情况下，除root用户外，其他用户只对home目录有完整的权限）
-#：表示当前用户为管理员用户
-$：表示当前用户为一般用户</code></pre><h1 id="六、Linux文件系统"><a href="#六、Linux文件系统" class="headerlink" title="六、Linux文件系统"></a>六、Linux文件系统</h1><p>Linux文件机构为树形结构，常见目录代表的含义如下：</p>
-<pre><code>1、/：根目录，是所有分区，目录结构的起点
-2、/boot：存放系统内核和启动文件的目录，安装时建议单独为/boot目录划分一个分区，便于维护和备份
-3、/bin：用来存放所有用户都可执行的且常用的命令。
-4、/sbin:存放基本的管理命令，但一般只有管理员才能使用
-5、/etc:保存有关系统设置与管理的文件。
-6、/usr:用户应用程序存放的目录，类似于windows下的Program Files
-7、/var:存放经常变换的文件，例如日志文件，建议var独立分区。
-8、/home:除超级用户以外的用户的宿主目录都建立在该目录下。
-9、/root:root用户的宿主文件夹</code></pre><h1 id="七、查看系统的简单命令"><a href="#七、查看系统的简单命令" class="headerlink" title="七、查看系统的简单命令"></a>七、查看系统的简单命令</h1><h2 id="1-exit命令"><a href="#1-exit命令" class="headerlink" title="1.exit命令"></a>1.exit命令</h2><p>​    exit命令用于退出当前命令的操作环境</p>
-<h2 id="2-uname命令"><a href="#2-uname命令" class="headerlink" title="2.uname命令"></a>2.uname命令</h2><pre><code>uname -r        #显示内核版本
-uname -a        #显示主机名、内核版本、硬件平台等详细信息</code></pre><h2 id="3-cat命令"><a href="#3-cat命令" class="headerlink" title="3.cat命令"></a>3.cat命令</h2><p>cat命令用于查看文件内容，经常和grep命令连用</p>
-<pre><code>常见查看系统信息命令：
-cat /proc/cpuinfo        #查看CPU信息
-cat /proc/meminfo        #查看内存及swap信息
-cat /proc/swaps            #查看swap信息</code></pre><h2 id="4-ifconfig命令"><a href="#4-ifconfig命令" class="headerlink" title="4.ifconfig命令"></a>4.ifconfig命令</h2><p>ifconfig命令用来查看网卡信息，如果命令找不到，则可直接运行yum -y install net-tools即可</p>
-<pre><code>ifconfig        #查看当前所有网卡信息
-ifconfig 网卡名        #查看具体某张网卡信息，其中RX、TX分别表示收包和发包</code></pre><h2 id="5-hostname命令"><a href="#5-hostname命令" class="headerlink" title="5.hostname命令"></a>5.hostname命令</h2><p>hostname命令用来查看主机名或更改主机名（更改重启后生效）</p>
-<h2 id="6-su命令"><a href="#6-su命令" class="headerlink" title="6.su命令"></a>6.su命令</h2><p>su命令用来切换用户，需要注意的是：普通用户切换到root用户需要验证密码，而root用户切换到普通用户不需要验证密码。</p>
-<h2 id="7-关机和重启"><a href="#7-关机和重启" class="headerlink" title="7.关机和重启"></a>7.关机和重启</h2><p>a.shutdown命令</p>
-<p>用来关机或重启。shutdown -r/-h（reboot/halt） +分钟数 +描述[可选]</p>
-<p>b.取消shutdown</p>
-<pre><code>1.使用快捷键Ctrl+C自主取消
-2.shutdown -c    #超级用户在其他bash中取消</code></pre><p>c.关机</p>
-<pre><code>1.init 0
-2.shutdown
-3.shutdown -h now        #立即关机</code></pre><p>d.重启</p>
-<pre><code>1.reboot
-2.init 6
-3.shutdown -r now        #立即重启</code></pre><h1 id="八、Linux分区管理"><a href="#八、Linux分区管理" class="headerlink" title="八、Linux分区管理"></a>八、Linux分区管理</h1><h2 id="1-linux中万物皆文件"><a href="#1-linux中万物皆文件" class="headerlink" title="1.linux中万物皆文件"></a>1.linux中万物皆文件</h2><h2 id="2-dev-sda5含义：代表一个硬盘分区"><a href="#2-dev-sda5含义：代表一个硬盘分区" class="headerlink" title="2./dev/sda5含义：代表一个硬盘分区"></a>2./dev/sda5含义：代表一个硬盘分区</h2><pre><code>    1、sd：sici格式
-    2、a：第一块磁盘
-    3、5：第一块逻辑分区
-    4、分区分为主分区和逻辑分区，主分区最多不超过四块（可标记为活动分区用来安装操作系统）
-        sda1,sda2,sda3(主分区)
-        sda4(逻辑分区)，第一块逻辑分区为sda5,往后加1，以此类推</code></pre><h2 id="3-分区必须挂载到一个目录上"><a href="#3-分区必须挂载到一个目录上" class="headerlink" title="3.分区必须挂载到一个目录上"></a>3.分区必须挂载到一个目录上</h2><h2 id="4-linux文件系统类型"><a href="#4-linux文件系统类型" class="headerlink" title="4.linux文件系统类型"></a>4.linux文件系统类型</h2><pre><code>ext3
-ext4
-swap：Linux分区的一种类型，一般为内存的两倍，当内存超过2G或4G时可不需要swap分区</code></pre><h2 id="5-fat32"><a href="#5-fat32" class="headerlink" title="5.fat32"></a>5.fat32</h2><p>​    速度慢，不支持单个文件大于4G</p>
-<h2 id="6-NTFS"><a href="#6-NTFS" class="headerlink" title="6.NTFS"></a>6.NTFS</h2><p>​    速度快，支持索引，支持压缩，支持加密，支持大文件</p>
+[disk2]
+        comment = for disk2
+        path = /disk2
+        guest ok = YES<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>（2）    将共享目录的权限增大</p>
+<pre class="line-numbers language-shell"><code class="language-shell">chmod a+w /disk1
+chmod a+w /disk2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>（3）    测试，在Windows下运行“<strong>\\\服务器IP</strong>”</p>
+<p><strong>注意</strong>：在samba4版本中security不在支持share，因此在global配置中如果配置了share，检查配置的时候不会通过；“<strong>security=share</strong>”被取而代之的是：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">security = user
+map to guest = Bad User<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -582,7 +470,7 @@ swap：Linux分区的一种类型，一般为内存的两倍，当内存超过2G
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://tsarvin.github.io/2020/08/01/linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/">https://tsarvin.github.io/2020/08/01/linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/</a>
+                    <a href="https://tsarvin.github.io/2020/08/05/linux/Samba%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">https://tsarvin.github.io/2020/08/05/linux/Samba%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -666,7 +554,7 @@ swap：Linux分区的一种类型，一般为内存的两倍，当内存超过2G
         repo: 'TSArvin.gityhub.io',
         owner: 'TSArvin',
         admin: "TSArvin",
-        id: '2020-08-01T11-11-11',
+        id: '2020-08-05T21-20-13',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -690,42 +578,43 @@ swap：Linux分区的一种类型，一般为内存的两倍，当内存超过2G
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/08/01/linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4I/">
+                <a href="/2020/08/05/linux/Samba%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="linux基本命令I">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Samba服务搭建">
                         
-                        <span class="card-title">linux基本命令I</span>
+                        <span class="card-title">Samba服务搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、shell1.shell是什么​        shell是一种脚本语言，同时也是Linux系统中运行的一种特殊程序，在用户和内核之间充当“翻译官”，用来实现人机交互。
-2.shell的工作​        接收用户输入的命令–&gt;
+                            Samba服务搭建1、Samba服务简介Samba是Linux和UNIX系统上实现SMB协议的一个免费软件，标准的C/S架构。通过设置NetBIOS over tcp/ip使得Samba不但能与局域网主机分享资源，而且还能与全世界电脑分享资
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    Linux基础
+                            <a href="/categories/Linux%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                    Linux网络服务
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -744,33 +633,31 @@ swap：Linux分区的一种类型，一般为内存的两倍，当内存超过2G
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/01/linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4II/">
+                <a href="/2020/08/04/linux/Apache-web%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="linux基本命令II">
+                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="Apache web服务搭建">
                         
-                        <span class="card-title">linux基本命令II</span>
+                        <span class="card-title">Apache web服务搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、cat命令1.cat用途​        显示文件内容
-[root@desktop ~]# cat a.txt        #查看a.txt文件内容
-[root@desktop ~]# cat /proc/uptime        
+                            Apache WEB服务搭建万维网（world wide web，www）服务器，也称之为web服务器，主要功能是提供网上信息浏览服务。WWW是Internet的多媒体信息查询工具，是Internet上飞速发展的服务，也是目前使用最为广泛的
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    Linux基础
+                            <a href="/categories/Linux%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                    Linux网络服务
                                 </a>
                             
                             
@@ -820,100 +707,6 @@ swap：Linux分区的一种类型，一般为内存的两倍，当内存超过2G
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
 
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
 
     
 

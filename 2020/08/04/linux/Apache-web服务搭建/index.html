@@ -370,7 +370,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.9k
+                    3.9k
                 </div>
                 
 
@@ -436,14 +436,32 @@ vi /etc/init.d/httpd                #编辑服务执行文件
 #chkconfig: 35 85 15
 #description:startup for httpd serve
 chkconfig --add httpd         #将httpd服务添加到chkconfig列表<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="3、apache目录结构及配置文件"><a href="#3、apache目录结构及配置文件" class="headerlink" title="3、apache目录结构及配置文件"></a>3、apache目录结构及配置文件</h2><h3 id="3-1、目录结构"><a href="#3-1、目录结构" class="headerlink" title="3.1、目录结构"></a>3.1、目录结构</h3><ul>
-<li>服务目录          /usr/local/httpd</li>
-<li>主配置文件       /usr/local/httpd/config/httpd.conf</li>
-<li>网页目录          /usr/local/httpd/htdocs</li>
-<li>服务脚本          /usr/local/httpd/bin/apachectl</li>
-<li>执行程序          /usr/local/httpd/bin/httpd</li>
-<li>访问日志          /usr/local/httpd/logs/access_log</li>
-<li>错误日志          /usr/local/httpd/logs/error_log</li>
+<h2 id="3、apache目录结构及配置文件"><a href="#3、apache目录结构及配置文件" class="headerlink" title="3、apache目录结构及配置文件"></a>3、apache目录结构及配置文件</h2><h3 id="3-1、目录结构"><a href="#3-1、目录结构" class="headerlink" title="3.1、目录结构"></a>3.1、目录结构</h3><p><strong>源码安装</strong>：</p>
+<ul>
+<li>/usr/local/httpd/config/httpd.conf      主配置文件目录</li>
+<li>/usr/local/httpd/bin                Apache命令目录；</li>
+<li>/usr/local/httpd/bin/apachectl     服务脚本 </li>
+<li>/usr/local/httpd/bin/httpd         执行程序</li>
+<li>/usr/local/httpd/build             Apache构建编译目录；</li>
+<li>/usr/local/httpd/htdocs/            源码安装Apache网站发布目录；</li>
+<li>/usr/local/httpd/cgi-bin             可执行的CGI程序存放目录；</li>
+<li>/usr/local/httpd/include            Apache引用配置文件目录；</li>
+<li>/usr/local/httpd/logs               Apache日志目录；</li>
+<li>/usr/local/httpd/man               Apache帮助文档目录；</li>
+<li>/usr/local/httpd/manual            Apache手册；</li>
+<li>/usr/local/httpd/modules           Apache模块路径。</li>
+</ul>
+<p><strong>yum安装</strong>：</p>
+<ul>
+<li>/usr/lib64/httpd/modules/             Apache模块存放路径；</li>
+<li>/var/www/html/                  YUM安装Apache网站发布目录；</li>
+<li>/var/www/error/                  服务器设置错误信息，浏览器显示；</li>
+<li>var/www/icons/                  Apache小图标文件存放目录；</li>
+<li>var/www/cgi-bin/                    可执行的CGI程序存放目录。</li>
+<li>/var/log/httpd/                      Apache日志目录；</li>
+<li>/usr/sbin/apachectl                   Apache启动脚本；</li>
+<li>/usr/sbin/httpd                      Apache二进制执行文件；</li>
+<li>/usr/bin/htpasswd                    设置Apache目录密码访问；</li>
 </ul>
 <h3 id="3-2、常用的全局配置参数"><a href="#3-2、常用的全局配置参数" class="headerlink" title="3.2、常用的全局配置参数"></a>3.2、常用的全局配置参数</h3><p>该参数是针对apache服务配置文件httpd.conf</p>
 <pre class="line-numbers language-shell"><code class="language-shell">ServerRoot                #服务目录
@@ -502,7 +520,7 @@ chkconfig --level 35 crond on         #开机启动crond<span aria-hidden="true"
 <li>基于多IP地址一个端口；</li>
 <li>基于单IP一个端口不同域名。</li>
 </ul>
-<p>其中基于同一端口不同域名的方式在企业中得到广泛的使用和应用，如下为基于一个端口不同域名，在一台Apache WEB服务器上部署多个网站，步骤如下：</p>
+<h3 id="5-1、基于同一端口不同域名"><a href="#5-1、基于同一端口不同域名" class="headerlink" title="5.1、基于同一端口不同域名"></a>5.1、基于同一端口不同域名</h3><p>基于同一端口不同域名的方式在企业中得到广泛的使用和应用，如下为基于一个端口不同域名，在一台Apache WEB服务器上部署多个网站，步骤如下：</p>
 <p>（1）    创建虚拟主机配置文件httpd-vhosts.conf，该文件默认已存在，只需去掉httpd.conf配置文件中虚拟主机配置前的#号即可，</p>
 <pre class="line-numbers language-shell"><code class="language-shell">Include conf/extra/httpd-vhosts.conf            #第485行<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>（2）    配置文件/usr/local/apache2/conf/extra/httpd-vhosts.conf中代码设置为如下：</p>
@@ -530,6 +548,77 @@ echo  "<h1> www.test2.com  Pages</h1>" >/usr/local/httpd/htdocs/test2/index.html
 <pre class="line-numbers language-shell"><code class="language-shell">服务器IP  www.test1.com
 服务器IP  www.test2.com<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>（5）    此时，便可通过浏览器访问不同的域名实现apache基于多域名配置虚拟主机，如果还需添加虚拟主机，直接拷贝其中一个虚拟主机配置、修改WEB发布目录即可。</p>
+<h3 id="5-2、基于多IP的同一端口"><a href="#5-2、基于多IP的同一端口" class="headerlink" title="5.2、基于多IP的同一端口"></a>5.2、基于多IP的同一端口</h3><p>基于多IP的同一端口方式需要服务器的配置多张网卡，具体配置方法如下：</p>
+<p>（1）     在/usr/local/httpd/htdoc/目录下创建两个文件夹，test1，test2</p>
+<p>（2）    在test1和test2中创建不同的主页index.html</p>
+<p>（3）    编辑主配置文件httpd.conf，添加如下内容：</p>
+<pre class="line-numbers language-shell"><code class="language-shell"><VirtualHost 192.168.8.45>
+    DocumentRoot /usr/local/httpd/htdocs/test1
+    ServerName www.test1.com
+    ErrorLog logs/www.test1.com.error_log
+    Customlog logs/www.test1.com.access_log common
+</VirtualHost>
+
+<VirtualHost 192.168.8.47>
+    DocumentRoot /usr/local/httpd/htdocs/test2
+    ServerName www.test2.com
+    ErrorLog logs/www.test2.com.error_log
+    Customlog logs/www.test2.com.access_log common
+</VirtualHost><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>（4）    重启httpd服务，通过浏览器访问不同的IP地址验证是否成功。</p>
+<h3 id="5-3、基于端口"><a href="#5-3、基于端口" class="headerlink" title="5.3、基于端口"></a>5.3、基于端口</h3><p>基于端口的配置方式相对与上述基于多IP较简单，这种方式不需要多张网卡，只需要在上述基于多IP的基础上修改一下主配置文件，如下所示：</p>
+<pre class="line-numbers language-shell"><code class="language-shell"><VirtualHost 192.168.8.45:80>                #需要配置端口
+    DocumentRoot /usr/local/httpd/htdocs/test1
+    ServerName www.test1.com
+    ErrorLog logs/www.test1.com.error_log
+    Customlog logs/www.test1.com.access_log common
+</VirtualHost>
+
+<VirtualHost 192.168.8.45:8080>                #同一IP不同端口
+    DocumentRoot /usr/local/httpd/htdocs/test2
+    ServerName www.test2.com
+    ErrorLog logs/www.test2.com.error_log
+    Customlog logs/www.test2.com.access_log common
+</VirtualHost><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>之后重启服务，在浏览器通过同一IP不同端口访问验证即可。</p>
+<h2 id="6、配置文件详解"><a href="#6、配置文件详解" class="headerlink" title="6、配置文件详解"></a>6、配置文件详解</h2><p>Apache的配置文件是Apache WEB难点，只有掌握配置文件中每个参数的含义，才能理解并在日常运维中去解决Apache遇到的故障，如下为Apache配置文件详解：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">ServerTokens OS                        #显示服务器的版本和操作系统内核版本；
+ServerRoot  "/usr/local/httpd/"         #Apache主配置目录；
+PidFile run/httpd.pid                    #PidFile进程文件；
+Timeout 60                            #不论接收或发送，当持续连接等待超过60秒则该次连接就中断；
+KeepAlive Off                            #关闭持续性的连接；
+MaxKeepAliveRequests 100                #当KeepAlive设置为On的时候，该数值可以决定此次连接能够传输的最大传输数量；
+KeepAliveTimeout 65                    #当KeepAlive设置为On的时候，该连接在最后一次传输后等待延迟的秒数；
+<IfModule prefork.c>                    #Prefork MPM引擎配置段；
+StartServers      8                    #默认启动Apache工作进程数；
+MinSpareServers   5                    #最小空闲进程数；
+MaxSpareServers   20                    #最大空闲进程数；
+ServerLimit      4096                    #Apache服务器最多进程数；
+MaxClients      4096                    #每秒支持的最大客户端并发；
+MaxRequestsPerChild  4000                #每个进程能处理的最大请求数；
+</IfModule>
+<IfModule worker.c>                    #Worker MPM引擎配置段；
+StartServers        8                    #默认启动Apache工作进程数；
+MaxClients         4000                #每秒支持的最大客户端并发；
+MinSpareThreads     25                #最小空闲线程数；
+MaxSpareThreads     75                 #最小空闲线程数；
+ThreadsPerChild     75                #每个进程启动的线程数；
+MaxRequestsPerChild  0                #每个进程能处理的最大请求数，0表示无限制；
+</IfModule>
+LoadModule  mod_version.so              #静态加载apache相关模块；
+ServerAdmin support@jfedu.net            #管理员邮箱，网站异常，错误信息会发生至该邮箱；
+DocumentRoot   "/usr/local/httpd/htdocs/"  #Apache网站默认发布目录；
+<Directory "/data/webapps/www1">        #设置/data/webapps/www1目录权限；
+    AllowOverride All
+    Options -Indexes FollowSymLinks
+    Order allow,deny
+    Allow from all
+</Directory>
+AllowOverride                         #设置为None时，目录中.htaccess 文件将被完全忽略，当指令设置为All时，.htaccess文件生效；
+Options -Indexes FollowSymLinks        #禁止浏览目录，去掉”-“,表示浏览目录，常用于下载站点；
+Order     allow,deny                     #默认情况下禁止所有客户机访问；
+Order   deny,allow                     #默认情况下允许所有客户机访问；
+Allow   from all                    #允许所有客户机访问。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -663,30 +752,29 @@ echo  "<h1> www.test2.com  Pages</h1>" >/usr/local/httpd/htdocs/test2/index.html
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/08/04/linux/Apache-web%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">
+                <a href="/2020/08/05/linux/Samba%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="Apache web服务搭建">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Samba服务搭建">
                         
-                        <span class="card-title">Apache web服务搭建</span>
+                        <span class="card-title">Samba服务搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Apache WEB服务搭建万维网（world wide web，www）服务器，也称之为web服务器，主要功能是提供网上信息浏览服务。WWW是Internet的多媒体信息查询工具，是Internet上飞速发展的服务，也是目前使用最为广泛的
+                            Samba服务搭建1、Samba服务简介Samba是Linux和UNIX系统上实现SMB协议的一个免费软件，标准的C/S架构。通过设置NetBIOS over tcp/ip使得Samba不但能与局域网主机分享资源，而且还能与全世界电脑分享资
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-04
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-05
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -699,7 +787,6 @@ echo  "<h1> www.test2.com  Pages</h1>" >/usr/local/httpd/htdocs/test2/index.html
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -824,7 +911,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">24k</span>&nbsp;字
+                class="white-color">25.8k</span>&nbsp;字
             
             
             
