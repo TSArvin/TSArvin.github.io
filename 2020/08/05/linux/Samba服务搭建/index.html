@@ -324,10 +324,105 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -370,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    734
+                    935
                 </div>
                 
 
@@ -441,10 +536,24 @@
 <p>（2）    将共享目录的权限增大</p>
 <pre class="line-numbers language-shell"><code class="language-shell">chmod a+w /disk1
 chmod a+w /disk2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>（3）    测试，在Windows下运行“<strong>\\\服务器IP</strong>”</p>
+<p>（3）    测试，在Windows下运行“<strong>\\服务器IP</strong>”</p>
 <p><strong>注意</strong>：在samba4版本中security不在支持share，因此在global配置中如果配置了share，检查配置的时候不会通过；“<strong>security=share</strong>”被取而代之的是：</p>
 <pre class="line-numbers language-shell"><code class="language-shell">security = user
 map to guest = Bad User<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h2 id="6、搭建用户映射samba服务器"><a href="#6、搭建用户映射samba服务器" class="headerlink" title="6、搭建用户映射samba服务器"></a>6、搭建用户映射samba服务器</h2><p>/etc/samba/smbuser –&gt;共享账号的映射文件–&gt;别名</p>
+<p>（1）    创建映射用户</p>
+<pre class="line-numbers language-shell"><code class="language-shell">useradd zhangsan<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>（2）    启用别名，编辑/etc/samba/smbuser文件</p>
+<pre class="line-numbers language-shell"><code class="language-shell">zhangsan = zs ls<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>（3）    启用映射账户文件，修改主配置文件，在global中添加如下内容</p>
+<pre class="line-numbers language-shell"><code class="language-shell">username map = /etc/samba/smbusers<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>还可以做用户限制，在主配置文件<strong>[global]</strong>中添加</p>
+<pre class="line-numbers language-shell"><code class="language-shell">hosts allow = ip地址            #表示允许访问的地址/网段<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>（4）    可以使用smb客户端访问，首先需要安装客户端</p>
+<pre class="line-numbers language-shell"><code class="language-shell">yum -y install samba-client
+smbclient -L samba服务器IP            #查询服务器上的匿名共享资源列表
+smbclient //服务器IP/share（共享目录名字）         #samba客户端访问<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>同时在Linux系统上还可以使用<strong>mount</strong>命令挂载共享资源列表。</p>
 
             </div>
             <hr/>
@@ -578,30 +687,30 @@ map to guest = Bad User<span aria-hidden="true" class="line-numbers-rows"><span>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/08/05/linux/Samba%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">
+                <a href="/2020/08/06/linux/nginx%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Samba服务搭建">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="nginx服务搭建">
                         
-                        <span class="card-title">Samba服务搭建</span>
+                        <span class="card-title">nginx服务搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Samba服务搭建1、Samba服务简介Samba是Linux和UNIX系统上实现SMB协议的一个免费软件，标准的C/S架构。通过设置NetBIOS over tcp/ip使得Samba不但能与局域网主机分享资源，而且还能与全世界电脑分享资
+                            nginx服务搭建本篇文章主要介绍nginx服务的源码安装方法以及基于nginx不同方式的虚拟主机实现，安装nginx的源码包可以在nginx的官网去下载，目前最新的稳定版本是1.18版本。
+wget https://nginx.org/d
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-05
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-06
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -614,7 +723,6 @@ map to guest = Bad User<span aria-hidden="true" class="line-numbers-rows"><span>
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -708,6 +816,100 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
 </style>
 
 
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
     
 
 </main>
@@ -739,7 +941,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">25.8k</span>&nbsp;字
+                class="white-color">27.1k</span>&nbsp;字
             
             
             

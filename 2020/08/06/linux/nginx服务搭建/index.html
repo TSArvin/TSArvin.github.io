@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux用户及权限管理, TSArvin">
+    <meta name="keywords" content="nginx服务搭建, TSArvin">
     <meta name="description" content="一个不懂技术的小白啊">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux用户及权限管理 | TSArvin</title>
+    <title>nginx服务搭建 | TSArvin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/28.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux用户及权限管理</h1>
+                    <h1 class="description center-align post-title">nginx服务搭建</h1>
                 </div>
             </div>
         </div>
@@ -324,10 +324,105 @@
 
 
 
-<main class="container content">
+<main class="post-container content">
 
     
-    <!-- 文章内容详情 -->
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
 <div id="artDetail">
     <div class="card">
         <div class="card-content article-info">
@@ -348,8 +443,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
-                                Linux基础
+                            <a href="/categories/Linux%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                Linux网络服务
                             </a>
                         
                     </div>
@@ -361,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-08-01
+                    2020-08-06
                 </div>
                 
 
@@ -370,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3k
+                    1.1k
                 </div>
                 
 
@@ -387,219 +482,117 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Linux用户及权限管理"><a href="#Linux用户及权限管理" class="headerlink" title="Linux用户及权限管理"></a>Linux用户及权限管理</h1><p>​        Linux是一个多用户的操作系统，引入用户可以更加方便管理Linux服务器，系统默认需要以一个用户的身份登入，而且在系统上启动进程也需要以一个用户的身份去运行，用户可以限制某些进程对特定资源的权限控制。</p>
-<h2 id="1、Linux用户及组"><a href="#1、Linux用户及组" class="headerlink" title="1、Linux用户及组"></a>1、Linux用户及组</h2><p>​        Linux操作系统对多用户的管理是非常繁琐的，所以用组的概念管理用户就变得简单，每个用户可以在一个独立的组，每个组也可以有零个用户或者多个用户。</p>
-<p>​        Linux系统用户是根据用户ID来识别的，从默认ID编号0开始，但是为了和老式系统兼容，用户ID限制在60000以下，Linux用户总共分为三种，分别如下：</p>
-<ul>
-<li>root用户（ID为0）超级用户，一个Linux系统只能有一个超级用户，持有最高管理权限；</li>
-<li>系统用户（ID为1~499）也叫程序用户，用来维持系统或程序的正常运行，一般不允许登录到系统；</li>
-<li>普通用户（ID为500以上）一般只在用户自己的宿主目录下有完整权限。</li>
-</ul>
-<p>​        Linux系统中的每个文件或文件夹都有一个所属用户及所属组，使用<strong>id</strong>命令可以显示当前用户的信息，使用<strong>passwd</strong>命令可以修改用户密码。Linux操作系统用户的特点如下：</p>
-<ul>
-<li>每个用户拥有一个UserID，操作系统实际读取的是UID，而非用户名；</li>
-<li>每个用户属于一个主组，属于一个或多个附属组，一个用户最多拥有31个附属组；</li>
-<li>每个组拥有一个GroupID；</li>
-<li>每个进程以一个用户身份运行，该用户可对进程拥有资源控制权限；</li>
-<li>每个可登录用户拥有一个指定的Shell环境。</li>
-</ul>
-<h2 id="2、Linux用户管理"><a href="#2、Linux用户管理" class="headerlink" title="2、Linux用户管理"></a>2、Linux用户管理</h2><p>​        Linux用户在操作系统可以进行日常管理和维护，涉及到的相关配置文件如下：</p>
-<ul>
-<li>/etc/passwd   保存用户信息</li>
-<li>/etc/shdaow   保存用户密码（以加密形式保存）</li>
-<li>/etc/shdaow   保存用户密码（以加密形式保存）</li>
-<li>/etc/login.defs  用户属性限制,密码过期时间,密码最大长度等限制</li>
-<li>/etc/default/useradd 显示或更改默认的useradd配置文件</li>
-</ul>
-<h3 id="2-1、创建用户"><a href="#2-1、创建用户" class="headerlink" title="2.1、创建用户"></a>2.1、创建用户</h3><p>​        如需创建新用户，可以使用命令<strong>useradd</strong>，执行命令useradd user1即可创建user1用户，同时会创建一个同名的组user1，默认该用户属于user1主组。</p>
-<p>​        “useradd user1”命令默认创建用户user1，会根据如下步骤进行操作：</p>
-<ul>
-<li><p>读取/etc/default/useradd，根据配置文件执行创建操作；</p>
-</li>
-<li><p>在/etc/passwd文件中添加用户信息；</p>
-</li>
-<li><p>如使用passwd命令创建密码，密码会被加密保存在/etc/shdaow中；</p>
-</li>
-<li><p>为user1创建家目录：/home/user1；</p>
-</li>
-<li><p>将/etc/skel中的.bash开头的文件复制至/home/user1家目录；</p>
-</li>
-<li><p>创建与用户名相同的user1组，user1用户默认属于user1同名组；</p>
-</li>
-<li><p>user1组信息保存在/etc/group配置文件中。</p>
-</li>
-</ul>
-<p>​        使用<strong>useradd</strong>命令创建用户，用法：useradd  [选项]  登录，可以支持如下参数：</p>
-<pre><code>-b                指定新账户的家目录；
--c                新账户的 GECOS 字段；
--d                新账户的主目录；
--D                显示或更改默认的 useradd 配置；
--e                新账户的过期日期；
--f                新账户的密码不活动期；
--g                新账户主组的名称或ID；
--G                新账户的附加组列表；
--h                显示此帮助信息并推出；
--k                使用此目录作为骨架目录；
--K                不使用 /etc/login.defs 中的默认值；
--l                不要将此用户添加到最近登录和登录失败数据库；
--m                创建用户的主目录；
--M                不创建用户的主目录；
--N                不创建同名的组；
--o                允许使用重复的 UID 创建用户；
--p                加密后的新账户密码；
--r                创建一个系统账户；
--R                chroot 到的目录；
--s                新账户的登录 shell；
--u                新账户的用户 ID；
--U                创建与用户同名的组；
--Z                为SELinux 用户映射使用指定 SEUSER。</code></pre><p><strong>示例</strong>：</p>
-<p>a、创建user用户，并加入到user1，user2附属组：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">useradd -G user1,user2 user<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>b、创建test用户，并指定新的家目录，同时指出其登录的shell：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">useradd test -d /tmp/ -s /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="2-2、删除用户"><a href="#2-2、删除用户" class="headerlink" title="2.2、删除用户"></a>2.2、删除用户</h3><p>​        如果想要删除一个用户，可以使用<strong>userdel</strong>命令，执行命令“userdel user1”就会删除user1用户，当用户属组中没有其他用户时，会一同删除该用户组，但是不会删除user1用户的家目录。</p>
-<p>​        使用<strong>userdel</strong>命令删除用户，用法：userdel  [选项]  登录，常用选项如下：</p>
-<pre><code>-f                强制删除用户（即使在用户登录的情况下）
--h                显示帮助信息
--r                删除主目录和邮件池
--R                删除chroot到的目录
--Z                为用户删除所有的Selinux用户映射</code></pre><p><strong>示例</strong>：</p>
-<p>删除user用户，同时删除用户家目录：</p>
-<pre class="line-numbers language-shell"><code class="language-shell">userdel -r user<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="2-3、修改用户信息"><a href="#2-3、修改用户信息" class="headerlink" title="2.3、修改用户信息"></a>2.3、修改用户信息</h3><p>​        <strong>usermod</strong>命令用来修改用户的基本信息，但是不允许改变正在登录的账号名称，用法：usermod  [选项]  登录，常用的选项参数如下：</p>
-<pre><code>-c                修改账户的备注信息
--d                修改账户登入时的目录
--e                修改账户的有效期
--f                修改在密码过期后多少天即关闭该账户
--g                修改用户属组
--G                修改用户附加组
--l                修改账户名称（新名称 旧名称）
--L                锁定用户密码，使密码无效
--s                修改用户登入后所使用的shell
--u                修改用户UID
--U                解除密码锁定</code></pre><p><strong>示例</strong>：</p>
-<p>a、将user用户改名为test</p>
-<pre class="line-numbers language-shell"><code class="language-shell">usermod -l test user<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>b、将user用户添加到root组中</p>
-<pre class="line-numbers language-shell"><code class="language-shell">usermod -G root user<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="2-4、修改用户密码"><a href="#2-4、修改用户密码" class="headerlink" title="2.4、修改用户密码"></a>2.4、修改用户密码</h3><p>​        如果想要修改账户密码，可以使用<strong>passwd</strong>命令，passwd命令用于设置用户的认证信息，包括用户密码，密码过期时间等。系统管理员则能用它管理系统中其他用户的密码，一般用户只能变更自己的密码。用法：passwd  [选项]  登录，常用选项参数如下：</p>
-<pre><code>-d                删除密码，仅有系统管理员才能使用；
--f                强制执行；
--k                设置只有在密码过期失效后，方能更新；
--l                锁住密码；
--s                列出密码的相关信息，仅有系统管理员才能使用；
--u                解开已上锁的帐号。</code></pre><p><strong>注</strong>：当系统管理员清除了一个用户密码后，该用户登录系统时就无需认证。</p>
-<h2 id="3、Linux组管理"><a href="#3、Linux组管理" class="headerlink" title="3、Linux组管理"></a>3、Linux组管理</h2><p>​        所有的Linux或者Windows系统都有组的概念，通过组可以更加方便的管理用户，组的概念应用于各行各业，例如企业会使用部门、职能或地区的分类方式来管理成员，映射到Linux系统，同样可以创建用户，并且用组的概念对其进行管理。</p>
-<p>​        linux组有如下特点：</p>
-<ul>
-<li>每个组有一个组ID；</li>
-<li>组信息保存在/etc/group中；</li>
-<li>每个用户至少拥有一个主组，同时还可以拥有31个附属组。</li>
-</ul>
-<p>​        通过命令<strong>groupadd</strong>、<strong>groupdel</strong>、<strong>groupmod</strong>来对组进行管理，与用户管理类似，详细参数使用如下：</p>
-<pre><code>groupadd用法
--f                如果组已经存在则成功退出；并且如果 GID 已经存在则取消 –g；
--g                为新组使用 GID；
--h                显示此帮助信息并退出；
--K                不使用 /etc/login.defs 中的默认值；
--o                允许创建有重复 GID 的组；
--p                为新组使用此加密过的密码；
--r                创建一个系统账户；
-groupmod用法        
--g                将组 ID 改为 GID；
--h                显示此帮助信息并退出；
--n                改名为 NEW_GROUP；
--o                允许使用重复的 GID；
--p                将密码更改为(加密过的) PASSWORD；
-groupdel用法
--R                chroot 到的目录</code></pre><p><strong>示例</strong>：</p>
-<p>a、创建usergroup组，并指定GID为1000</p>
-<pre class="line-numbers language-shell"><code class="language-shell">groupadd -g 1000 usergroup<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>b、将usergroup组名改为testgroup</p>
-<pre class="line-numbers language-shell"><code class="language-shell">groupmod -n testgroup usergroup<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="4、Linux权限管理"><a href="#4、Linux权限管理" class="headerlink" title="4、Linux权限管理"></a>4、Linux权限管理</h2><p>​        Linux权限是操作系统用来限制对资源访问的机制，权限一般分为读、写、执行。系统中每个文件都拥有特定的权限、所属用户及所属组，通过这样的机制来限制哪些用户或用户组可以对特定文件进行相应的操作。</p>
-<p>​        Linux每个进程都是以某个用户身份运行，进程的权限与该用户的权限一样，用户的权限越大，则进程拥有的权限就越大。</p>
-<p>​        Lnux中有的文件及文件夹都有至少权限三种权限，常见的权限如下表所示：</p>
-<table>
-<thead>
-<tr>
-<th>权限</th>
-<th>对文件的影响</th>
-<th>对目录的影响</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>r(读取)</td>
-<td>可读取文件内容</td>
-<td>可列出目录内容</td>
-</tr>
-<tr>
-<td>w(写入)</td>
-<td>可修改文件内容</td>
-<td>可在目录中创建删除内容</td>
-</tr>
-<tr>
-<td>x(执行)</td>
-<td>可作为命令执行</td>
-<td>可访问目录内容</td>
-</tr>
-</tbody></table>
-<p><strong>注意</strong>：目录必须拥有x权限，否则无法查看其内容</p>
-<p>​        Linux权限授权默认是授权给三种角色，分别是：user、group、other，Linux权限与用户世纪之间的关联如下：</p>
-<ul>
-<li>U代表user，G代表group，O代表other；</li>
-<li>每个文件的权限基于UGO进行设置；</li>
-<li>权限三位一组（rwx）,同时需授权给三种角色，UGO；</li>
-<li>每个文件拥有一个所属用户和所属组，对应UGO，不属于该文件所属用户或所属组的使用O来表示。</li>
-</ul>
-<pre class="line-numbers language-shell"><code class="language-shell">[root@localhost etc]# ls -l passwd                #查看一个文件的详细信息
--rw-r--r-- 1 root root 886 8月   1 18:07 passwd
-其中：
-"-"：普通文件，“d”表示目录，“l”表示链接文件，“c”表示块文件
-"rw-r--r--"：分别对应UGO对该文件的操作权限
-"1"：文件链接数量
-"root"：所属用户
-"root"：所属组
-"888"：文件大小
-"8月 1 18:07"：文件修改时间
-"passwd"：文件名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="5、chown属主及属组"><a href="#5、chown属主及属组" class="headerlink" title="5、chown属主及属组"></a>5、chown属主及属组</h2><p>​        修改某个用户、组对文件夹的属主及属组，用命令chown实现，案例演示如下：</p>
-<p>(1)  修改testdir文件夹所属的用户为root，其中-R参数表示递归处理所有的文件及子目录。</p>
-<pre class="line-numbers language-shell"><code class="language-shell">chown -R  root  testdir<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>(2)  修改testdir文件夹所属的组为root。 </p>
-<pre class="line-numbers language-shell"><code class="language-shell">chown  -R  :root  testdir
-或者:
-chgrp  –R  root  testdir<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>(3)  修改testdir文件夹所属的用户为root，组也为root。</p>
-<pre class="line-numbers language-shell"><code class="language-shell">chown  -R  root:root  jfedu.net<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="6、chmod用户及组权限"><a href="#6、chmod用户及组权限" class="headerlink" title="6、chmod用户及组权限"></a>6、chmod用户及组权限</h2><h3 id="6-1、方式一"><a href="#6-1、方式一" class="headerlink" title="6.1、方式一"></a>6.1、方式一</h3><p>​        修改某个用户、组对文件夹的权限，用命令chmod实现，其中以代指ugo，、-、=代表加入、删除和等于对应权限，具体案例如下：</p>
-<p>(1)   授予用户对testdir目录拥有rwx权限</p>
-<pre class="line-numbers language-shell"><code class="language-shell">chmod –R u+rwx testdir<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>(2)  授予组对testdir目录拥有rwx权限</p>
-<pre class="line-numbers language-shell"><code class="language-shell"> chmod –R g+rwx testdir<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>(3)  授予用户、组、其他人对testdir目录拥有rwx权限</p>
-<pre class="line-numbers language-shell"><code class="language-shell"> chmod –R u+rwx,g+rwx,o+rwx testdir  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>(4)  撤销用户对testdir目录拥有w权限</p>
-<pre class="line-numbers language-shell"><code class="language-shell">chmod –R u-w testdir<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>(5)  撤销用户、组、其他人对testdir目录拥有x权限</p>
-<pre class="line-numbers language-shell"><code class="language-shell">chmod –R   u-x,g-x,o-x testdir <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>(6)  授予用户、组、其他人对testdir目录只有rx权限</p>
-<pre class="line-numbers language-shell"><code class="language-shell">chmod –R   u=rx,g=rx,o=rx testdir  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="6-2、方式二"><a href="#6-2、方式二" class="headerlink" title="6.2、方式二"></a>6.2、方式二</h3><p>​        Linux权限默认使用rwx来表示，为了更简化在系统中对权限进行配置和修改，Linux权限引入二进制表示方法，其中<strong>1</strong>表示有权限，<strong>0</strong>表示没有权限。</p>
-<p><em>rwx = 111 = 4+2+1 = 7</em></p>
-<p><strong>示例</strong>：</p>
-<p>(1)  授予用户对testdir目录拥有rwx权限</p>
-<pre class="line-numbers language-shell"><code class="language-shell">chmod –R 755 testdir  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>(2)  授予组对testdir目录拥有rwx权限</p>
-<pre class="line-numbers language-shell"><code class="language-shell">chmod –R 775 testdir <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>(3)  授予用户、组、其他人对testdir目录拥有rwx权限</p>
-<pre class="line-numbers language-shell"><code class="language-shell">chmod –R 777 testdir  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>(4)  撤销用户对testdir目录拥有w权限</p>
-<pre class="line-numbers language-shell"><code class="language-shell">chmod –R 555 testdir  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>(5)  撤销用户、组、其他人对testdir目录拥有x权限</p>
-<pre class="line-numbers language-shell"><code class="language-shell">chmod –R 644 testdir<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>(6)  授予用户、组、其他人对testdir目录只有rx权限</p>
-<pre class="line-numbers language-shell"><code class="language-shell">chmod –R 555 testdir <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h1 id="nginx服务搭建"><a href="#nginx服务搭建" class="headerlink" title="nginx服务搭建"></a>nginx服务搭建</h1><p>本篇文章主要介绍nginx服务的源码安装方法以及基于nginx不同方式的虚拟主机实现，安装nginx的源码包可以在nginx的<a href="https://www.nginx.org" target="_blank" rel="noopener">官网</a>去下载，目前最新的稳定版本是1.18版本。</p>
+<pre class="line-numbers language-shell"><code class="language-shell">wget https://nginx.org/download/nginx-1.18.0.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="1、安装nginx"><a href="#1、安装nginx" class="headerlink" title="1、安装nginx"></a>1、安装nginx</h2><p>（1）    首先在安装nginx之前先安装程序所需要的一些必备软件包</p>
+<pre class="line-numbers language-shell"><code class="language-shell">yum -y install gcc gcc-c++ pcre-devel zlib-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>（2）    解压之前下载好的nginx源码包，准备开始编译安装</p>
+<pre class="line-numbers language-shell"><code class="language-shell">tar -zxvf nginx-1.18.0.tar.gz -C /usr/src/            #解压
+cd /usr/src/nginx-1.18.0/                #进入解压目录准备编译安装
+./configure --prefix=/usr/local/nginx --user=www --group=www --with-http_stub_status_module --with-http_gzip_static_module --with-openssl=/usr/                #预编译，可使用"echo $?"查看过程是否有报错
+make && make install        #编译安装
+#编译安装完成后可以创建对应的nginx网站用户
+useradd -M -s /usr/sbin/nologin www<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>（3）    将文件做软连接，时“nginx”命令生效</p>
+<pre class="line-numbers language-shell"><code class="language-shell">ln -s /usr/local/nginx/sbin/nginx /usr/local/sbin/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>测试软连接是否生效，可以使用“<strong>nginx -t</strong>”命令，如果输出如下内容则表示命令生效：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">nginx: the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok
+nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>之后便可以启动nginx服务，并查看服务是否正常启动</p>
+<pre class="line-numbers language-shell"><code class="language-shell">nginx
+netstat -anpt |grep nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>（4）    创建服务启动脚本</p>
+<p>因为nginx默认是没有服务启动脚本的，启动之后需要用“<strong>kill</strong>”命令来杀掉进程，因此我们可以手动编写一个服务启动脚本并添加到系统服务中去，服务脚本如下：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">vim /etc/init.d/nginx                    #创建服务启动脚本文件
+#文件内容如下：
+#!/bin/bash
+#chkconfig:- 99 20
+#description:startup for nginx
+
+PROG='/usr/local/nginx/sbin/nginx'                #执行文件位置，用来启动服务
+PIDF='/usr/local/nginx/logs/nginx.pid'            #nginx进程文件，服务打开创建，关闭删除
+case "$1" in
+    start)                #开启服务
+        $PROG
+        echo $(netstat -anpt |grep nginx)
+        ;;
+    stop)                #关闭服务
+        kill -s QUIT $(cat $PIDF)
+        ;;
+    restart)            #重启服务
+        kill -s QUIT $(cat $PIDF)
+        $PROG
+        ;;
+    reload)                #重新加载服务
+        kill -s HUB $(cat $PIDF)
+        ;;
+    *)
+        echo 'Usage:$0{start | stop | restart | reload}'        #命令错误提示
+        exit 1
+esac
+exit 0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>之后给创建的nginx服务启动文件添加可执行权限，便可以使用“<strong>service</strong>”命令来验证启动关闭服务了；</p>
+<pre class="line-numbers language-shell"><code class="language-shell">chmod a+x /etc/init.d/nginx
+service nginx start|restart|stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>至此，nginx服务安装就算是完成了，接下来就要开始了解和配置nginx的配置文件了。</p>
+<h2 id="2、nginx配置文件"><a href="#2、nginx配置文件" class="headerlink" title="2、nginx配置文件"></a>2、nginx配置文件</h2><p>配置文件路径：nginx配置文件在安装目录下的conf目录中，如下：</p>
+<blockquote>
+<p>/usr/local/nginx/conf/nginx.conf                #/usr/local/nginx为我的安装目录</p>
+</blockquote>
+<p>nginx的配置文件使用<strong>http{ }</strong>界定标记，包括访问日志、HTTP端口、网页记录、默认字符集、连接保持，以及虚拟Web主机、PHP解析等一系列设置，其中大部分配置语句都包含在子界定标记<strong>server{ }</strong>内；如下为源码安装nginx后默认的配置文件</p>
+<pre class="line-numbers language-shell"><code class="language-shell">#user  nobody;            #网站用户
+worker_processes  1;                #进程数
+
+events {
+    worker_connections  1024;                    #允许连接数
+}
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile        on;                #允许发送文件
+
+    keepalive_timeout  65;                #超时时间
+
+    server {
+        listen       80;                #默认监听端口
+        server_name  localhost;            #网站名称，域名
+        location / {                    #根目录配置
+            root   html;                #网站根目录的位置
+            index  index.html index.htm;    #默认首页
+        }
+
+        error_page   500 502 503 504  /50x.html;    #服务器内部错误的反馈页面
+        location = /50x.html {            #内部错误页面配置
+            root   html;
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里只是简单介绍一下nginx的配置文件，当然里面还涉及到很多包括各种代理的配置，留到后面介绍。</p>
+<p>默认网站站点目录为服务安装目录下的<strong>html</strong>目录：</p>
+<blockquote>
+<p>/usr/local/nginx/html</p>
+</blockquote>
+<p>此时开启服务后便可通过浏览器访问服务器的80端口，页面会显示如下字样，这是默认站点目录下的index.html文件的内容：</p>
+<pre><code>Welcome to nginx!
+If you see this page, the nginx web server is successfully installed and working. Further configuration is required.
+
+For online documentation and support please refer to nginx.org.
+Commercial support is available at nginx.com.
+
+Thank you for using nginx.</code></pre><h2 id="3、开启nginx末节"><a href="#3、开启nginx末节" class="headerlink" title="3、开启nginx末节"></a>3、开启nginx末节</h2><p>修改配置文件，在<strong>server{}</strong>中添加如下内容：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">location /status {
+            stub_status on;
+            access_log off; 
+        }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>之后重启服务，用浏览器访问<strong>/status</strong>即可看到当前服务器的一些连接信息，如：</p>
+<pre class="line-numbers language-shell"><code class="language-shell">http://192.168.111.222/status
+#下面时网页信息
+Active connections: 2 
+server accepts handled requests
+ 5 5 34 
+Reading: 0 Writing: 1 Waiting: 1 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -625,7 +618,7 @@ chgrp  –R  root  testdir<span aria-hidden="true" class="line-numbers-rows"><sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://tsarvin.github.io/2020/08/01/linux/Linux%E7%94%A8%E6%88%B7%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/">https://tsarvin.github.io/2020/08/01/linux/Linux%E7%94%A8%E6%88%B7%E5%8F%8A%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/</a>
+                    <a href="https://tsarvin.github.io/2020/08/06/linux/nginx%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">https://tsarvin.github.io/2020/08/06/linux/nginx%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -709,7 +702,7 @@ chgrp  –R  root  testdir<span aria-hidden="true" class="line-numbers-rows"><sp
         repo: 'TSArvin.gityhub.io',
         owner: 'TSArvin',
         admin: "TSArvin",
-        id: '2020-08-01T15-39-20',
+        id: '2020-08-06T21-39-48',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -733,41 +726,44 @@ chgrp  –R  root  testdir<span aria-hidden="true" class="line-numbers-rows"><sp
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/08/02/linux/Linux%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86/">
+                <a href="/2020/08/06/linux/nginx%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Linux软件包管理">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="nginx服务搭建">
                         
-                        <span class="card-title">Linux软件包管理</span>
+                        <span class="card-title">nginx服务搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Linux软件包管理Linux软件包管理大致可分为二进制包、源码包，使用的工具也各不相同。Linux常见软件包分为两种，分别是源代码包（Source Code）、二进制包（Binary Code），源代码包是没有经过编译的包，需要经过GCC
+                            nginx服务搭建本篇文章主要介绍nginx服务的源码安装方法以及基于nginx不同方式的虚拟主机实现，安装nginx的源码包可以在nginx的官网去下载，目前最新的稳定版本是1.18版本。
+wget https://nginx.org/d
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-08-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-06
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    Linux基础
+                            <a href="/categories/Linux%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                    Linux网络服务
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -786,35 +782,31 @@ chgrp  –R  root  testdir<span aria-hidden="true" class="line-numbers-rows"><sp
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/08/01/linux/linux%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4&%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/">
+                <a href="/2020/08/05/linux/Samba%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="linux基本命令&amp;文件目录管理">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Samba服务搭建">
                         
-                        <span class="card-title">linux基本命令&amp;文件目录管理</span>
+                        <span class="card-title">Samba服务搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            一、安装完操作系统后必要的两个操作1.关闭防火墙CentOS6：
-service iptables stop        #关闭防火墙
-service iptables status        #查看防火墙状态
-
-chkconfig 
+                            Samba服务搭建1、Samba服务简介Samba是Linux和UNIX系统上实现SMB协议的一个免费软件，标准的C/S架构。通过设置NetBIOS over tcp/ip使得Samba不但能与局域网主机分享资源，而且还能与全世界电脑分享资
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux%E5%9F%BA%E7%A1%80/" class="post-category">
-                                    Linux基础
+                            <a href="/categories/Linux%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1/" class="post-category">
+                                    Linux网络服务
                                 </a>
                             
                             
@@ -864,6 +856,100 @@ chkconfig
 code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
 </style>
 
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
 
     
 
